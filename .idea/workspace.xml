@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cb817212-7acf-4b7a-89e1-ceca4f0ba5bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../demo/lib/Header.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/lib/InputField.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/lib/Inputwrapper.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/lib/Loginpage.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../demo/lib/facegoogle.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../google/lib/widgets/register.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../google/lib/widgets/resgister_new.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../google/lib/widgets/utils.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Facebook.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Facebook.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Profile.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +38,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
@@ -47,7 +59,22 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1620723762373">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1620723762373" />
     <state width="1557" height="222" key="GridCell.Tab.0.bottom" timestamp="1620718454318">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
