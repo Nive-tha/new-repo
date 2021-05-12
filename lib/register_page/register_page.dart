@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:googleandfacebook/home_page/homepage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -7,6 +8,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  var setNameFacebook = "";
+  var setNameGoogle = "";
   var u = TextEditingController();
   var e = TextEditingController();
   var p = TextEditingController();
@@ -15,6 +18,20 @@ class _RegisterPageState extends State<RegisterPage> {
   var g = TextEditingController();
   var fa = TextEditingController();
   var fam = TextEditingController();
+
+  @override
+  void initState() {
+    gettingHereFromFacebook();
+    super.initState();
+  }
+
+  gettingHereFromFacebook() async {
+    SharedPreferences get = await SharedPreferences.getInstance();
+    u.text = get.getString(setNameFacebook);
+    print(u.text);
+    print(setNameFacebook);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
