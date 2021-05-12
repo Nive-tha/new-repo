@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 class Wallet extends StatefulWidget {
@@ -8,6 +10,8 @@ class Wallet extends StatefulWidget {
 class _WalletState extends State<Wallet> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: Text('hello')),
+    );
   }
 }
