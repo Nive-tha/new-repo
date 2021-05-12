@@ -10,6 +10,7 @@ class StartingPage extends StatefulWidget {
 class _StartingPageState extends State<StartingPage> {
   var email = TextEditingController();
   var password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
