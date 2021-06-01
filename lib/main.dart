@@ -1,7 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+<<<<<<< Updated upstream
 import 'package:googleandfacebook/register_page/register_page.dart';
 import 'package:googleandfacebook/startingpage/start.dart';
+=======
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google/LoginPage/Landingpage.dart';
+import 'package:google/screens/home_screen.dart';
+import 'package:google/screens/sign_in_screen.dart';
+import 'package:google/widgets/fb_sign_in_button.dart';
+>>>>>>> Stashed changes
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+<<<<<<< Updated upstream
       home: Homes(),
     );
   }
@@ -41,6 +50,9 @@ class _HomesState extends State<Homes> {
           ),
         ),
       ),
+=======
+      home: MyHomePage(),
+>>>>>>> Stashed changes
     );
   }
 }
