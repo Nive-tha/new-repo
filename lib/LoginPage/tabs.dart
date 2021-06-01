@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'settings.dart';
-import 'wallet.dart';
-import 'homes.dart';
+import 'package:google/tabspages/accountscreen.dart';
+import 'package:google/tabspages/chatscreen.dart';
+import 'package:google/tabspages/homescreen.dart';
+import 'package:google/tabspages/mapscreen.dart';
+import 'package:google/tabspages/treescreen.dart';
 
 class Tabs extends StatefulWidget {
   @override
@@ -17,65 +19,50 @@ class _TabsState extends State<Tabs> {
     });
   }
 
-  final pages = [Homes(), Wallet(), Setting()];
+  final pages = [
+    HomeScreen(),
+    ChatScreen(),
+    TreeScreen(),
+    MapScreen(),
+    AccountScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: pages[index],
         bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.shifting,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.teal,
+          selectedIconTheme: IconThemeData(color: Colors.amberAccent, size: 40),
+          selectedItemColor: Colors.amberAccent,
+
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-                backgroundColor: Colors.blueGrey),
+              icon: Icon(Icons.home),
+              label: 'Home',
+              // tooltip: 'home',
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.wallet_giftcard),
-                label: 'Wallet',
-                backgroundColor: Colors.black),
+              icon: Icon(Icons.chat),
+              label: 'Chat',
+            ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Settings',
-                backgroundColor: Colors.brown),
+              icon: Icon(Icons.account_tree_rounded),
+              label: 'Tree',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map),
+              label: 'Map',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              label: 'Account',
+            ),
           ],
           currentIndex: index,
           onTap: onClicker,
-          fixedColor: Colors.green,
+          // fixedColor: Colors.green,
         ));
   }
 }
-
-// Widget bullet() {
-
-//   int index = 0;
-//   onClicker(int ind) {
-//     index = ind;
-//     print(index);
-//   }
-
-//   final pages = <Widget>[Homes(), Wallet(), Setting()];
-//   return Scaffold(
-//     body: pages[index],
-//     bottomNavigationBar: BottomNavigationBar(
-//       type: BottomNavigationBarType.shifting,
-//       items: <BottomNavigationBarItem>[
-//         BottomNavigationBarItem(
-//             icon: Icon(Icons.home),
-//             label: 'Home',
-//             backgroundColor: Colors.blueGrey),
-//         BottomNavigationBarItem(
-//             icon: Icon(Icons.wallet_giftcard),
-//             label: 'Wallet',
-//             backgroundColor: Colors.black),
-//         BottomNavigationBarItem(
-//             icon: Icon(Icons.settings),
-//             label: 'Settings',
-//             backgroundColor: Colors.brown),
-//       ],
-//       currentIndex: index,
-//       onTap: onClicker,
-//       fixedColor: Colors.green,
-//     ),
-//   );
-// }
