@@ -74,6 +74,16 @@ flutter:
    - assets/family.png
    - assets/Register.png
    - assets/Welcome.png
+   - images/wedding.png
+   - images/1622479960731.JPEG
+   - images/1622479961107.JPEG
+   - images/1622479961581.JPEG
+   - images/1622479962292.JPEG
+   - images/1622479963574.JPEG
+   - images/1622479964976.JPEG
+   - images/1622479965520.JPEG
+   - images/1622479966165.JPEG
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
