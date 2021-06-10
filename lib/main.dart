@@ -26,11 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-<<<<<<< HEAD
       home: Log(),
-=======
-      home: Tabs(),
->>>>>>> main
       debugShowCheckedModeBanner: false,
     );
   }

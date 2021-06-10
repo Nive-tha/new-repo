@@ -7,10 +7,8 @@ import 'package:google/tabspages/Chatscreen.dart';
 import 'package:google/tabspages/homescreen.dart';
 import 'package:google/tabspages/mapscreen.dart';
 import 'package:google/tabspages/treescreen.dart';
-<<<<<<< HEAD
-=======
+
 import 'package:google/treeviewpagecreation/treeview.dart';
->>>>>>> main
 
 class Tabs extends StatefulWidget {
   @override
@@ -29,11 +27,7 @@ class _TabsState extends State<Tabs> {
   final pages = [
     HomeScreen(),
     ChatScreen(),
-<<<<<<< HEAD
-    TreeScreen(),
-=======
     TreeView(),
->>>>>>> main
     MyLocation(),
     Check1()
   ];
@@ -45,7 +39,7 @@ class _TabsState extends State<Tabs> {
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.teal,
-          selectedIconTheme: IconThemeData(color: Colors.amberAccent, size: 40),
+          selectedIconTheme: IconThemeData(color: Colors.amberAccent, size: 20),
           selectedItemColor: Colors.amberAccent,
 
           items: <BottomNavigationBarItem>[

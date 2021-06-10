@@ -79,7 +79,7 @@ class _TreeViewState extends State<TreeView> {
               color: Colors.teal,
             ),
             Container(
-              height: sizeHeight * 0.8,
+              height: sizeHeight * 0.73,
               width: sizeWidth,
               child: Center(
                 child: Column(
