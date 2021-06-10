@@ -147,7 +147,8 @@ class _ForgetPassState extends State<ForgetPass> {
               verifyOtp(e, o);
             },
             child: Text("Verify OTP"),
-          )
+          ),
+          Text('hello my friend'),
         ],
       ))
     ])));
