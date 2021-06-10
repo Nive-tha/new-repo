@@ -340,6 +340,7 @@ class Matrimony1State extends State<Matrimony1> {
                       ),
                     ),
                     SizedBox(height: 20),
+<<<<<<< HEAD
                     ElevatedButton(
                         onPressed: () {
                           Navigator.push(
@@ -349,6 +350,17 @@ class Matrimony1State extends State<Matrimony1> {
                                       Matrimony2()));
                         },
                         child: Text("Next"))
+=======
+                    // ElevatedButton(
+                    //     onPressed: () {
+                    //       Navigator.push(
+                    //           context,
+                    //           MaterialPageRoute(
+                    //               builder: (BuildContext context) =>
+                    //                   Matrimony2()));
+                    //     },
+                    //     child: Text("Next"))
+>>>>>>> main
                   ],
                 )),
               ),
