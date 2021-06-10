@@ -7,6 +7,7 @@ import 'package:google/tabspages/Chatscreen.dart';
 import 'package:google/tabspages/homescreen.dart';
 import 'package:google/tabspages/mapscreen.dart';
 import 'package:google/tabspages/treescreen.dart';
+import 'package:google/treeviewpagecreation/treeview.dart';
 
 class Tabs extends StatefulWidget {
   @override
@@ -25,7 +26,7 @@ class _TabsState extends State<Tabs> {
   final pages = [
     HomeScreen(),
     ChatScreen(),
-    TreeScreen(),
+    TreeView(),
     MyLocation(),
     Check1()
   ];

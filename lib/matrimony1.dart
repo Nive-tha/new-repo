@@ -340,15 +340,15 @@ class Matrimony1State extends State<Matrimony1> {
                       ),
                     ),
                     SizedBox(height: 20),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      Matrimony2()));
-                        },
-                        child: Text("Next"))
+                    // ElevatedButton(
+                    //     onPressed: () {
+                    //       Navigator.push(
+                    //           context,
+                    //           MaterialPageRoute(
+                    //               builder: (BuildContext context) =>
+                    //                   Matrimony2()));
+                    //     },
+                    //     child: Text("Next"))
                   ],
                 )),
               ),
