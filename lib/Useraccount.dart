@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google/treeviewpagecreation/pagescreation/fatherdetails.dart';
 import 'package:google/treeviewpagecreation/pagescreation/professional.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'jobportal/job.dart';
 import 'map.dart';
 import 'matrimony1.dart';
 
@@ -26,27 +27,23 @@ class _AccountPageState extends State<AccountPage> {
     // TODO: implement initState
     super.initState();
     save();
-
-
   }
-  save() async {
 
+  save() async {
     SharedPreferences get = await SharedPreferences.getInstance();
     receiverPic = get.getStringList('pic');
     print(receiverPic[0]);
     print(receiverPic[1]);
 
-
     setState(() {
-      nive= receiverPic[0];
-      nivee= receiverPic[1];
-
+      nive = receiverPic[0];
+      nivee = receiverPic[1];
     });
 
     print(nive);
     print(34);
-
   }
+
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
@@ -135,9 +132,9 @@ class _AccountPageState extends State<AccountPage> {
                                 height: 5,
                               ),
                               Text(
-                                '$nive'' Bond Family',
+                                '$nive' ' Bond Family',
                                 style:
-                                TextStyle(fontSize: 12, color: Colors.teal),
+                                    TextStyle(fontSize: 12, color: Colors.teal),
                               ),
                             ],
                           ),
@@ -147,7 +144,7 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                   Container(
                     padding:
-                    EdgeInsets.only(left: 4, right: 4, top: 20, bottom: 10),
+                        EdgeInsets.only(left: 4, right: 4, top: 20, bottom: 10),
                     height: (height * 0.8) * 0.45,
                     width: width,
                     color: Colors.white,
@@ -156,19 +153,27 @@ class _AccountPageState extends State<AccountPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            cardContainer(height, width, firstText = '2',
-                                secondText = 'Family names', tap =FatherDetails()),
+                            cardContainer(
+                                height,
+                                width,
+                                firstText = '2',
+                                secondText = 'Family names',
+                                tap = FatherDetails()),
                             cardContainer(height, width, firstText = '1',
                                 secondText = 'Locations', tap = MyLocation()),
-                            cardContainer(height, width, firstText = '3',
-                                secondText = 'Relationships', tap = FatherDetails()),
+                            cardContainer(
+                                height,
+                                width,
+                                firstText = '3',
+                                secondText = 'Relationships',
+                                tap = FatherDetails()),
                           ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             cardContainer(height, width, firstText = '1',
-                                secondText = 'Occupations', tap = FatherDetails()),
+                                secondText = 'Occupations', tap = Job()),
                             cardContainer(height, width, firstText = '0',
                                 secondText = 'Events', tap = FatherDetails()),
                             cardContainer(height, width, firstText = '0',
@@ -184,10 +189,7 @@ class _AccountPageState extends State<AccountPage> {
                     color: Colors.white,
                     child: Column(
                       children: [
-                        containerRowPadding(
-                            height,
-                            width,
-                            text = '$nivee',
+                        containerRowPadding(height, width, text = '$nivee',
                             icon = Icons.message),
                         containerRowPadding(
                             height,
@@ -283,4 +285,3 @@ class _AccountPageState extends State<AccountPage> {
     );
   }
 }
-

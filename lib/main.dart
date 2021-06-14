@@ -11,6 +11,7 @@ import 'package:google/widgets/fb_sign_in_button.dart';
 import 'LoginPage/Login.dart';
 import 'LoginPage/tabs.dart';
 import 'Useraccount.dart';
+import 'jobportal/job.dart';
 import 'matrimony1.dart';
 
 void main() {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  Log(),
+      home: Job(),
       debugShowCheckedModeBanner: false,
     );
   }
