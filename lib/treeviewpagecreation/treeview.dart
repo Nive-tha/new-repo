@@ -20,6 +20,7 @@ class _TreeViewState extends State<TreeView> {
     var appBarHeight = appBar1.preferredSize.height;
     var statusBarHeight = MediaQuery.of(context).padding.top;
     var total = sizeHeight + statusBarHeight;
+    var bottom = kBottomNavigationBarHeight;
     print(sizeWidth);
     print(sizeHeight);
     print(sizeHeight1);
@@ -34,7 +35,7 @@ class _TreeViewState extends State<TreeView> {
         child: Column(
           children: [
             Container(
-              height: sizeHeight * 0.2,
+              height: (sizeHeight - bottom) * 0.2,
               width: sizeWidth,
               child: Center(
                 child: Container(
@@ -80,7 +81,7 @@ class _TreeViewState extends State<TreeView> {
             ),
             SingleChildScrollView(
               child: Container(
-                height: sizeHeight * 0.73,
+                height: (sizeHeight - bottom) * 0.73,
                 width: sizeWidth,
                 child: Center(
                   child: Column(
