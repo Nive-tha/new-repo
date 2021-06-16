@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:google/treeviewpagecreation/pagescreation/fatherdetails.dart';
 import 'package:google/treeviewpagecreation/pagescreation/professional.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'LoginPage/Mail.dart';
 import 'jobportal/job.dart';
 import 'map.dart';
 import 'matrimony1.dart';
@@ -21,6 +23,7 @@ class _AccountPageState extends State<AccountPage> {
   var nive;
   var nivee;
   var receiverPic;
+  var removePic;
 
   @override
   void initState() {
@@ -42,6 +45,17 @@ class _AccountPageState extends State<AccountPage> {
 
     print(nive);
     print(34);
+  }
+
+  logOut() async {
+    SharedPreferences get = await SharedPreferences.getInstance();
+    setState(() {
+      removePic = get.getStringList('pic');
+    });
+
+    get.remove('pic');
+    Navigator.pushReplacement(context,
+        new MaterialPageRoute(builder: (BuildContext context) => new Mail()));
   }
 
   Widget build(BuildContext context) {
@@ -72,9 +86,16 @@ class _AccountPageState extends State<AccountPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(
-                          Icons.arrow_back_ios,
+                        IconButton(
+                          icon: Icon(Icons.arrow_back_ios),
                           color: Colors.teal,
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        new HomeScreen()));
+                          },
                         ),
                         Text(
                           'Account',
@@ -217,22 +238,25 @@ class _AccountPageState extends State<AccountPage> {
       padding: const EdgeInsets.only(top: 5, bottom: 5),
       child: Row(
         children: [
-          Container(
-            height: (height * 0.24) * 0.19,
-            width: width * 0.2,
-            decoration: BoxDecoration(
-              color: Colors.teal,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(15),
-                bottomRight: Radius.circular(15),
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              height: (height * 0.24) * 0.19,
+              width: width * 0.2,
+              decoration: BoxDecoration(
+                color: Colors.teal,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 18.0),
-              child: Icon(
-                icon,
-                size: 25,
-                color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 18.0),
+                child: Icon(
+                  icon,
+                  size: 25,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

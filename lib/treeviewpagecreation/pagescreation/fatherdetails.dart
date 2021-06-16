@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google/treeviewpagecreation/treeview.dart';
 
 import 'personal.dart';
 
@@ -39,10 +40,13 @@ class _FatherDetailsState extends State<FatherDetails> {
                       Container(
                         child: Padding(
                           padding: const EdgeInsets.only(left: 9.0),
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            size: 20,
+                          child: IconButton(
+                            icon: Icon(Icons.arrow_back_ios),
                             color: Colors.teal,
+                            onPressed: (){
+                              Navigator.pushReplacement(context,
+                                  new MaterialPageRoute(builder: (BuildContext context) => new TreeView()));
+                            },
                           ),
                         ),
                       ),

@@ -29,7 +29,7 @@ class _NewsState extends State<News> {
     //     MaterialPageRoute(
     //       builder: (context) => News(),
     //     ));
-    return Column(
+     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Container(

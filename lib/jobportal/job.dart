@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google/LoginPage/tabs.dart';
+import 'package:google/Useraccount.dart';
 import 'package:google/jobportal/jobsearch.dart';
+
+import 'jobpostingrequest.dart';
 
 class Job extends StatefulWidget {
   @override
@@ -38,10 +41,13 @@ class _JobState extends State<Job> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 18.0),
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          size: 20,
+                        child: IconButton(
+                          icon: Icon(Icons.arrow_back_ios),
                           color: Colors.teal,
+                          onPressed: (){
+                            Navigator.pushReplacement(context,
+                                new MaterialPageRoute(builder: (BuildContext context) => new AccountPage()));
+                          },
                         ),
                       ),
                       SizedBox(
@@ -105,13 +111,23 @@ class _JobState extends State<Job> {
                             children: [
                               Image.asset('assets/wedding.png'),
                               SizedBox(width: 30),
-                              Text(
-                                'Job Search',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.teal,
-                                  fontWeight: FontWeight.w600,
+                              TextButton(
+                                child: Text(
+                                  'JobSearch',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.teal,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => JobSearch(),
+                                    ),
+                                  );
+                                },
                               ),
                             ],
                           ),
@@ -150,16 +166,23 @@ class _JobState extends State<Job> {
                           child: Row(
                             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 18.0),
+                              TextButton(
                                 child: Text(
-                                  'Job Post',
+                                  'JobPortal',
                                   style: TextStyle(
                                     fontSize: 18,
                                     color: Colors.teal,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => JobPostingRequest(),
+                                    ),
+                                  );
+                                },
                               ),
                               SizedBox(width: 50),
                               Image.asset('assets/wedding.png'),
@@ -171,17 +194,6 @@ class _JobState extends State<Job> {
                   ),
                 ],
               ),
-            ),
-            TextButton(
-              child: Text('next'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => JobSearch(),
-                  ),
-                );
-              },
             ),
           ],
         ),

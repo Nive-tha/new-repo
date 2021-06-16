@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:google/jobportal/jobpostingrequest.dart';
 import 'package:select_form_field/select_form_field.dart';
 
+import 'job.dart';
+
 class JobSearch extends StatefulWidget {
   @override
   _JobSearchState createState() => _JobSearchState();
@@ -65,10 +67,13 @@ class _JobSearchState extends State<JobSearch> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 18.0),
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            size: 20,
+                          child: IconButton(
+                            icon: Icon(Icons.arrow_back_ios),
                             color: Colors.teal,
+                            onPressed: (){
+                              Navigator.pushReplacement(context,
+                                  new MaterialPageRoute(builder: (BuildContext context) => new Job()));
+                            },
                           ),
                         ),
                         SizedBox(

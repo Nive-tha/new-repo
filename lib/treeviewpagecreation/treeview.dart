@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:google/treeviewpagecreation/pagescreation/initialpage.dart';
 
 class TreeView extends StatefulWidget {
@@ -10,6 +11,7 @@ class TreeView extends StatefulWidget {
 
 class _TreeViewState extends State<TreeView> {
   var appBar1 = AppBar();
+
   @override
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
@@ -46,7 +48,14 @@ class _TreeViewState extends State<TreeView> {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.arrow_back_ios_outlined),
+                          IconButton(
+                            icon: Icon(Icons.arrow_back_ios),
+                            color: Colors.teal,
+                            onPressed: (){
+                              Navigator.pushReplacement(context,
+                                  new MaterialPageRoute(builder: (BuildContext context) => new HomeScreen()));
+                            },
+                          ),
                           SizedBox(
                             width: 5,
                           ),

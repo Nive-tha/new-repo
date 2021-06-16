@@ -131,7 +131,7 @@ class _MailState extends State<Mail> {
     } else if (this.users == null && storeEmailUsername == null) {
       // faceBookpic = this.profileData['picture']['data']['url'];
       faceBookName = this.profileData['name'];
-      facebookId=this.profileData['email'];
+      facebookId = this.profileData['email'];
     } else {
       print(119);
     }
@@ -153,11 +153,11 @@ class _MailState extends State<Mail> {
       print(131);
     }
     List<String> stringList = [nameStore, mailStore];
-    storing.setStringList('pic',stringList );
+    storing.setStringList('pic', stringList);
   }
 
   _apiFace() async {
-    final String url = "http://c21e38e4cf26.ngrok.io/exists/facebook";
+    final String url = "http://ae53595c09a2.ngrok.io/exists/facebook";
 
     final response =
         await http.post(Uri.parse(url), body: {'face_book': this.detail['id']});
@@ -191,7 +191,7 @@ class _MailState extends State<Mail> {
   }
 
   _api1() async {
-    final String url = "http://c21e38e4cf26.ngrok.io/exists/google";
+    final String url = "http://ae53595c09a2.ngrok.io/exists/google";
     final response =
         await http.post(Uri.parse(url), body: {'google_id': this.users.uid});
 
@@ -260,7 +260,7 @@ class _MailState extends State<Mail> {
   }
 
   Future loginUser(String email, String pass) async {
-    String url = 'http://c21e38e4cf26.ngrok.io/user_login';
+    String url = 'http://ae53595c09a2.ngrok.io/user_login';
     final response =
         await http.post(Uri.parse(url), body: {'email': email, 'pass': pass});
     var convertedDatatoJson = jsonDecode(response.body);
