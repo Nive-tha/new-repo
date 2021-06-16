@@ -24,6 +24,7 @@ class _AccountPageState extends State<AccountPage> {
   var nivee;
   var receiverPic;
   var removePic;
+  var onTap;
 
   @override
   void initState() {
@@ -210,17 +211,33 @@ class _AccountPageState extends State<AccountPage> {
                     color: Colors.white,
                     child: Column(
                       children: [
-                        containerRowPadding(height, width, text = '$nivee',
-                            icon = Icons.message),
+                        containerRowPadding(
+                          height,
+                          width,
+                          text = '$nivee',
+                          icon = Icons.message,
+                          onTap = null,
+                        ),
+                        containerRowPadding(
+                          height,
+                          width,
+                          text = 'invitations List',
+                          icon = Icons.insert_invitation,
+                          onTap = null,
+                        ),
                         containerRowPadding(
                             height,
                             width,
-                            text = 'invitations List',
-                            icon = Icons.insert_invitation),
-                        containerRowPadding(height, width,
-                            text = 'Change Password', icon = Icons.lock),
-                        containerRowPadding(height, width, text = 'Logout',
-                            icon = Icons.logout),
+                            text = 'Change Password',
+                            icon = Icons.lock,
+                            onTap = null),
+                        containerRowPadding(
+                          height,
+                          width,
+                          text = 'Logout',
+                          icon = Icons.logout,
+                          onTap = logOut(),
+                        ),
                       ],
                     ),
                   ),
@@ -233,13 +250,13 @@ class _AccountPageState extends State<AccountPage> {
     );
   }
 
-  Widget containerRowPadding(double height, double width, text, icon) {
+  Widget containerRowPadding(double height, double width, text, icon, onTap) {
     return Padding(
       padding: const EdgeInsets.only(top: 5, bottom: 5),
       child: Row(
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: onTap,
             child: Container(
               height: (height * 0.24) * 0.19,
               width: width * 0.2,
