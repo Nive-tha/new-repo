@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/sliderpg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:shimmer/shimmer.dart';
-
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
 
 class Log extends StatefulWidget {
   @override
@@ -21,19 +11,27 @@ class Log extends StatefulWidget {
 }
 
 class _LogState extends State<Log> {
+  var selectPage;
   void initState() {
     super.initState();
 
-    _mockCheckForSession();
+    _mockCheckForSession().whenComplete(
+      () => Future.delayed(Duration(milliseconds: 3000), () {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (BuildContext context) =>
+                selectPage == null ? CustomIndicator() : MyHomePage()));
+      }),
+    );
   }
 
-  Future<bool> _mockCheckForSession() async {
-    await Future.delayed(Duration(milliseconds: 6000), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (BuildContext context) => CustomIndicator()));
+  Future choosingPageHere() async {}
+  Future _mockCheckForSession() async {
+    var shared = await SharedPreferences.getInstance();
+    var gotFromShared = shared.getStringList('pic');
+    setState(() {
+      selectPage = gotFromShared![0];
     });
-
-    return true;
+    print(selectPage);
   }
 
   Widget build(BuildContext context) {
