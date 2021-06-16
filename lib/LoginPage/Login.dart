@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/sliderpg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:shimmer/shimmer.dart';
 
@@ -21,18 +23,31 @@ class Log extends StatefulWidget {
 }
 
 class _LogState extends State<Log> {
+  var newlySelected;
   void initState() {
     super.initState();
+<<<<<<< HEAD
     _mockCheckForSession();
+=======
+
+    _mockCheckForSession().whenComplete(
+      () => Future.delayed(Duration(milliseconds: 1000), () {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+              builder: (BuildContext context) =>
+                  newlySelected == null ? CustomIndicator() : MyHomePage()),
+        );
+      }),
+    );
+>>>>>>> 8505c8e168d2ac0174cdf61d0ff6d88fd9d6dc70
   }
 
-  Future<bool> _mockCheckForSession() async {
-    await Future.delayed(Duration(milliseconds: 1000), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (BuildContext context) => CustomIndicator()));
+  Future _mockCheckForSession() async {
+    var shared = await SharedPreferences.getInstance();
+    var selected = shared.getStringList('pic');
+    setState(() {
+      newlySelected = selected![0];
     });
-
-    return true;
   }
 
   Widget build(BuildContext context) {
