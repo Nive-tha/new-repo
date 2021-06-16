@@ -55,6 +55,8 @@ class _AccountPageState extends State<AccountPage> {
     });
 
     get.remove('pic');
+    get.clear();
+
     Navigator.pushReplacement(context,
         new MaterialPageRoute(builder: (BuildContext context) => new Mail()));
   }
@@ -231,13 +233,8 @@ class _AccountPageState extends State<AccountPage> {
                             text = 'Change Password',
                             icon = Icons.lock,
                             onTap = null),
-                        containerRowPadding(
-                          height,
-                          width,
-                          text = 'Logout',
-                          icon = Icons.logout,
-                          onTap = logOut(),
-                        ),
+                        containerRowPadding(height, width, text = 'Logout',
+                            icon = Icons.logout, onTap = logOut),
                       ],
                     ),
                   ),
