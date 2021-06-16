@@ -22,8 +22,7 @@ void main() async {
   );
 }
 
-var receiverPic;
-var nav;
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
