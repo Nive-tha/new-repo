@@ -28,7 +28,7 @@ class _LogState extends State<Log> {
   }
 
   Future<bool> _mockCheckForSession() async {
-    await Future.delayed(Duration(milliseconds: 6000), () {
+    await Future.delayed(Duration(milliseconds: 1000), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (BuildContext context) => CustomIndicator()));
     });
