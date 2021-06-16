@@ -23,7 +23,6 @@ class Log extends StatefulWidget {
 class _LogState extends State<Log> {
   void initState() {
     super.initState();
-
     _mockCheckForSession();
   }
 
