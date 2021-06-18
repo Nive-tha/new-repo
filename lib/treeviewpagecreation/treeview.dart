@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:google/treeviewpagecreation/pagescreation/initialpage.dart';
 
 class TreeView extends StatefulWidget {
@@ -10,6 +11,7 @@ class TreeView extends StatefulWidget {
 
 class _TreeViewState extends State<TreeView> {
   var appBar1 = AppBar();
+
   @override
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
@@ -20,6 +22,7 @@ class _TreeViewState extends State<TreeView> {
     var appBarHeight = appBar1.preferredSize.height;
     var statusBarHeight = MediaQuery.of(context).padding.top;
     var total = sizeHeight + statusBarHeight;
+    var bottom = kBottomNavigationBarHeight;
     print(sizeWidth);
     print(sizeHeight);
     print(sizeHeight1);
@@ -34,7 +37,7 @@ class _TreeViewState extends State<TreeView> {
         child: Column(
           children: [
             Container(
-              height: sizeHeight * 0.2,
+              height: (sizeHeight - bottom) * 0.2,
               width: sizeWidth,
               child: Center(
                 child: Container(
@@ -45,7 +48,14 @@ class _TreeViewState extends State<TreeView> {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.arrow_back_ios_outlined),
+                          IconButton(
+                            icon: Icon(Icons.arrow_back_ios),
+                            color: Colors.teal,
+                            onPressed: (){
+                              Navigator.pushReplacement(context,
+                                  new MaterialPageRoute(builder: (BuildContext context) => new HomeScreen()));
+                            },
+                          ),
                           SizedBox(
                             width: 5,
                           ),
@@ -78,37 +88,40 @@ class _TreeViewState extends State<TreeView> {
               ),
               color: Colors.teal,
             ),
-            Container(
-              height: sizeHeight * 0.8,
-              width: sizeWidth,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 100,
-                      height: 100,
-                      child: new OutlineButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => InitialDisplayPage()));
-                        },
-                        child: Image.asset('assets/1622479960731.JPEG'),
-                        shape: StadiumBorder(),
-                        borderSide: BorderSide(color: Colors.green),
+            SingleChildScrollView(
+              child: Container(
+                height: (sizeHeight - bottom) * 0.73,
+                width: sizeWidth,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 100,
+                        height: 100,
+                        child: new OutlineButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        InitialDisplayPage()));
+                          },
+                          child: Image.asset('assets/1622479960731.JPEG'),
+                          shape: StadiumBorder(),
+                          borderSide: BorderSide(color: Colors.green),
+                        ),
                       ),
-                    ),
-                    Text('Add you in tree')
-                  ],
+                      Text('Add you in tree')
+                    ],
+                  ),
                 ),
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30)),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30)),
+                ),
               ),
             ),
           ],

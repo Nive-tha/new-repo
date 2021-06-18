@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google/Useraccount.dart';
 import 'package:google/matrimony2.dart';
 import 'package:select_form_field/select_form_field.dart';
 
@@ -95,10 +96,13 @@ class Matrimony1State extends State<Matrimony1> {
                   ),
                   fillColor: Colors.white,
                   filled: true,
-                  prefixIcon: Icon(
-                    Icons.arrow_back_ios_outlined,
+                  prefixIcon: IconButton(
+                    icon: Icon(Icons.arrow_back_ios),
                     color: Colors.teal,
-                    size: 35,
+                    onPressed: (){
+                      Navigator.pushReplacement(context,
+                          new MaterialPageRoute(builder: (BuildContext context) => new AccountPage()));
+                    },
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -123,103 +127,76 @@ class Matrimony1State extends State<Matrimony1> {
                 ),
                 height: sizeHeight * 0.74,
                 width: sizeWidth,
-                child: Form(
-                    child: Column(
-                  children: [
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: TextFormField(
-                          // controller: username,
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30.0)),
-                                borderSide: BorderSide(
-                                    color: Colors.teal.shade50, width: 1),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(40.0)),
-                                borderSide: BorderSide(color: Colors.teal),
-                              ),
-                              hintText: "    Searching groom for Whom?",
-                              hintStyle: TextStyle(
-                                color: Colors.teal,
-                                fontSize: 18,
-                                // fontWeight: FontWeight.bold,
-                              ))),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: TextFormField(
-                          // controller: username,
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30.0)),
-                                borderSide: BorderSide(
-                                    color: Colors.teal.shade50, width: 1),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(40.0)),
-                                borderSide: BorderSide(color: Colors.teal),
-                              ),
-                              hintText: "    Your Daughter's name",
-                              hintStyle: TextStyle(
-                                color: Colors.teal,
-                                fontSize: 18,
-                                // fontWeight: FontWeight.bold,
-                              ))),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: SelectFormField(
-                        // icon: Icon(Icons.people, color: Colors.black),
-                        // labelText: 'Gender',
-                        changeIcon: true,
-                        dialogTitle: 'Pick a item',
-                        dialogCancelBtn: 'CANCEL',
-                        enableSearch: true,
-                        dialogSearchHint: 'Search item',
-                        items: _items,
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                              borderSide: BorderSide(
-                                  color: Colors.teal.shade50, width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(40.0)),
-                              borderSide: BorderSide(color: Colors.teal),
-                            ),
-                            hintText: "    Gender",
-                            hintStyle: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18,
-                              // fontWeight: FontWeight.bold,
-                            )),
+                child: SingleChildScrollView(
+                  child: Form(
+                      child: Column(
+                    children: [
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: TextFormField(
+                            // controller: username,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "    Searching groom for Whom?",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 18,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: TextFormField(
-                          // controller: username,
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: TextFormField(
+                            // controller: username,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "    Your Daughter's name",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 18,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: SelectFormField(
+                          // icon: Icon(Icons.people, color: Colors.black),
+                          // labelText: 'Gender',
+                          changeIcon: true,
+                          dialogTitle: 'Pick a item',
+                          dialogCancelBtn: 'CANCEL',
+                          enableSearch: true,
+                          dialogSearchHint: 'Search item',
+                          items: _items,
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.white,
@@ -235,18 +212,80 @@ class Matrimony1State extends State<Matrimony1> {
                                     BorderRadius.all(Radius.circular(40.0)),
                                 borderSide: BorderSide(color: Colors.teal),
                               ),
-                              hintText: "    Date of Birth",
+                              hintText: "    Gender",
                               hintStyle: TextStyle(
                                 color: Colors.teal,
                                 fontSize: 18,
                                 // fontWeight: FontWeight.bold,
-                              ))),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: TextFormField(
-                          // controller: username,
+                              )),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: TextFormField(
+                            // controller: username,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "    Date of Birth",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 18,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: TextFormField(
+                            // controller: username,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "    Mobile Number",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 18,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: SelectFormField(
+                          // icon: Icon(Icons.people, color: Colors.black),
+                          // labelText: 'Gender',
+                          changeIcon: true,
+                          dialogTitle: 'Pick a item',
+                          dialogCancelBtn: 'CANCEL',
+                          enableSearch: true,
+                          dialogSearchHint: 'Search item',
+                          items: mar,
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.white,
@@ -262,95 +301,81 @@ class Matrimony1State extends State<Matrimony1> {
                                     BorderRadius.all(Radius.circular(40.0)),
                                 borderSide: BorderSide(color: Colors.teal),
                               ),
-                              hintText: "    Mobile Number",
+                              hintText: "    Marital Status",
                               hintStyle: TextStyle(
                                 color: Colors.teal,
                                 fontSize: 18,
                                 // fontWeight: FontWeight.bold,
-                              ))),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: SelectFormField(
-                        // icon: Icon(Icons.people, color: Colors.black),
-                        // labelText: 'Gender',
-                        changeIcon: true,
-                        dialogTitle: 'Pick a item',
-                        dialogCancelBtn: 'CANCEL',
-                        enableSearch: true,
-                        dialogSearchHint: 'Search item',
-                        items: mar,
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                              borderSide: BorderSide(
-                                  color: Colors.teal.shade50, width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(40.0)),
-                              borderSide: BorderSide(color: Colors.teal),
-                            ),
-                            hintText: "    Marital Status",
-                            hintStyle: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18,
-                              // fontWeight: FontWeight.bold,
-                            )),
+                              )),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: SelectFormField(
-                        // icon: Icon(Icons.people, color: Colors.black),
-                        // labelText: 'Gender',
-                        changeIcon: true,
-                        dialogTitle: 'Pick a item',
-                        dialogCancelBtn: 'CANCEL',
-                        enableSearch: true,
-                        dialogSearchHint: 'Search item',
-                        items: _rel,
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                              borderSide: BorderSide(
-                                  color: Colors.teal.shade50, width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(40.0)),
-                              borderSide: BorderSide(color: Colors.teal),
-                            ),
-                            hintText: "    Religion",
-                            hintStyle: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18,
-                              // fontWeight: FontWeight.bold,
-                            )),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: SelectFormField(
+                          // icon: Icon(Icons.people, color: Colors.black),
+                          // labelText: 'Gender',
+                          changeIcon: true,
+                          dialogTitle: 'Pick a item',
+                          dialogCancelBtn: 'CANCEL',
+                          enableSearch: true,
+                          dialogSearchHint: 'Search item',
+                          items: _rel,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30.0)),
+                                borderSide: BorderSide(
+                                    color: Colors.teal.shade50, width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40.0)),
+                                borderSide: BorderSide(color: Colors.teal),
+                              ),
+                              hintText: "    Religion",
+                              hintStyle: TextStyle(
+                                color: Colors.teal,
+                                fontSize: 18,
+                                // fontWeight: FontWeight.bold,
+                              )),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    // ElevatedButton(
-                    //     onPressed: () {
-                    //       Navigator.push(
-                    //           context,
-                    //           MaterialPageRoute(
-                    //               builder: (BuildContext context) =>
-                    //                   Matrimony2()));
-                    //     },
-                    //     child: Text("Next"))
-                  ],
-                )),
+                      SizedBox(height: 20),
+
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              new MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      new Matrimony2()));
+                        },
+                        child: Text('Next'),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Colors.transparent),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                      ),
+
+                      // ElevatedButton(
+                      //     onPressed: () {
+                      //       Navigator.push(
+                      //           context,
+                      //           MaterialPageRoute(
+                      //               builder: (BuildContext context) =>
+                      //                   Matrimony2()));
+                      //     },
+                      //     child: Text("Next"))
+                    ],
+                  )),
+                ),
               ),
             )
           ],

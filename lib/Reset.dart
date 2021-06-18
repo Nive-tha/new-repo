@@ -18,7 +18,7 @@ class _ForgetPass1State extends State<ForgetPass1> {
   bool securetext1 = true;
 
   Future verifyOtp(e, c, d) async {
-    String url = 'http://ac3915bf1e78.ngrok.io/parampara/changepass';
+    String url = 'http://ae53595c09a2.ngrok.io/parampara/changepass';
     final response = await http.post(Uri.parse(url),
         body: {'email': e, 'newpass': c, 'conformpass': d});
     print(response);

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google/matrimony4.dart';
 import 'package:select_form_field/select_form_field.dart';
 
+import 'matrimony2.dart';
+
 // ignore: must_be_immutable
 class Matrimony3 extends StatefulWidget {
   @override
@@ -11,43 +13,43 @@ class Matrimony3 extends StatefulWidget {
 class Matrimony3State extends State<Matrimony3> {
   final List<Map<String, dynamic>> _rel = [
     {
-      'value': 'Hindu',
-      'label': 'Hindu',
+      'value': '',
+      'label': '',
     },
     {
-      'value': 'Muslim',
-      'label': 'Muslim',
+      'value': '',
+      'label': '',
     },
     {
-      'value': 'Christian',
-      'label': 'Christian',
+      'value': '',
+      'label': '',
     },
   ];
   final List<Map<String, dynamic>> mar = [
     {
-      'value': 'Single',
-      'label': 'Single',
+      'value': '',
+      'label': '',
     },
     {
-      'value': 'Married',
-      'label': 'Married',
+      'value': '',
+      'label': '',
     },
   ];
   final List<Map<String, dynamic>> _items = [
     {
-      'value': 'Male',
-      'label': 'Male',
+      'value': '',
+      'label': '',
       // 'icon': Icon(Icons.stop),
     },
     {
-      'value': 'Female',
-      'label': 'Female',
+      'value': '',
+      'label': '',
       // 'icon': Icon(Icons.fiber_manual_record),
       // 'textStyle': TextStyle(color: Colors.red),
     },
     {
-      'value': 'others',
-      'label': 'others',
+      'value': '',
+      'label': '',
       // 'enable': false,
       // 'icon': Icon(Icons.grade),
     },
@@ -81,10 +83,13 @@ class Matrimony3State extends State<Matrimony3> {
                   ),
                   fillColor: Colors.white,
                   filled: true,
-                  prefixIcon: Icon(
-                    Icons.arrow_back_ios_outlined,
+                  prefixIcon: IconButton(
+                    icon: Icon(Icons.arrow_back_ios),
                     color: Colors.teal,
-                    size: 35,
+                    onPressed: (){
+                      Navigator.pushReplacement(context,
+                          new MaterialPageRoute(builder: (BuildContext context) => new Matrimony2()));
+                    },
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -109,266 +114,276 @@ class Matrimony3State extends State<Matrimony3> {
                 ),
                 height: sizeHeight * 0.74,
                 width: sizeWidth,
-                child: Form(
-                    child: Column(
-                  children: [
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: SelectFormField(
-                        // icon: Icon(Icons.people, color: Colors.black),
-                        // labelText: 'Gender',
-                        changeIcon: true,
-                        dialogTitle: 'Pick a item',
-                        dialogCancelBtn: 'CANCEL',
-                        enableSearch: true,
-                        dialogSearchHint: 'Search item',
-                        items: _items,
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                              borderSide: BorderSide(
-                                  color: Colors.teal.shade50, width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(40.0)),
-                              borderSide: BorderSide(color: Colors.teal),
-                            ),
-                            hintText: "    Zodiac",
-                            hintStyle: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18,
-                              // fontWeight: FontWeight.bold,
-                            )),
+                child: SingleChildScrollView(
+                  child: Form(
+                      child: Column(
+                    children: [
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: SelectFormField(
+                          // icon: Icon(Icons.people, color: Colors.black),
+                          // labelText: 'Gender',
+                          changeIcon: true,
+                          dialogTitle: 'Pick a item',
+                          dialogCancelBtn: 'CANCEL',
+                          enableSearch: true,
+                          dialogSearchHint: 'Search item',
+                          items: _items,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30.0)),
+                                borderSide: BorderSide(
+                                    color: Colors.teal.shade50, width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40.0)),
+                                borderSide: BorderSide(color: Colors.teal),
+                              ),
+                              hintText: "    Zodiac",
+                              hintStyle: TextStyle(
+                                color: Colors.teal,
+                                fontSize: 18,
+                                // fontWeight: FontWeight.bold,
+                              )),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: SelectFormField(
-                        // icon: Icon(Icons.people, color: Colors.black),
-                        // labelText: 'Gender',
-                        changeIcon: true,
-                        dialogTitle: 'Pick a item',
-                        dialogCancelBtn: 'CANCEL',
-                        enableSearch: true,
-                        dialogSearchHint: 'Search item',
-                        items: _rel,
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                              borderSide: BorderSide(
-                                  color: Colors.teal.shade50, width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(40.0)),
-                              borderSide: BorderSide(color: Colors.teal),
-                            ),
-                            hintText: "    Star",
-                            hintStyle: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18,
-                              // fontWeight: FontWeight.bold,
-                            )),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: SelectFormField(
+                          // icon: Icon(Icons.people, color: Colors.black),
+                          // labelText: 'Gender',
+                          changeIcon: true,
+                          dialogTitle: 'Pick a item',
+                          dialogCancelBtn: 'CANCEL',
+                          enableSearch: true,
+                          dialogSearchHint: 'Search item',
+                          items: _rel,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30.0)),
+                                borderSide: BorderSide(
+                                    color: Colors.teal.shade50, width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40.0)),
+                                borderSide: BorderSide(color: Colors.teal),
+                              ),
+                              hintText: "    Star",
+                              hintStyle: TextStyle(
+                                color: Colors.teal,
+                                fontSize: 18,
+                                // fontWeight: FontWeight.bold,
+                              )),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: SelectFormField(
-                        // icon: Icon(Icons.people, color: Colors.black),
-                        // labelText: 'Gender',
-                        changeIcon: true,
-                        dialogTitle: 'Pick a item',
-                        dialogCancelBtn: 'CANCEL',
-                        enableSearch: true,
-                        dialogSearchHint: 'Search item',
-                        items: _items,
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                              borderSide: BorderSide(
-                                  color: Colors.teal.shade50, width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(40.0)),
-                              borderSide: BorderSide(color: Colors.teal),
-                            ),
-                            hintText: "    Having Dosham?",
-                            hintStyle: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18,
-                              // fontWeight: FontWeight.bold,
-                            )),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: SelectFormField(
+                          // icon: Icon(Icons.people, color: Colors.black),
+                          // labelText: 'Gender',
+                          changeIcon: true,
+                          dialogTitle: 'Pick a item',
+                          dialogCancelBtn: 'CANCEL',
+                          enableSearch: true,
+                          dialogSearchHint: 'Search item',
+                          items: _items,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30.0)),
+                                borderSide: BorderSide(
+                                    color: Colors.teal.shade50, width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40.0)),
+                                borderSide: BorderSide(color: Colors.teal),
+                              ),
+                              hintText: "    Having Dosham?",
+                              hintStyle: TextStyle(
+                                color: Colors.teal,
+                                fontSize: 18,
+                                // fontWeight: FontWeight.bold,
+                              )),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: SelectFormField(
-                        // icon: Icon(Icons.people, color: Colors.black),
-                        // labelText: 'Gender',
-                        changeIcon: true,
-                        dialogTitle: 'Pick a item',
-                        dialogCancelBtn: 'CANCEL',
-                        enableSearch: true,
-                        dialogSearchHint: 'Search item',
-                        items: _items,
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                              borderSide: BorderSide(
-                                  color: Colors.teal.shade50, width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(40.0)),
-                              borderSide: BorderSide(color: Colors.teal),
-                            ),
-                            hintText: "    Country Living in",
-                            hintStyle: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18,
-                              // fontWeight: FontWeight.bold,
-                            )),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: SelectFormField(
+                          // icon: Icon(Icons.people, color: Colors.black),
+                          // labelText: 'Gender',
+                          changeIcon: true,
+                          dialogTitle: 'Pick a item',
+                          dialogCancelBtn: 'CANCEL',
+                          enableSearch: true,
+                          dialogSearchHint: 'Search item',
+                          items: _items,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30.0)),
+                                borderSide: BorderSide(
+                                    color: Colors.teal.shade50, width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40.0)),
+                                borderSide: BorderSide(color: Colors.teal),
+                              ),
+                              hintText: "    Country Living in",
+                              hintStyle: TextStyle(
+                                color: Colors.teal,
+                                fontSize: 18,
+                                // fontWeight: FontWeight.bold,
+                              )),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: SelectFormField(
-                        // icon: Icon(Icons.people, color: Colors.black),
-                        // labelText: 'Gender',
-                        changeIcon: true,
-                        dialogTitle: 'Pick a item',
-                        dialogCancelBtn: 'CANCEL',
-                        enableSearch: true,
-                        dialogSearchHint: 'Search item',
-                        items: _items,
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                              borderSide: BorderSide(
-                                  color: Colors.teal.shade50, width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(40.0)),
-                              borderSide: BorderSide(color: Colors.teal),
-                            ),
-                            hintText: "    State Living in",
-                            hintStyle: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18,
-                              // fontWeight: FontWeight.bold,
-                            )),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: SelectFormField(
+                          // icon: Icon(Icons.people, color: Colors.black),
+                          // labelText: 'Gender',
+                          changeIcon: true,
+                          dialogTitle: 'Pick a item',
+                          dialogCancelBtn: 'CANCEL',
+                          enableSearch: true,
+                          dialogSearchHint: 'Search item',
+                          items: _items,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30.0)),
+                                borderSide: BorderSide(
+                                    color: Colors.teal.shade50, width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40.0)),
+                                borderSide: BorderSide(color: Colors.teal),
+                              ),
+                              hintText: "    State Living in",
+                              hintStyle: TextStyle(
+                                color: Colors.teal,
+                                fontSize: 18,
+                                // fontWeight: FontWeight.bold,
+                              )),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: SelectFormField(
-                        // icon: Icon(Icons.people, color: Colors.black),
-                        // labelText: 'Gender',
-                        changeIcon: true,
-                        dialogTitle: 'Pick a item',
-                        dialogCancelBtn: 'CANCEL',
-                        enableSearch: true,
-                        dialogSearchHint: 'Search item',
-                        items: _items,
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                              borderSide: BorderSide(
-                                  color: Colors.teal.shade50, width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(40.0)),
-                              borderSide: BorderSide(color: Colors.teal),
-                            ),
-                            hintText: "    District Living in",
-                            hintStyle: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18,
-                              // fontWeight: FontWeight.bold,
-                            )),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: SelectFormField(
+                          // icon: Icon(Icons.people, color: Colors.black),
+                          // labelText: 'Gender',
+                          changeIcon: true,
+                          dialogTitle: 'Pick a item',
+                          dialogCancelBtn: 'CANCEL',
+                          enableSearch: true,
+                          dialogSearchHint: 'Search item',
+                          items: _items,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30.0)),
+                                borderSide: BorderSide(
+                                    color: Colors.teal.shade50, width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40.0)),
+                                borderSide: BorderSide(color: Colors.teal),
+                              ),
+                              hintText: "    District Living in",
+                              hintStyle: TextStyle(
+                                color: Colors.teal,
+                                fontSize: 18,
+                                // fontWeight: FontWeight.bold,
+                              )),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    Container(
-                      width: 350,
-                      child: SelectFormField(
-                        // icon: Icon(Icons.people, color: Colors.black),
-                        // labelText: 'Gender',
-                        changeIcon: true,
-                        dialogTitle: 'Pick a item',
-                        dialogCancelBtn: 'CANCEL',
-                        enableSearch: true,
-                        dialogSearchHint: 'Search item',
-                        items: mar,
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30.0)),
-                              borderSide: BorderSide(
-                                  color: Colors.teal.shade50, width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(40.0)),
-                              borderSide: BorderSide(color: Colors.teal),
-                            ),
-                            hintText: "    City Living in",
-                            hintStyle: TextStyle(
-                              color: Colors.teal,
-                              fontSize: 18,
-                              // fontWeight: FontWeight.bold,
-                            )),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: SelectFormField(
+                          // icon: Icon(Icons.people, color: Colors.black),
+                          // labelText: 'Gender',
+                          changeIcon: true,
+                          dialogTitle: 'Pick a item',
+                          dialogCancelBtn: 'CANCEL',
+                          enableSearch: true,
+                          dialogSearchHint: 'Search item',
+                          items: mar,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30.0)),
+                                borderSide: BorderSide(
+                                    color: Colors.teal.shade50, width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40.0)),
+                                borderSide: BorderSide(color: Colors.teal),
+                              ),
+                              hintText: "    City Living in",
+                              hintStyle: TextStyle(
+                                color: Colors.teal,
+                                fontSize: 18,
+                                // fontWeight: FontWeight.bold,
+                              )),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    ElevatedButton(
+                      SizedBox(height: 20),
+                      ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(
+                              new MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      Matrimony4()));
+                                      new Matrimony4()));
                         },
-                        child: Text("Next"))
-                  ],
-                )),
+                        child: Text('Next'),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Colors.transparent),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                      ),
+                    ],
+                  )),
+                ),
               ),
             )
           ],
