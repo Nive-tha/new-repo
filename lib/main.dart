@@ -6,11 +6,14 @@ import 'package:google/matrimony2.dart';
 import 'package:google/screens/home_screen.dart';
 import 'package:google/screens/sign_in_screen.dart';
 import 'package:google/tabspages/homescreen.dart';
+import 'package:google/treeviewpagecreation/famtour.dart';
+import 'package:google/treeviewpagecreation/jobreq.dart';
 import 'package:google/widgets/fb_sign_in_button.dart';
 
 import 'LoginPage/Login.dart';
 import 'LoginPage/tabs.dart';
 import 'Useraccount.dart';
+import 'map.dart';
 import 'matrimony1.dart';
 
 void main() {
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Log(),
+      home: MyLocation(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -78,37 +78,40 @@ class _TreeViewState extends State<TreeView> {
               ),
               color: Colors.teal,
             ),
-            Container(
-              height: sizeHeight * 0.73,
-              width: sizeWidth,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 100,
-                      height: 100,
-                      child: new OutlineButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => InitialDisplayPage()));
-                        },
-                        child: Image.asset('assets/1622479960731.JPEG'),
-                        shape: StadiumBorder(),
-                        borderSide: BorderSide(color: Colors.green),
+            SingleChildScrollView(
+              child: Container(
+                height: sizeHeight * 0.73,
+                width: sizeWidth,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 100,
+                        height: 100,
+                        child: new OutlineButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        InitialDisplayPage()));
+                          },
+                          child: Image.asset('assets/1622479960731.JPEG'),
+                          shape: StadiumBorder(),
+                          borderSide: BorderSide(color: Colors.green),
+                        ),
                       ),
-                    ),
-                    Text('Add you in tree')
-                  ],
+                      Text('Add you in tree')
+                    ],
+                  ),
                 ),
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30)),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30)),
+                ),
               ),
             ),
           ],

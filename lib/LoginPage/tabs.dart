@@ -39,7 +39,7 @@ class _TabsState extends State<Tabs> {
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.teal,
-          selectedIconTheme: IconThemeData(color: Colors.amberAccent, size: 20),
+          selectedIconTheme: IconThemeData(color: Colors.amberAccent, size: 10),
           selectedItemColor: Colors.amberAccent,
 
           items: <BottomNavigationBarItem>[
