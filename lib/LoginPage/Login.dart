@@ -26,9 +26,6 @@ class _LogState extends State<Log> {
   var newlySelected;
   void initState() {
     super.initState();
-<<<<<<< HEAD
-    _mockCheckForSession();
-=======
 
     _mockCheckForSession().whenComplete(
       () => Future.delayed(Duration(milliseconds: 1000), () {
@@ -39,7 +36,6 @@ class _LogState extends State<Log> {
         );
       }),
     );
->>>>>>> 8505c8e168d2ac0174cdf61d0ff6d88fd9d6dc70
   }
 
   Future _mockCheckForSession() async {
