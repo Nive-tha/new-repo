@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google/familytourplan/familytourplan.dart';
+import 'package:intl/intl.dart';
 
 import 'job.dart';
 
@@ -12,6 +13,46 @@ class JobPostingRequest extends StatefulWidget {
 }
 
 class _JobPostingRequestState extends State<JobPostingRequest> {
+  var postingDate = TextEditingController();
+  var postingEndDate = TextEditingController();
+  Future datePickingStart() async {
+    var today = DateTime.now();
+    print(today);
+    var date = await showDatePicker(
+      context: context,
+      initialDate: today,
+      firstDate: DateTime(DateTime.now().year - 5),
+      lastDate: DateTime(DateTime.now().year + 5),
+    );
+
+    if (date == null)
+      return;
+    else {
+      setState(() {
+        postingDate.text = DateFormat('yyyy/MM/dd').format(date);
+      });
+    }
+  }
+
+  Future datePickingEnd() async {
+    var today = DateTime.now();
+    print(today);
+    var date = await showDatePicker(
+      context: context,
+      initialDate: today,
+      firstDate: DateTime(DateTime.now().year - 5),
+      lastDate: DateTime(DateTime.now().year + 5),
+    );
+
+    if (date == null)
+      return;
+    else {
+      setState(() {
+        postingEndDate.text = DateFormat('yyyy/MM/dd').format(date);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
@@ -44,9 +85,12 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           child: IconButton(
                             icon: Icon(Icons.arrow_back_ios),
                             color: Colors.teal,
-                            onPressed: (){
-                              Navigator.pushReplacement(context,
-                                  new MaterialPageRoute(builder: (BuildContext context) => new Job()));
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          new Job()));
                             },
                           ),
                         ),
@@ -94,7 +138,6 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
-                              // controller: username,
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.person),
                                   filled: true,
@@ -125,7 +168,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
-                              // controller: username,
+                              controller: postingDate,
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.date_range),
                                   filled: true,
@@ -250,7 +293,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
-                              // controller: username,
+                              controller: postingEndDate,
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.date_range),
                                   filled: true,
