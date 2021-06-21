@@ -1,5 +1,9 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 import '../Useraccount.dart';
 
 class FamilyTourPlan extends StatefulWidget {
@@ -9,12 +13,81 @@ class FamilyTourPlan extends StatefulWidget {
   _FamilyTourPlanState createState() => _FamilyTourPlanState();
 }
 
+var receiveId;
+var familyId;
+var user_Id;
+
+@override
+void initState() {
+  // ignore: todo
+  // TODO: implement initState
+  initState();
+  saveid();
+}
+
+saveid() async {
+  SharedPreferences get = await SharedPreferences.getInstance();
+  receiveId = get.getStringList('idS');
+  familyId = receiveId[0];
+  user_Id = receiveId[1];
+  print(user_Id);
+  print(familyId);
+  famid.text = familyId;
+  id.text = user_Id;
+}
+
+var tripStart = TextEditingController();
+var tripEnd = TextEditingController();
+var fromStart = TextEditingController();
+var toEnd = TextEditingController();
+var arrivalTime = TextEditingController();
+var totaL = TextEditingController();
+var departure = TextEditingController();
+var famid = TextEditingController();
+var id = TextEditingController();
+late final DateTime selectedDate;
+late final ValueChanged<DateTime> selectDate;
+
+Future _posT(a, b, c, d, e, f, g, k, i) async {
+// print('func');
+
+  //
+
+  final String url =
+      "http://8d4bba7d1b46.ngrok.io/parampara/userpersonal/tourplan";
+
+  final response = await http.post(Uri.parse(url), body: {
+    'id': a,
+    'family_id': b,
+    'tripStartDate': c,
+    'tripEndDate': d,
+    'fromstart': e,
+    'toend': f,
+    'arrivalTime': g,
+    'total': k,
+    "departureTime": i,
+  });
+  print(response);
+  print(response.body);
+  var receivedDetails = json.decode(response.body);
+  print(receivedDetails);
+}
+
+// Future<void> _selectDate(BuildContext context) async {
+//   final DateTime picked = (await showDatePicker(
+//       context: context,
+//       initialDate: selectedDate,
+//       firstDate: new DateTime(1970, 8),
+//       lastDate: new DateTime(2101)))!;
+//   if (picked != null && picked != selectedDate) selectDate(picked);
+// }
 class _FamilyTourPlanState extends State<FamilyTourPlan> {
   @override
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
     var sizeWidth = MediaQuery.of(context).size.width;
     var bottom = kBottomNavigationBarHeight;
+
     return Scaffold(
       backgroundColor: Colors.teal,
       body: Container(
@@ -39,9 +112,12 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                         child: IconButton(
                           icon: Icon(Icons.arrow_back_ios),
                           color: Colors.teal,
-                          onPressed: (){
-                            Navigator.pushReplacement(context,
-                                new MaterialPageRoute(builder: (BuildContext context) => new AccountPage()));
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        new LandingPage()));
                           },
                         ),
                       ),
@@ -87,7 +163,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                         width: 280,
                         height: 50,
                         child: TextFormField(
-                            // controller: username,
+                            controller: tripStart,
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.date_range),
                                 filled: true,
@@ -104,7 +180,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                                       BorderRadius.all(Radius.circular(40.0)),
                                   borderSide: BorderSide(color: Colors.teal),
                                 ),
-                                hintText: "   Trip Start Date",
+                                labelText: "   Trip Start Date",
                                 hintStyle: TextStyle(
                                   color: Colors.teal,
                                   fontSize: 15,
@@ -118,7 +194,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                         width: 280,
                         height: 50,
                         child: TextFormField(
-                            // controller: username,
+                            controller: tripEnd,
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.date_range),
                                 filled: true,
@@ -149,7 +225,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                         width: 280,
                         height: 50,
                         child: TextFormField(
-                            // controller: username,
+                            controller: fromStart,
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.title),
                                 filled: true,
@@ -180,7 +256,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                         width: 280,
                         height: 50,
                         child: TextFormField(
-                            // controller: username,
+                            controller: toEnd,
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.format_list_numbered),
                                 filled: true,
@@ -211,7 +287,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                         width: 280,
                         height: 50,
                         child: TextFormField(
-                            // controller: username,
+                            controller: arrivalTime,
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.date_range),
                                 filled: true,
@@ -242,7 +318,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                         width: 280,
                         height: 50,
                         child: TextFormField(
-                            // controller: username,
+                            controller: departure,
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.date_range),
                                 filled: true,
@@ -273,7 +349,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                         width: 280,
                         height: 50,
                         child: TextFormField(
-                            // controller: username,
+                            controller: totaL,
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.date_range),
                                 filled: true,
@@ -297,7 +373,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                                   // fontWeight: FontWeight.bold,
                                 ))),
                       ),
-                      SizedBox(height: 40),
+                      SizedBox(height: 20),
                       Container(
                         height: 45,
                         width: 150,
@@ -307,11 +383,32 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                             Radius.circular(40),
                           ),
                         ),
-                        child: Center(
-                          child: Text(
-                            'Post',
-                            style: TextStyle(color: Colors.white),
-                          ),
+                        child: Column(
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                final String a = id.text;
+                                final String b = famid.text;
+                                final String c = tripStart.text;
+                                final String d = tripEnd.text;
+                                final String e = fromStart.text;
+                                final String f = toEnd.text;
+                                final String g = arrivalTime.text;
+                                final String k = departure.text;
+                                final String i = totaL.text;
+                                _posT(a, b, c, d, e, f, g, k, i);
+                                saveid();
+                              },
+                              child: Text(
+                                'Post',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
                     ],

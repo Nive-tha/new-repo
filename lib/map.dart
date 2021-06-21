@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:geocoder/geocoder.dart';
@@ -12,6 +12,8 @@ import 'map.dart';
 void main() {
   runApp(MyApp());
 }
+
+String? _mapStyle;
 
 class MyApp extends StatelessWidget {
   @override
@@ -43,9 +45,11 @@ class _MyLocationState extends State<MyLocation> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getLoc();
+    rootBundle.loadString('assets/map_style').then((string) {
+      _mapStyle = string;
+    });
   }
 
   void _onMapCreated(GoogleMapController _cntlr) {
@@ -66,10 +70,11 @@ class _MyLocationState extends State<MyLocation> {
   // save() async {
   //   SharedPreferences get = await SharedPreferences.getInstance();
   //   get.setStringList('a', _id);
+
   // }
 
   map() async {
-    String url = 'http://ae53595c09a2.ngrok.io/parampara/location';
+    String url = 'http://8d4bba7d1b46.ngrok.io/parampara/location';
     final response = await http.post(Uri.parse(url), body: {
       "id": _id.toString(),
       "latitude": _currentPosition.latitude.toString(),

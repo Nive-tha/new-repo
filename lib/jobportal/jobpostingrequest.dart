@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/familytourplan/familytourplan.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'job.dart';
 
 class JobPostingRequest extends StatefulWidget {
@@ -10,6 +14,66 @@ class JobPostingRequest extends StatefulWidget {
   @override
   _JobPostingRequestState createState() => _JobPostingRequestState();
 }
+
+@override
+void initState() {
+  // ignore: todo
+  // TODO: implement initState
+  initState();
+  saved();
+}
+
+saved() async {
+  SharedPreferences get = await SharedPreferences.getInstance();
+  receiveId = get.getStringList('idS');
+  familyId = receiveId[0];
+  user_Id = receiveId[1];
+  print(user_Id);
+  print(familyId);
+  famid.text = familyId;
+  id.text = user_Id;
+}
+
+Future _posT(a, b, c, d, e, f, g, k) async {
+// print('func');
+
+  //
+
+  final String url =
+      "http://8d4bba7d1b46.ngrok.io/parampara/userpersonal/jobportal";
+  SharedPreferences get = await SharedPreferences.getInstance();
+  receiveId = get.getStringList('idS');
+  familyId = receiveId[0];
+  user_Id = receiveId[1];
+  print(user_Id);
+  print(familyId);
+  famid.text = familyId;
+  id.text = user_Id;
+  final response = await http.post(Uri.parse(url), body: {
+    'id': a,
+    'family_id': b,
+    'requester_name': c,
+    'posting_date': d,
+    'company_name': e,
+    'position_title': f,
+    'position_end_date': g,
+    'number_of_position': k,
+  });
+  print(response);
+  print(response.body);
+  var receivedDetails = json.decode(response.body);
+  print(receivedDetails);
+  var details = receivedDetails[0][''];
+}
+
+var requester_name = TextEditingController();
+var posting_date = TextEditingController();
+var company_name = TextEditingController();
+var position_title = TextEditingController();
+var position_end_date = TextEditingController();
+var number_of_position = TextEditingController();
+var famid = TextEditingController();
+var id = TextEditingController();
 
 class _JobPostingRequestState extends State<JobPostingRequest> {
   @override
@@ -44,9 +108,12 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           child: IconButton(
                             icon: Icon(Icons.arrow_back_ios),
                             color: Colors.teal,
-                            onPressed: (){
-                              Navigator.pushReplacement(context,
-                                  new MaterialPageRoute(builder: (BuildContext context) => new Job()));
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          new LandingPage()));
                             },
                           ),
                         ),
@@ -94,7 +161,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
-                              // controller: username,
+                              controller: requester_name,
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.person),
                                   filled: true,
@@ -125,7 +192,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
-                              // controller: username,
+                              controller: posting_date,
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.date_range),
                                   filled: true,
@@ -156,7 +223,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
-                              // controller: username,
+                              controller: company_name,
                               decoration: InputDecoration(
                                   prefixIcon:
                                       Icon(Icons.supervised_user_circle),
@@ -188,7 +255,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
-                              // controller: username,
+                              controller: position_title,
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.title),
                                   filled: true,
@@ -219,7 +286,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
-                              // controller: username,
+                              controller: position_end_date,
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.format_list_numbered),
                                   filled: true,
@@ -250,7 +317,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
-                              // controller: username,
+                              controller: number_of_position,
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.date_range),
                                   filled: true,
@@ -319,16 +386,28 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           ),
                         ),
                         TextButton(
-                          child: Text('next'),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => FamilyTourPlan(),
-                              ),
-                            );
+                            final String a = id.text;
+                            final String b = famid.text;
+                            final String c = requester_name.text;
+                            final String d = posting_date.text;
+                            final String e = company_name.text;
+                            final String f = position_title.text;
+                            final String g = position_end_date.text;
+                            final String k = number_of_position.text;
+
+                            _posT(a, b, c, d, e, f, g, k);
+                            saveid();
                           },
-                        ),
+                          child: Text(
+                            'Post',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),

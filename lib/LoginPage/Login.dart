@@ -26,12 +26,9 @@ class _LogState extends State<Log> {
   var newlySelected;
   void initState() {
     super.initState();
-<<<<<<< HEAD
-    _mockCheckForSession();
-=======
 
     _mockCheckForSession().whenComplete(
-      () => Future.delayed(Duration(milliseconds: 1000), () {
+      () => Future.delayed(Duration(milliseconds: 400), () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
               builder: (BuildContext context) =>
@@ -39,7 +36,6 @@ class _LogState extends State<Log> {
         );
       }),
     );
->>>>>>> 8505c8e168d2ac0174cdf61d0ff6d88fd9d6dc70
   }
 
   Future _mockCheckForSession() async {
@@ -63,7 +59,7 @@ class _LogState extends State<Log> {
                 //   child: Image.asset('assests/images/tree.jpg'),
                 // ),
                 Shimmer.fromColors(
-                    period: Duration(milliseconds: 1500),
+                    period: Duration(milliseconds: 500),
                     baseColor: Colors.white,
                     highlightColor: Colors.white,
                     child: Container(

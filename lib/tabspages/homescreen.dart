@@ -19,37 +19,30 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _isSigningOut = false;
 
   var receiverFromRegister1;
- var nive;
- var nive1;
- var receiverPic;
- var extractedDetail;
+  var nive;
+  var nive1;
+  var receiverPic;
+  var extractedDetail;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     save();
-
-
   }
+
 //
   save() async {
-
     SharedPreferences get = await SharedPreferences.getInstance();
-       receiverPic = get.getStringList('pic');
+    receiverPic = get.getStringList('pic');
     print(receiverPic[0]);
 
-
     setState(() {
-      nive= receiverPic[0];
-
+      nive = receiverPic[0];
     });
-     print(receiverFromRegister1);
-     print(nive1);
-     print(34);
-
+    print(receiverFromRegister1);
+    print(nive1);
+    print(34);
   }
-
-
 
   var username = TextEditingController();
   var email = TextEditingController();
@@ -79,12 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
     'Cooking Tips'
   ];
   @override
-
-    Widget build(BuildContext context) {
-
-
-
-
+  Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
     var sizeWidth = MediaQuery.of(context).size.width;
     var sizeOrientation = MediaQuery.of(context).orientation;
@@ -109,13 +97,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 60,
                             width: 60,
                             // decoration: BoxDecoration(color: Colors.teal),
-                  // child: CircleAvatar(backgroundImage: NetworkImage(extractedDetail))
+                            // child: CircleAvatar(backgroundImage: NetworkImage(extractedDetail))
 
-                            child:Icon(
-                                                Icons.account_circle,
-                                                size: 70.0,
-                                                color: Colors.white,
-                                              ),
+                            child: Icon(
+                              Icons.account_circle,
+                              size: 70.0,
+                              color: Colors.white,
+                            ),
                           ),
                           SizedBox(
                             width: 20,
@@ -133,7 +121,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   width: 200,
                                   child: GestureDetector(
                                     onTap: () async {
-                                      SharedPreferences clear = await SharedPreferences.getInstance();
+                                      SharedPreferences clear =
+                                          await SharedPreferences.getInstance();
                                       clear.clear();
                                     },
                                     child: Text(
@@ -155,10 +144,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontSize: 20,
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold),
-
-                                   ),
                                   ),
-
+                                ),
                               ],
                             ),
                           ),

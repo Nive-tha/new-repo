@@ -1,7 +1,11 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/jobportal/jobpostingrequest.dart';
 import 'package:select_form_field/select_form_field.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'job.dart';
 
@@ -31,6 +35,35 @@ class _JobSearchState extends State<JobSearch> {
     },
   ];
   var text;
+  var famid = TextEditingController();
+  var search = TextEditingController();
+  var receivefamId;
+  var familyId;
+
+  saveFamid() async {
+    SharedPreferences get = await SharedPreferences.getInstance();
+    receivefamId = get.getStringList('idS');
+    familyId = receivefamId[0];
+    famid.text = familyId;
+  }
+
+  Future _posT(a, b) async {
+// print('func');
+
+    //
+
+    final String url =
+        "http://8d4bba7d1b46.ngrok.io/parampara/userpersonal/jobportal/searchdata";
+    SharedPreferences get = await SharedPreferences.getInstance();
+    receivefamId = get.getStringList('idS');
+    familyId = receivefamId[0];
+    famid.text = familyId;
+    print(familyId);
+    final response =
+        await http.post(Uri.parse(url), body: {'family_id': a, 'search': b});
+    print(response.body);
+    print(response);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,9 +103,12 @@ class _JobSearchState extends State<JobSearch> {
                           child: IconButton(
                             icon: Icon(Icons.arrow_back_ios),
                             color: Colors.teal,
-                            onPressed: (){
-                              Navigator.pushReplacement(context,
-                                  new MaterialPageRoute(builder: (BuildContext context) => new Job()));
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          new LandingPage()));
                             },
                           ),
                         ),
@@ -148,12 +184,17 @@ class _JobSearchState extends State<JobSearch> {
                               ),
                             ),
                             child: TextFormField(
+                              controller: search,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.search,
-                                  size: 35,
+                                prefixIcon: IconButton(
+                                  icon: Icon(Icons.search),
                                   color: Colors.teal,
+                                  onPressed: () {
+                                    final String a = famid.text;
+                                    final String b = search.text;
+                                    _posT(a, b);
+                                  },
                                 ),
                                 hintText: "Search your best jobs",
                                 hintStyle:

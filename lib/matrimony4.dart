@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:select_form_field/select_form_field.dart';
 
 import 'matrimony3.dart';
@@ -85,9 +86,12 @@ class Matrimony4State extends State<Matrimony4> {
                   prefixIcon: IconButton(
                     icon: Icon(Icons.arrow_back_ios),
                     color: Colors.teal,
-                    onPressed: (){
-                      Navigator.pushReplacement(context,
-                          new MaterialPageRoute(builder: (BuildContext context) => new Matrimony3()));
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  new LandingPage()));
                     },
                   ),
                   border: OutlineInputBorder(
