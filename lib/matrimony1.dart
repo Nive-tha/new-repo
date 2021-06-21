@@ -141,7 +141,7 @@ class Matrimony1State extends State<Matrimony1> {
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(30.0)),
                                     borderSide: BorderSide(
-                                        color: Colors.teal.shade50, width: 1),
+                                        color: Colors.teal.shade50, width: 20),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius:

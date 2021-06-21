@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/LoginPage/Mail.dart';
+import 'package:google/imagegallery.dart';
 import 'package:google/matrimony2.dart';
 import 'package:google/screens/home_screen.dart';
 import 'package:google/screens/sign_in_screen.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyLocation(),
+      home: ImageGallery(),
       debugShowCheckedModeBanner: false,
     );
   }
