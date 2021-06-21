@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google/LoginPage/Landingpage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
+=======
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
 import '../Useraccount.dart';
 
 class FamilyTourPlan extends StatefulWidget {
@@ -82,6 +87,46 @@ Future _posT(a, b, c, d, e, f, g, k, i) async {
 //   if (picked != null && picked != selectedDate) selectDate(picked);
 // }
 class _FamilyTourPlanState extends State<FamilyTourPlan> {
+  var tripStartDate = TextEditingController();
+  var tripEndDate = TextEditingController();
+  Future datePickingStart() async {
+    var today = DateTime.now();
+    print(today);
+    var date = await showDatePicker(
+      context: context,
+      initialDate: today,
+      firstDate: DateTime(DateTime.now().year - 5),
+      lastDate: DateTime(DateTime.now().year + 5),
+    );
+
+    if (date == null)
+      return;
+    else {
+      setState(() {
+        tripStartDate.text = DateFormat('yyyy/MM/dd').format(date);
+      });
+    }
+  }
+
+  Future datePickingEnd() async {
+    var today = DateTime.now();
+    print(today);
+    var date = await showDatePicker(
+      context: context,
+      initialDate: today,
+      firstDate: DateTime(DateTime.now().year - 5),
+      lastDate: DateTime(DateTime.now().year + 5),
+    );
+
+    if (date == null)
+      return;
+    else {
+      setState(() {
+        tripEndDate.text = DateFormat('yyyy/MM/dd').format(date);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
@@ -117,7 +162,11 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>
+<<<<<<< HEAD
                                         new LandingPage()));
+=======
+                                        new AccountPage()));
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
                           },
                         ),
                       ),
@@ -153,6 +202,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                 ),
                 height: (sizeHeight - bottom) * 0.85,
                 width: sizeWidth,
+<<<<<<< HEAD
                 child: Form(
                   child: Column(
                     children: [
@@ -409,9 +459,191 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                               ),
                             )
                           ],
+=======
+                child: SingleChildScrollView(
+                  child: Form(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 20,
                         ),
-                      ),
-                    ],
+                        Container(
+                          width: 280,
+                          height: 50,
+                          child: TextFormField(
+                              readOnly: true,
+                              controller: tripStartDate,
+                              decoration: InputDecoration(
+                                  prefixIcon: InkWell(
+                                      onTap: datePickingStart,
+                                      child: Icon(Icons.date_range)),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30.0)),
+                                    borderSide: BorderSide(
+                                        color: Colors.teal.shade50, width: 1),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(40.0)),
+                                    borderSide: BorderSide(color: Colors.teal),
+                                  ),
+                                  hintText: "   Trip Start Date",
+                                  hintStyle: TextStyle(
+                                    color: Colors.teal,
+                                    fontSize: 15,
+                                    // fontWeight: FontWeight.bold,
+                                  ))),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          width: 280,
+                          height: 50,
+                          child: TextFormField(
+                              // controller: username,
+                              decoration: InputDecoration(
+                                  prefixIcon: InkWell(
+                                      onTap: datePickingEnd,
+                                      child: Icon(Icons.date_range)),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30.0)),
+                                    borderSide: BorderSide(
+                                        color: Colors.teal.shade50, width: 1),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(40.0)),
+                                    borderSide: BorderSide(color: Colors.teal),
+                                  ),
+                                  hintText: "   Trip End Date",
+                                  hintStyle: TextStyle(
+                                    color: Colors.teal,
+                                    fontSize: 15,
+                                    // fontWeight: FontWeight.bold,
+                                  ))),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          width: 280,
+                          height: 50,
+                          child: TextFormField(
+                              // controller: username,
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.title),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30.0)),
+                                    borderSide: BorderSide(
+                                        color: Colors.teal.shade50, width: 1),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(40.0)),
+                                    borderSide: BorderSide(color: Colors.teal),
+                                  ),
+                                  hintText: "   From place",
+                                  hintStyle: TextStyle(
+                                    color: Colors.teal,
+                                    fontSize: 15,
+                                    // fontWeight: FontWeight.bold,
+                                  ))),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          width: 280,
+                          height: 50,
+                          child: TextFormField(
+                              // controller: username,
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.format_list_numbered),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30.0)),
+                                    borderSide: BorderSide(
+                                        color: Colors.teal.shade50, width: 1),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(40.0)),
+                                    borderSide: BorderSide(color: Colors.teal),
+                                  ),
+                                  hintText: "   To place",
+                                  hintStyle: TextStyle(
+                                    color: Colors.teal,
+                                    fontSize: 15,
+                                    // fontWeight: FontWeight.bold,
+                                  ))),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          width: 280,
+                          height: 50,
+                          child: TextFormField(
+                              // controller: username,
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.date_range),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30.0)),
+                                    borderSide: BorderSide(
+                                        color: Colors.teal.shade50, width: 1),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(40.0)),
+                                    borderSide: BorderSide(color: Colors.teal),
+                                  ),
+                                  hintText: "  ",
+                                  hintStyle: TextStyle(
+                                    color: Colors.teal,
+                                    fontSize: 15,
+                                    // fontWeight: FontWeight.bold,
+                                  ))),
+                        ),
+                        SizedBox(height: 180),
+                        Container(
+                          height: 45,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            color: Colors.teal,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(40),
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Post',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

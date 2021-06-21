@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/familytourplan/familytourplan.dart';
+<<<<<<< HEAD
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+=======
+import 'package:intl/intl.dart';
+
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
 import 'job.dart';
 
 class JobPostingRequest extends StatefulWidget {
@@ -76,6 +81,46 @@ var famid = TextEditingController();
 var id = TextEditingController();
 
 class _JobPostingRequestState extends State<JobPostingRequest> {
+  var postingDate = TextEditingController();
+  var postingEndDate = TextEditingController();
+  Future datePickingStart() async {
+    var today = DateTime.now();
+    print(today);
+    var date = await showDatePicker(
+      context: context,
+      initialDate: today,
+      firstDate: DateTime(DateTime.now().year - 5),
+      lastDate: DateTime(DateTime.now().year + 5),
+    );
+
+    if (date == null)
+      return;
+    else {
+      setState(() {
+        postingDate.text = DateFormat('yyyy/MM/dd').format(date);
+      });
+    }
+  }
+
+  Future datePickingEnd() async {
+    var today = DateTime.now();
+    print(today);
+    var date = await showDatePicker(
+      context: context,
+      initialDate: today,
+      firstDate: DateTime(DateTime.now().year - 5),
+      lastDate: DateTime(DateTime.now().year + 5),
+    );
+
+    if (date == null)
+      return;
+    else {
+      setState(() {
+        postingEndDate.text = DateFormat('yyyy/MM/dd').format(date);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
@@ -113,7 +158,11 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                                   context,
                                   new MaterialPageRoute(
                                       builder: (BuildContext context) =>
+<<<<<<< HEAD
                                           new LandingPage()));
+=======
+                                          new Job()));
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
                             },
                           ),
                         ),
@@ -161,7 +210,10 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
+<<<<<<< HEAD
                               controller: requester_name,
+=======
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.person),
                                   filled: true,
@@ -192,7 +244,11 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
+<<<<<<< HEAD
                               controller: posting_date,
+=======
+                              controller: postingDate,
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.date_range),
                                   filled: true,
@@ -317,7 +373,11 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                           width: 280,
                           height: 50,
                           child: TextFormField(
+<<<<<<< HEAD
                               controller: number_of_position,
+=======
+                              controller: postingEndDate,
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
                               decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.date_range),
                                   filled: true,
