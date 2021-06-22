@@ -151,13 +151,15 @@ class _ImageGalleryState extends State<ImageGallery> {
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(30.0)),
                                       borderSide: BorderSide(
-                                          color: Colors.grey, width: 4),
+                                          color: Colors.grey.shade300,
+                                          width: 4),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(40.0)),
                                       borderSide: BorderSide(
-                                          color: Colors.grey, width: 34),
+                                          color: Colors.grey.shade300,
+                                          width: 34),
                                     ),
                                     hintText: "    Search Photos",
                                     prefixIcon: Icon(Icons.search),
