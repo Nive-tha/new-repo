@@ -26,7 +26,7 @@ class _ForgetPassState extends State<ForgetPass> {
   }
 
   Future verifyOtp(e, o) async {
-    String url = 'http://129ba0c0af78.ngrok.io/parampara/compare_otp';
+    String url = 'http://02855ebdce2e.ngrok.io/parampara/compare_otp';
     final response =
         await http.post(Uri.parse(url), body: {'email': e, 'tempotp': o});
     print(response);

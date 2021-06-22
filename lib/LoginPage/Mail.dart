@@ -147,7 +147,7 @@ class _MailState extends State<Mail> {
   }
 
   _apiFace() async {
-    final String url = "http://129ba0c0af78.ngrok.io/exists/facebook";
+    final String url = "http://02855ebdce2e.ngrok.io/exists/facebook";
 
     final response =
         await http.post(Uri.parse(url), body: {'face_book': this.detail['id']});
@@ -181,7 +181,7 @@ class _MailState extends State<Mail> {
   }
 
   _api1() async {
-    final String url = "http://129ba0c0af78.ngrok.io/exists/google";
+    final String url = "http://02855ebdce2e.ngrok.io/exists/google";
     final response =
         await http.post(Uri.parse(url), body: {'google_id': this.users.uid});
 
@@ -249,7 +249,7 @@ class _MailState extends State<Mail> {
   }
 
   Future loginUser(String email, String pass) async {
-    String url = 'http://129ba0c0af78.ngrok.io/user_login';
+    String url = 'http://02855ebdce2e.ngrok.io/user_login';
     final response =
         await http.post(Uri.parse(url), body: {'email': email, 'pass': pass});
     var convertedDatatoJson = jsonDecode(response.body);
