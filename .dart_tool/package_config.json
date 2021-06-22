@@ -219,7 +219,7 @@
     },
     {
       "name": "geolocator",
-      "rootUri": "file:///D:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-7.1.0",
+      "rootUri": "file:///D:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-7.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -512,6 +512,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "simple_gesture_detector",
+      "rootUri": "file:///D:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/simple_gesture_detector-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///D:/flutter_windows_2.0.4-stable/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -544,6 +550,12 @@
     {
       "name": "string_scanner",
       "rootUri": "file:///D:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "table_calendar",
+      "rootUri": "file:///D:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/table_calendar-3.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -608,7 +620,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-06-22T06:14:19.501574Z",
+  "generated": "2021-06-22T07:01:31.457983Z",
   "generator": "pub",
   "generatorVersion": "2.12.2"
 }

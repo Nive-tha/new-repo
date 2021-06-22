@@ -81,27 +81,29 @@ class _ImageGalleryState extends State<ImageGallery> {
             Container(
               height: sizeHeight * 0.07,
             ),
-            Container(
-              height: sizeHeight * 0.10,
-              // padding: EdgeInsets.only(left: 5, right: 5),
-              child: TextField(
-                decoration: InputDecoration(
-                  enabled: false,
-                  hintText: "Image Gallery",
-                  hintStyle: TextStyle(
-                    color: Colors.teal,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  fillColor: Colors.white,
-                  filled: true,
-                  prefixIcon: Icon(
-                    Icons.arrow_back_ios_outlined,
-                    color: Colors.teal,
-                    size: 35,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(30)),
+            Expanded(
+              child: Container(
+                height: sizeHeight * 0.10,
+                // padding: EdgeInsets.only(left: 5, right: 5),
+                child: TextField(
+                  decoration: InputDecoration(
+                    enabled: false,
+                    hintText: "Image Gallery",
+                    hintStyle: TextStyle(
+                      color: Colors.teal,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    fillColor: Colors.white,
+                    filled: true,
+                    prefixIcon: Icon(
+                      Icons.arrow_back_ios_outlined,
+                      color: Colors.teal,
+                      size: 35,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    ),
                   ),
                 ),
               ),
@@ -109,115 +111,112 @@ class _ImageGalleryState extends State<ImageGallery> {
             SizedBox(
               height: 10,
             ),
-            Expanded(
-                child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      // image: DecorationImage(
-                      //   image: AssetImage("assets/matrimony.jpeg"),
-                      //   fit: BoxFit.cover,
-                      // ),
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30)),
-                    ),
-                    height: sizeHeight * 0.74,
-                    width: sizeWidth,
-                    child: Expanded(
-                      child: Column(
-                        children: [
-                          SizedBox(height: 20),
-                          Text(
-                            "Your Gallery Photos",
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.teal,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            width: 350,
-                            height: 55,
-                            child: TextFormField(
-
-                                // controller: username,
-                                decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(30.0)),
-                                      borderSide: BorderSide(
-                                          color: Colors.grey.shade300,
-                                          width: 4),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(40.0)),
-                                      borderSide: BorderSide(
-                                          color: Colors.grey.shade300,
-                                          width: 34),
-                                    ),
-                                    hintText: "    Search Photos",
-                                    prefixIcon: Icon(Icons.search),
-                                    hintStyle: TextStyle(
-                                      color: Colors.teal,
-                                      fontSize: 18,
-
-                                      // fontWeight: FontWeight.bold,
-                                    ))),
-                          ),
-                          // SizedBox(
-                          //   height: 10,
-                          // ),
-                          Image(
-                            image: AssetImage("assets/image.png"),
-                          ),
-                          Text(
-                            "You don't have any photos yet",
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.teal,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(3.0),
-                            child: FlatButton(
-                              onPressed: () async {
-                                _showChoiceDialog(context);
-                              },
-                              child: Icon(
-                                Icons.camera_alt,
-                                size: 30,
-                              ),
-                            ),
-                          ),
-
-                          Center(
-                            child: _image == null
-                                ? Text('No image selected.')
-                                : Image.file(
-                                    _image!,
-                                    height: 200,
-                                    width: 200,
-                                  ),
-                          ),
-                          //     floatingActionButton:FloatingActionButton(
-                          //   onPressed: () {
-                          //     _showChoiceDialog(context);
-                          //   },
-                          //   tooltip: 'Pick Image',
-                          //   child: Icon(Icons.add_a_photo),
-                          // ),
-                        ],
+            Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  // image: DecorationImage(
+                  //   image: AssetImage("assets/matrimony.jpeg"),
+                  //   fit: BoxFit.cover,
+                  // ),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30)),
+                ),
+                height: sizeHeight * 0.74,
+                width: sizeWidth,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 20),
+                      Text(
+                        "Your Gallery Photos",
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.teal,
+                            fontWeight: FontWeight.bold),
                       ),
-                    )))
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Container(
+                        width: 350,
+                        height: 55,
+                        child: TextFormField(
+
+                            // controller: username,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.grey.shade300, width: 4),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.grey.shade300, width: 34),
+                                ),
+                                hintText: "    Search Photos",
+                                prefixIcon: Icon(Icons.search),
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 18,
+
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      // SizedBox(
+                      //   height: 10,
+                      // ),
+                      Image(
+                        image: AssetImage("assets/image.png"),
+                      ),
+                      Text(
+                        "You don't have any photos yet",
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.teal,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: FlatButton(
+                          onPressed: () async {
+                            _showChoiceDialog(context);
+                          },
+                          child: Icon(
+                            Icons.camera_alt,
+                            size: 30,
+                          ),
+                        ),
+                      ),
+
+                      Center(
+                        child: _image == null
+                            ? Text('No image selected.')
+                            : Image.file(
+                                _image!,
+                                height: 200,
+                                width: 200,
+                              ),
+                      ),
+                      //     floatingActionButton:FloatingActionButton(
+                      //   onPressed: () {
+                      //     _showChoiceDialog(context);
+                      //   },
+                      //   tooltip: 'Pick Image',
+                      //   child: Icon(Icons.add_a_photo),
+                      // ),
+                    ],
+                  ),
+                ))
           ],
         ),
       ),

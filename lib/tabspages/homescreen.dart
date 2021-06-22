@@ -1,4 +1,10 @@
 import 'dart:convert';
+import 'package:google/calender/calender.dart';
+import 'package:google/events/events.dart';
+import 'package:google/familytourplan/familytourplan.dart';
+import 'package:google/imagegallery.dart';
+import 'package:google/jobportal/job.dart';
+import 'package:google/matrimony1.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
@@ -70,6 +76,18 @@ class _HomeScreenState extends State<HomeScreen> {
     'Calls',
     'Health Tips',
     'Cooking Tips'
+  ];
+  List movingpages = [
+    Matrimony1(),
+    Job(),
+    FamilyTourPlan(),
+    Events(),
+    ImageGallery(),
+    CalenderPractice(),
+    Matrimony1(),
+    Job(),
+    FamilyTourPlan(),
+    Events(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -218,7 +236,16 @@ class _HomeScreenState extends State<HomeScreen> {
                               headings[index],
                               style: TextStyle(color: Colors.teal.shade400),
                             ),
-                            Expanded(child: Image.asset(images[index])),
+                            Expanded(
+                                child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  movingpages[index]));
+                                    },
+                                    child: Image.asset(images[index]))),
                           ],
                         ),
                         // elevation: 5,
