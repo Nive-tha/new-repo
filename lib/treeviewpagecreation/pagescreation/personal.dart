@@ -7,9 +7,7 @@ class Personal extends StatefulWidget {
 
 class _PersonalState extends State<Personal> {
   var personalDetailsUserName = TextEditingController();
-  var controller1 = TextEditingController();
-  var controller2 = TextEditingController();
-  var controller3 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,8 +66,8 @@ class _PersonalState extends State<Personal> {
 }
 
 class CustomTextFormField extends StatefulWidget {
-  CustomTextFormField({this.hintText1, this.icon});
-
+  CustomTextFormField({this.hintText1, this.icon, this.controller});
+  final controller;
   final hintText1;
   final icon;
 
@@ -82,13 +80,13 @@ class _CustomsTextFormFieldState extends State<CustomTextFormField> {
   Widget build(BuildContext context) {
     var hintText1 = widget.hintText1;
     var icon = widget.icon;
-
+    var controller = widget.controller;
     return Padding(
       padding: const EdgeInsets.only(left: 25, right: 25, top: 8, bottom: 8),
       child: GestureDetector(
         onTap: () {},
         child: TextFormField(
-          controller: null,
+          controller: controller,
           decoration: InputDecoration(
             hintText: hintText1,
             hintStyle: TextStyle(color: Colors.grey.shade400),

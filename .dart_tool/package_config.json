@@ -497,7 +497,7 @@
       "name": "table_calendar",
       "rootUri": "file:///D:/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/table_calendar-2.3.3",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.7",
     },
     {
       "name": "term_glyph",
@@ -549,6 +549,7 @@
     }
   ],
   "generated": "2021-06-19T10:38:36.016338Z",
+
   "generator": "pub",
   "generatorVersion": "2.13.0-192.0.dev"
 }
