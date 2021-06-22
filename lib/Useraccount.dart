@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/tabspages/homescreen.dart';
 import 'package:google/treeviewpagecreation/pagescreation/fatherdetails.dart';
 import 'package:google/treeviewpagecreation/pagescreation/professional.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'LoginPage/Mail.dart';
+import 'familytourplan/familytourplan.dart';
 import 'jobportal/job.dart';
 import 'map.dart';
 import 'matrimony1.dart';
@@ -97,7 +99,7 @@ class _AccountPageState extends State<AccountPage> {
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        new HomeScreen()));
+                                        new LandingPage()));
                           },
                         ),
                         Text(
@@ -190,7 +192,7 @@ class _AccountPageState extends State<AccountPage> {
                                 width,
                                 firstText = '3',
                                 secondText = 'Relationships',
-                                tap = FatherDetails()),
+                                tap = FamilyTourPlan()),
                           ],
                         ),
                         Row(

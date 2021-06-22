@@ -1,5 +1,14 @@
+<<<<<<< HEAD
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+=======
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
 import '../Useraccount.dart';
 
 class FamilyTourPlan extends StatefulWidget {
@@ -9,6 +18,74 @@ class FamilyTourPlan extends StatefulWidget {
   _FamilyTourPlanState createState() => _FamilyTourPlanState();
 }
 
+var receiveId;
+var familyId;
+var user_Id;
+
+@override
+void initState() {
+  // ignore: todo
+  // TODO: implement initState
+  initState();
+  saveid();
+}
+
+saveid() async {
+  SharedPreferences get = await SharedPreferences.getInstance();
+  receiveId = get.getStringList('idS');
+  familyId = receiveId[0];
+  user_Id = receiveId[1];
+  print(user_Id);
+  print(familyId);
+  famid.text = familyId;
+  id.text = user_Id;
+}
+
+var tripStart = TextEditingController();
+var tripEnd = TextEditingController();
+var fromStart = TextEditingController();
+var toEnd = TextEditingController();
+var arrivalTime = TextEditingController();
+var totaL = TextEditingController();
+var departure = TextEditingController();
+var famid = TextEditingController();
+var id = TextEditingController();
+late final DateTime selectedDate;
+late final ValueChanged<DateTime> selectDate;
+
+Future _posT(a, b, c, d, e, f, g, k, i) async {
+// print('func');
+
+  //
+
+  final String url =
+      "http://8d4bba7d1b46.ngrok.io/parampara/userpersonal/tourplan";
+
+  final response = await http.post(Uri.parse(url), body: {
+    'id': a,
+    'family_id': b,
+    'tripStartDate': c,
+    'tripEndDate': d,
+    'fromstart': e,
+    'toend': f,
+    'arrivalTime': g,
+    'total': k,
+    "departureTime": i,
+  });
+  print(response);
+  print(response.body);
+  var receivedDetails = json.decode(response.body);
+  print(receivedDetails);
+}
+
+// Future<void> _selectDate(BuildContext context) async {
+//   final DateTime picked = (await showDatePicker(
+//       context: context,
+//       initialDate: selectedDate,
+//       firstDate: new DateTime(1970, 8),
+//       lastDate: new DateTime(2101)))!;
+//   if (picked != null && picked != selectedDate) selectDate(picked);
+// }
 class _FamilyTourPlanState extends State<FamilyTourPlan> {
   var tripStartDate = TextEditingController();
   var tripEndDate = TextEditingController();
@@ -55,6 +132,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
     var sizeHeight = MediaQuery.of(context).size.height;
     var sizeWidth = MediaQuery.of(context).size.width;
     var bottom = kBottomNavigationBarHeight;
+
     return Scaffold(
       backgroundColor: Colors.teal,
       body: Container(
@@ -84,7 +162,11 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>
+<<<<<<< HEAD
+                                        new LandingPage()));
+=======
                                         new AccountPage()));
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
                           },
                         ),
                       ),
@@ -120,6 +202,264 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                 ),
                 height: (sizeHeight - bottom) * 0.85,
                 width: sizeWidth,
+<<<<<<< HEAD
+                child: Form(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: 280,
+                        height: 50,
+                        child: TextFormField(
+                            controller: tripStart,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.date_range),
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                labelText: "   Trip Start Date",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 15,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: 280,
+                        height: 50,
+                        child: TextFormField(
+                            controller: tripEnd,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.date_range),
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "   Trip End Date",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 15,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: 280,
+                        height: 50,
+                        child: TextFormField(
+                            controller: fromStart,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.title),
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "   From place",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 15,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: 280,
+                        height: 50,
+                        child: TextFormField(
+                            controller: toEnd,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.format_list_numbered),
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "   To place",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 15,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: 280,
+                        height: 50,
+                        child: TextFormField(
+                            controller: arrivalTime,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.date_range),
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "Arrival Timing",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 15,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: 280,
+                        height: 50,
+                        child: TextFormField(
+                            controller: departure,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.date_range),
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "Departure Timing",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 15,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: 280,
+                        height: 50,
+                        child: TextFormField(
+                            controller: totaL,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.date_range),
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "Total no of travellers",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 15,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(height: 20),
+                      Container(
+                        height: 45,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: Colors.teal,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(40),
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                final String a = id.text;
+                                final String b = famid.text;
+                                final String c = tripStart.text;
+                                final String d = tripEnd.text;
+                                final String e = fromStart.text;
+                                final String f = toEnd.text;
+                                final String g = arrivalTime.text;
+                                final String k = departure.text;
+                                final String i = totaL.text;
+                                _posT(a, b, c, d, e, f, g, k, i);
+                                saveid();
+                              },
+                              child: Text(
+                                'Post',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            )
+                          ],
+=======
                 child: SingleChildScrollView(
                   child: Form(
                     child: Column(
@@ -300,6 +640,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
+>>>>>>> 4aeb89c139d378ef31d4266065172d45a1ce9ae7
                         ),
                       ],
                     ),

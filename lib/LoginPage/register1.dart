@@ -5,7 +5,6 @@ import 'package:google/LoginPage/reg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:cool_alert/cool_alert.dart';
-
 import 'Alert.dart';
 import 'AlertRegister.dart';
 import 'Mail.dart';
@@ -56,7 +55,7 @@ class _Register1State extends State<Register1> {
     //
 
     final String url =
-        "http://ae53595c09a2.ngrok.io/parampara/new_registration";
+        "http://8d4bba7d1b46.ngrok.io/parampara/new_registration";
     final response = await http.post(Uri.parse(url), body: {
       'user_name': a,
       'email': b,
@@ -70,6 +69,16 @@ class _Register1State extends State<Register1> {
     });
     print(response);
     print(response.body);
+    var receivedDetails = json.decode(response.body);
+    print(receivedDetails);
+
+    var extractedDetail1 = receivedDetails['user'][0]['family_id'].toString();
+    print(extractedDetail1);
+    var extractedDetail2 = receivedDetails['user'][0]['id'].toString();
+    print(extractedDetail2);
+    List<String> stringList = [extractedDetail1, extractedDetail2];
+    SharedPreferences id = await SharedPreferences.getInstance();
+    id.setStringList('idS', stringList);
     // var receivedDetails = json.decode(response.body);
     // print(receivedDetails);
     // // var extractedDetail = receivedDetails.resultsUSERS.profile_image;
