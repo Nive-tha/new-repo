@@ -28,7 +28,7 @@ class _LogState extends State<Log> {
   }
 
   Future<bool> _mockCheckForSession() async {
-    await Future.delayed(Duration(milliseconds: 6000), () {
+    await Future.delayed(Duration(milliseconds: 500), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (BuildContext context) => CustomIndicator()));
     });
@@ -49,7 +49,7 @@ class _LogState extends State<Log> {
                 //   child: Image.asset('assests/images/tree.jpg'),
                 // ),
                 Shimmer.fromColors(
-                    period: Duration(milliseconds: 1500),
+                    period: Duration(milliseconds: 500),
                     baseColor: Colors.white,
                     highlightColor: Colors.white,
                     child: Container(

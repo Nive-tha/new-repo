@@ -44,26 +44,10 @@ class _ImageGalleryState extends State<ImageGallery> {
     return showDialog(
         context: context,
         builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text("Make a Choice!"),
-            content: SingleChildScrollView(
-                child: ListBody(
-              children: <Widget>[
-                GestureDetector(
-                  child: Text("Camera"),
-                  onTap: () {
-                    getcamImage();
-                  },
-                ),
-                // Padding(padding: EdgeInsets.all(8.0)),
-                // GestureDetector(
-                //   child: Text("Gallery"),
-                //   onTap: () {
-                //     getgallaryImage();
-                //   },
-                // ),
-              ],
-            )),
+          return GestureDetector(
+            onTap: () {
+              getcamImage();
+            },
           );
         });
   }

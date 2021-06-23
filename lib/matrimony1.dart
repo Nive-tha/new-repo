@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google/matrimony2.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:select_form_field/select_form_field.dart';
 
 // ignore: must_be_immutable
@@ -86,8 +87,9 @@ class Matrimony1State extends State<Matrimony1> {
               height: sizeHeight * 0.10,
               padding: EdgeInsets.only(left: 5, right: 5),
               child: TextField(
-                enabled: false,
+                // enabled: false,
                 decoration: InputDecoration(
+                  // enabled: false,
                   hintText: "Matrimony",
                   hintStyle: TextStyle(
                     color: Colors.teal,
@@ -96,10 +98,18 @@ class Matrimony1State extends State<Matrimony1> {
                   ),
                   fillColor: Colors.white,
                   filled: true,
-                  prefixIcon: Icon(
-                    Icons.arrow_back_ios_outlined,
-                    color: Colors.teal,
-                    size: 35,
+                  prefixIcon: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios_outlined,
+                      color: Colors.teal,
+                      size: 35,
+                    ),
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(30)),
