@@ -20,7 +20,7 @@ class _PersonalState extends State<Personal> {
             child: Container(
               height: 75,
               width: 75,
-              child: Image.asset('images/wedding.png'),
+              child: Image.asset('assets/image.png'),
               decoration: BoxDecoration(
                 color: Colors.teal.shade50,
               ),
