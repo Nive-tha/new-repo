@@ -9,6 +9,7 @@ import 'package:cool_alert/cool_alert.dart';
 import 'Alert.dart';
 import 'AlertRegister.dart';
 import 'Mail.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 // ignore: must_be_immutable
 class Register1 extends StatefulWidget {
@@ -49,6 +50,15 @@ class _Register1State extends State<Register1> {
   var google = TextEditingController();
   var facebook = TextEditingController();
   var Url = TextEditingController();
+  void showToast() {
+    Fluttertoast.showToast(
+        msg: 'Registration Successfully',
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.teal,
+        textColor: Colors.white);
+  }
 
   Future _read(a, b, c, d, g, e, f, k, i, j) async {
 // print('func');
@@ -56,7 +66,7 @@ class _Register1State extends State<Register1> {
     //
 
     final String url =
-        "http://ee5c9ba4d395.ngrok.io/parampara/new_registration";
+        "http://bdb62dc1e609.ngrok.io/parampara/new_registration";
     final response = await http.post(Uri.parse(url), body: {
       'user_name': a,
       'email': b,
@@ -70,6 +80,16 @@ class _Register1State extends State<Register1> {
     });
     print(response);
     print(response.body);
+    var receivedDetails = json.decode(response.body);
+    print(receivedDetails);
+    var extractedDetail = receivedDetails['user'][0]['family_id'].toString();
+    print(extractedDetail);
+    var extractedDetail1 = receivedDetails['user'][0]['id'].toString();
+    print(extractedDetail1);
+    List<String> stringList = [extractedDetail1, extractedDetail];
+
+    SharedPreferences prefer = await SharedPreferences.getInstance();
+    await prefer.setStringList('idS', stringList);
     // var receivedDetails = json.decode(response.body);
     // print(receivedDetails);
     // // var extractedDetail = receivedDetails.resultsUSERS.profile_image;
@@ -90,6 +110,7 @@ class _Register1State extends State<Register1> {
     // print(response);
 
     if (response.statusCode == 200) {
+      showToast();
       print(a);
       SharedPreferences sent = await SharedPreferences.getInstance();
 

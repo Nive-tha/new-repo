@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/jobportal/jobpostingrequest.dart';
 import 'package:google/jobportal/jobsearch.dart';
 
@@ -38,10 +39,20 @@ class _JobState extends State<Job> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 18.0),
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          size: 20,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                          ),
+                          iconSize: 20,
                           color: Colors.teal,
+                          splashColor: Colors.tealAccent,
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        new LandingPage()));
+                          },
                         ),
                       ),
                       SizedBox(
@@ -69,7 +80,7 @@ class _JobState extends State<Job> {
                   ),
                   color: Colors.white,
                   image: DecorationImage(
-                      image: AssetImage('assets/wedding.png'),
+                      image: AssetImage('assets/Jobpost.jpeg'),
                       fit: BoxFit.cover)),
               child: Column(
                 children: [
@@ -110,7 +121,7 @@ class _JobState extends State<Job> {
                                 top: 10, bottom: 10, left: 15),
                             child: Row(
                               children: [
-                                Image.asset('assets/wedding.png'),
+                                Image.asset('assets/jobbb.jpeg'),
                                 SizedBox(width: 30),
                                 Text(
                                   'Job Search',
@@ -177,7 +188,7 @@ class _JobState extends State<Job> {
                                   ),
                                 ),
                                 SizedBox(width: 50),
-                                Image.asset('assets/wedding.png'),
+                                Image.asset('assets/jobb.jpeg'),
                               ],
                             ),
                           ),
@@ -188,18 +199,18 @@ class _JobState extends State<Job> {
                 ],
               ),
             ),
-            BottomNavigationBar(
-              items: [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.arrow_back),
-                  label: "home",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.arrow_back),
-                  label: "home",
-                ),
-              ],
-            ),
+            // BottomNavigationBar(
+            //   items: [
+            //     BottomNavigationBarItem(
+            //       icon: Icon(Icons.arrow_back),
+            //       label: "home",
+            //     ),
+            //     BottomNavigationBarItem(
+            //       icon: Icon(Icons.arrow_back),
+            //       label: "home",
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),

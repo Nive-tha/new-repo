@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImageGallery extends StatefulWidget {
@@ -40,22 +42,39 @@ class _ImageGalleryState extends State<ImageGallery> {
     Navigator.of(context).pop();
   }
 
-  Future<void> _showChoiceDialog(BuildContext context) {
-    return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return GestureDetector(
-            onTap: () {
-              getcamImage();
-            },
-          );
-        });
-  }
+  // Future<void> _showChoiceDialog(BuildContext context) {
+  // return showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         title: Text("Make a Choice!"),
+  //         content: SingleChildScrollView(
+  //             child: ListBody(
+  //           children: <Widget>[
+  //             GestureDetector(
+  //               child: Text("Camera"),
+  //               onTap: () {
+  //                 getcamImage();
+  //               },
+  //             ),
+  //             // Padding(padding: EdgeInsets.all(8.0)),
+  //             // GestureDetector(
+  //             //   child: Text("Gallery"),
+  //             //   onTap: () {
+  //             //     getgallaryImage();
+  //             //   },
+  //             // ),
+  //           ],
+  //         )),
+  //       );
+  //     });
+  // }
 
   @override
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
     var sizeWidth = MediaQuery.of(context).size.width;
+    var bottom = kBottomNavigationBarHeight;
     var floatingActionButton;
     return Scaffold(
       backgroundColor: Colors.teal,
@@ -63,31 +82,48 @@ class _ImageGalleryState extends State<ImageGallery> {
         child: Column(
           children: [
             Container(
-              height: sizeHeight * 0.07,
-            ),
-            Expanded(
-              child: Container(
-                height: sizeHeight * 0.10,
-                // padding: EdgeInsets.only(left: 5, right: 5),
-                child: TextField(
-                  decoration: InputDecoration(
-                    enabled: false,
-                    hintText: "Image Gallery",
-                    hintStyle: TextStyle(
-                      color: Colors.teal,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    fillColor: Colors.white,
-                    filled: true,
-                    prefixIcon: Icon(
-                      Icons.arrow_back_ios_outlined,
-                      color: Colors.teal,
-                      size: 35,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                    ),
+              height: ((sizeHeight - bottom) * 0.15),
+              width: sizeWidth,
+              child: Center(
+                child: Container(
+                  height: ((sizeHeight - bottom) * 0.15) * 0.5,
+                  width: sizeWidth,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(40),
+                      ),
+                      color: Colors.white),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 18.0),
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                          ),
+                          iconSize: 20,
+                          color: Colors.teal,
+                          splashColor: Colors.tealAccent,
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        new HomeScreen()));
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        'Image Gallery',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.teal),
+                      )
+                    ],
                   ),
                 ),
               ),
@@ -171,9 +207,9 @@ class _ImageGalleryState extends State<ImageGallery> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(3.0),
-                        child: FlatButton(
-                          onPressed: () async {
-                            _showChoiceDialog(context);
+                        child: InkWell(
+                          onTap: () {
+                            getcamImage();
                           },
                           child: Icon(
                             Icons.camera_alt,
@@ -187,8 +223,8 @@ class _ImageGalleryState extends State<ImageGallery> {
                             ? Text('No image selected.')
                             : Image.file(
                                 _image!,
-                                height: 200,
-                                width: 200,
+                                height: 50,
+                                width: 50,
                               ),
                       ),
                       //     floatingActionButton:FloatingActionButton(

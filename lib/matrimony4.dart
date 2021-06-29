@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google/matrimony1.dart';
+import 'package:google/matrimony3.dart';
 import 'package:select_form_field/select_form_field.dart';
 
 // ignore: must_be_immutable
@@ -55,6 +57,7 @@ class Matrimony4State extends State<Matrimony4> {
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
     var sizeWidth = MediaQuery.of(context).size.width;
+    var bottom = kBottomNavigationBarHeight;
     // var sizeOrientation = MediaQuery.of(context).orientation;
     // print(sizeOrientation);
     return Scaffold(
@@ -63,31 +66,48 @@ class Matrimony4State extends State<Matrimony4> {
         child: Column(
           children: [
             Container(
-              height: sizeHeight * 0.07,
-              // width: sizeWidth,
-              // padding: EdgeInsets.only(top: 40, left: 15, right: 18),
-            ),
-            Container(
-              height: sizeHeight * 0.10,
-              padding: EdgeInsets.only(left: 5, right: 5),
-              child: TextField(
-                enabled: false,
-                decoration: InputDecoration(
-                  hintText: "Matrimony",
-                  hintStyle: TextStyle(
-                    color: Colors.teal,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  fillColor: Colors.white,
-                  filled: true,
-                  prefixIcon: Icon(
-                    Icons.arrow_back_ios_outlined,
-                    color: Colors.teal,
-                    size: 35,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(30)),
+              height: ((sizeHeight - bottom) * 0.15),
+              width: sizeWidth,
+              child: Center(
+                child: Container(
+                  height: ((sizeHeight - bottom) * 0.15) * 0.5,
+                  width: sizeWidth,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(40),
+                      ),
+                      color: Colors.white),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 18.0),
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                          ),
+                          iconSize: 20,
+                          color: Colors.teal,
+                          splashColor: Colors.tealAccent,
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        Matrimony3()));
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        'Matrimony',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.teal),
+                      )
+                    ],
                   ),
                 ),
               ),
@@ -260,6 +280,32 @@ class Matrimony4State extends State<Matrimony4> {
                             color: Colors.teal,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 10),
+                      Container(
+                        height: 45,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.teal,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(40),
+                          ),
+                        ),
+                        child: Center(
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          new Matrimony1()));
+                            },
+                            child: Text(
+                              'Submit',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
                       ),
                       // GridView.count(
                       //   crossAxisCount: 2,

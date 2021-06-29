@@ -39,11 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
 //
   save() async {
     SharedPreferences get = await SharedPreferences.getInstance();
-    receiverPic = get.getString('pic');
-    print(receiverPic);
+    receiverPic = get.getStringList('pic');
+    print(receiverPic[0]);
 
     setState(() {
-      nive = receiverPic;
+      nive = receiverPic[0];
     });
     print(receiverFromRegister1);
     print(nive1);

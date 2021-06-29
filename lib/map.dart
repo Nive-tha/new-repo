@@ -40,7 +40,7 @@ class MyLocationState extends State {
   map() async {
     // print(position.latitude);
     // print(313);
-    String url = 'http://ee5c9ba4d395.ngrok.io/parampara/location';
+    String url = 'http://71026514a79e.ngrok.io/parampara/location';
     final response = await http.post(Uri.parse(url), body: {
       "id": _id.toString(),
       "latitude": latitudeSet.toString(),

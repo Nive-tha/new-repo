@@ -1,7 +1,17 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:google/EventList.dart';
+import 'package:google/jobportal/job.dart';
 import 'package:google/matrimony1.dart';
 import 'package:google/matrimony2.dart';
 import 'package:google/matrimony3.dart';
+import 'package:google/treeviewpagecreation/pagescreation/fatherdetails.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'LoginPage/Landingpage.dart';
+import 'LoginPage/Mail.dart';
+import 'events/events.dart';
+import 'map.dart';
+import 'package:http/http.dart' as http;
 // import 'package:hometabview/check1.dart';
 
 class Check1 extends StatefulWidget {
@@ -16,6 +26,104 @@ class Check1State extends State<Check1> {
   var email;
   var icon;
   var text;
+  var receive;
+  var name;
+  var mail;
+  var onTap;
+  var receiveId;
+  var fam_id;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    save();
+    _read();
+  }
+
+  _read() async {
+// print('func');
+
+    SharedPreferences prefer = await SharedPreferences.getInstance();
+    receiveId = prefer.getStringList('idS');
+    fam_id = receiveId[1].toString();
+
+    print(receiveId[1]);
+
+    final String url =
+        "http://bdb62dc1e609.ngrok.io/parampara/userpersonal/getevents";
+    final response =
+        await http.post(Uri.parse(url), body: {'family_id': fam_id});
+    print(response);
+    print(response.body);
+    var receivedDetails = json.decode(response.body);
+    print(receivedDetails);
+    // var extractedDetail = receivedDetails['status_code'];
+    // print(extractedDetail);
+
+    var extractedDetail = receivedDetails['result'][0]['user_name'];
+
+    print(extractedDetail);
+    for (int i = 0; i < extractedDetail.length; i++) {
+      var item = i;
+      print(item);
+    }
+    var extractedDetail1 = receivedDetails['result'][0]['place'];
+    print(extractedDetail1);
+    var extractedDetail2 = receivedDetails['result'][0]['event_name'];
+    print(extractedDetail2);
+    var extractedDetail3 = receivedDetails['result'][0]['event_date'];
+    print(extractedDetail3);
+    var extractedDetail4 = receivedDetails['result'][0]['event_time'];
+    print(extractedDetail4);
+    var extractedDetai = receivedDetails['result'][0]['user_name'];
+    print(extractedDetai);
+    var extractedDetai1 = receivedDetails['result'][1]['place'];
+    print(extractedDetai1);
+    var extractedDetai2 = receivedDetails['result'][1]['event_name'];
+    print(extractedDetai2);
+    var extractedDetai3 = receivedDetails['result'][1]['event_date'];
+    print(extractedDetai3);
+    var extractedDetai4 = receivedDetails['result'][1]['event_time'];
+    print(extractedDetai4);
+    var extracted = receivedDetails['result'].length;
+    print(extracted);
+    List<String> stringList = [
+      extractedDetail,
+      extractedDetail1,
+      extractedDetail2,
+      extractedDetail3,
+      extractedDetail4,
+      extractedDetai,
+      extractedDetai1,
+      extractedDetai2,
+      extractedDetai3,
+      extractedDetai4
+    ];
+
+    SharedPreferences pre = await SharedPreferences.getInstance();
+    await pre.setStringList('event', stringList);
+  }
+
+  save() async {
+    SharedPreferences get = await SharedPreferences.getInstance();
+    receive = get.getStringList('pic');
+    print(receive[0]);
+    print(receive[1]);
+
+    setState(() {
+      name = receive[0];
+      mail = receive[1];
+    });
+  }
+
+  logOut() async {
+    SharedPreferences get = await SharedPreferences.getInstance();
+    get.clear();
+    get.remove('pic');
+    Navigator.pushReplacement(context,
+        new MaterialPageRoute(builder: (BuildContext context) => new Mail()));
+  }
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -45,9 +153,20 @@ class Check1State extends State<Check1> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(
-                          Icons.arrow_back_ios,
+                        IconButton(
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                          ),
+                          iconSize: 20,
                           color: Colors.teal,
+                          splashColor: Colors.tealAccent,
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        new LandingPage()));
+                          },
                         ),
                         Text(
                           'Account',
@@ -81,7 +200,7 @@ class Check1State extends State<Check1> {
                       child: Row(
                         children: [
                           CircleAvatar(
-                            backgroundColor: Colors.red,
+                            backgroundColor: Colors.teal,
                             radius: 35,
                           ),
                           SizedBox(
@@ -94,7 +213,7 @@ class Check1State extends State<Check1> {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  'James',
+                                  '$name',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.teal,
@@ -105,7 +224,7 @@ class Check1State extends State<Check1> {
                                 height: 5,
                               ),
                               Text(
-                                'James Bond Family',
+                                '$name' 'Bond Family',
                                 style:
                                     TextStyle(fontSize: 12, color: Colors.teal),
                               ),
@@ -126,21 +245,29 @@ class Check1State extends State<Check1> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            cardContainer(height, width, firstText = '2',
-                                secondText = 'Family names', tap = Check1()),
+                            cardContainer(
+                                height,
+                                width,
+                                firstText = '2',
+                                secondText = 'Family names',
+                                tap = FatherDetails()),
                             cardContainer(height, width, firstText = '1',
-                                secondText = 'Locations', tap = Check1()),
-                            cardContainer(height, width, firstText = '3',
-                                secondText = 'Relationships', tap = Check1()),
+                                secondText = 'Locations', tap = MyLocation),
+                            cardContainer(
+                                height,
+                                width,
+                                firstText = '3',
+                                secondText = 'Relationships',
+                                tap = FatherDetails()),
                           ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             cardContainer(height, width, firstText = '1',
-                                secondText = 'Occupations', tap = Matrimony3()),
+                                secondText = 'Occupations', tap = Job()),
                             cardContainer(height, width, firstText = '0',
-                                secondText = 'Events', tap = Matrimony2()),
+                                secondText = 'Events', tap = Eventlist()),
                             cardContainer(height, width, firstText = '0',
                                 secondText = 'Matrimony', tap = Matrimony1()),
                           ],
@@ -154,20 +281,22 @@ class Check1State extends State<Check1> {
                     color: Colors.white,
                     child: Column(
                       children: [
-                        containerRowPadding(
-                            height,
-                            width,
-                            text = 'jamesbondfamily152@gmail.com',
-                            icon = Icons.message),
+                        containerRowPadding(height, width, text = '$mail',
+                            icon = Icons.message, onTap = null),
                         containerRowPadding(
                             height,
                             width,
                             text = 'invitations List',
-                            icon = Icons.insert_invitation),
-                        containerRowPadding(height, width,
-                            text = 'Change Password', icon = Icons.lock),
+                            icon = Icons.insert_invitation,
+                            onTap = null),
+                        containerRowPadding(
+                            height,
+                            width,
+                            text = 'Change Password',
+                            icon = Icons.lock,
+                            onTap = null),
                         containerRowPadding(height, width, text = 'Logout',
-                            icon = Icons.logout),
+                            icon = Icons.logout, onTap = logOut),
                       ],
                     ),
                   ),
@@ -180,27 +309,30 @@ class Check1State extends State<Check1> {
     );
   }
 
-  Widget containerRowPadding(double height, double width, text, icon) {
+  Widget containerRowPadding(double height, double width, text, icon, onTap) {
     return Padding(
       padding: const EdgeInsets.only(top: 5, bottom: 5),
       child: Row(
         children: [
-          Container(
-            height: (height * 0.24) * 0.19,
-            width: width * 0.2,
-            decoration: BoxDecoration(
-              color: Colors.teal,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(15),
-                bottomRight: Radius.circular(15),
+          InkWell(
+            onTap: onTap,
+            child: Container(
+              height: (height * 0.24) * 0.19,
+              width: width * 0.2,
+              decoration: BoxDecoration(
+                color: Colors.teal,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 18.0),
-              child: Icon(
-                icon,
-                size: 25,
-                color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 18.0),
+                child: Icon(
+                  icon,
+                  size: 25,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

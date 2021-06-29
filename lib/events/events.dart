@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Events extends StatefulWidget {
   @override
@@ -10,7 +12,14 @@ class Events extends StatefulWidget {
 class _EventsState extends State<Events> {
   var postingDate = TextEditingController();
   var postingEndDate = TextEditingController();
-  Future datePickingStart() async {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  datePickingStart() async {
     var today = DateTime.now();
     print(today);
     var date = await showDatePicker(
@@ -29,7 +38,7 @@ class _EventsState extends State<Events> {
     }
   }
 
-  Future datePickingEnd() async {
+  datePickingEnd() async {
     var today = DateTime.now();
     print(today);
     var date = await showDatePicker(
@@ -76,10 +85,20 @@ class _EventsState extends State<Events> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 18.0),
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          size: 20,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                          ),
+                          iconSize: 20,
                           color: Colors.teal,
+                          splashColor: Colors.tealAccent,
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        new LandingPage()));
+                          },
                         ),
                       ),
                       SizedBox(
@@ -351,7 +370,26 @@ class _EventsState extends State<Events> {
                                   // fontWeight: FontWeight.bold,
                                 ))),
                       ),
-                    )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 45,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.teal,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(40),
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Post',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
                   ])))))
         ])));
   }

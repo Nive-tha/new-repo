@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:select_form_field/select_form_field.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 class JobSearch extends StatefulWidget {
   @override
@@ -8,6 +11,28 @@ class JobSearch extends StatefulWidget {
 }
 
 class _JobSearchState extends State<JobSearch> {
+  var fam_id = TextEditingController();
+  var search = TextEditingController();
+  var receiveId;
+
+  Future _read(a, b) async {
+// print('func');
+
+    //
+    SharedPreferences prefer = await SharedPreferences.getInstance();
+    receiveId = prefer.getStringList('idS');
+    fam_id.text = receiveId[1];
+
+    print(receiveId[0]);
+    print(receiveId[1]);
+    final String url =
+        "http://192.168.1.23:3300/parampara/userpersonal/jobportal/searchdata";
+    final response =
+        await http.post(Uri.parse(url), body: {'family_id': a, 'search': b});
+    print(response);
+    print(response.body);
+  }
+
   final List<Map<String, dynamic>> _items = [
     {
       'value': 'Male',
@@ -64,10 +89,20 @@ class _JobSearchState extends State<JobSearch> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 18.0),
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            size: 20,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                            ),
+                            iconSize: 20,
                             color: Colors.teal,
+                            splashColor: Colors.tealAccent,
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          new LandingPage()));
+                            },
                           ),
                         ),
                         SizedBox(
@@ -95,8 +130,9 @@ class _JobSearchState extends State<JobSearch> {
                   topRight: Radius.circular(30),
                 ),
                 color: Colors.white,
-                // image: DecorationImage(
-                //     image: AssetImage('images/wedding.png'), fit: BoxFit.cover),
+                image: DecorationImage(
+                    image: AssetImage('assets/Joppost.jpeg'),
+                    fit: BoxFit.cover),
               ),
               child: Column(
                 children: [
@@ -142,12 +178,25 @@ class _JobSearchState extends State<JobSearch> {
                               ),
                             ),
                             child: TextFormField(
+                              controller: search,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.search,
-                                  size: 35,
-                                  color: Colors.teal,
+                                prefixIcon: InkWell(
+                                  child: Icon(
+                                    Icons.search,
+                                    size: 35,
+                                    color: Colors.teal,
+                                  ),
+                                  onTap: () async {
+                                    SharedPreferences prefer =
+                                        await SharedPreferences.getInstance();
+                                    receiveId = prefer.getStringList('idS');
+                                    fam_id.text = receiveId[1];
+                                    print(fam_id);
+                                    final String a = fam_id.text;
+                                    final String b = search.text;
+                                    _read(a, b);
+                                  },
                                 ),
                                 hintText: "Search your best jobs",
                                 hintStyle:
@@ -228,20 +277,20 @@ class _JobSearchState extends State<JobSearch> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.teal,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: "people",
-          ),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   backgroundColor: Colors.teal,
+      //   type: BottomNavigationBarType.fixed,
+      //   items: [
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.home),
+      //       label: "home",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.people),
+      //       label: "people",
+      //     ),
+      //   ],
+      // ),
     );
   }
 

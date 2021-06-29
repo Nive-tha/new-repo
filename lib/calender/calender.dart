@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -54,10 +55,20 @@ class _CalenderPracticeState extends State<CalenderPractice> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 18.0),
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            size: 20,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                            ),
+                            iconSize: 20,
                             color: Colors.teal,
+                            splashColor: Colors.tealAccent,
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          new LandingPage()));
+                            },
                           ),
                         ),
                         SizedBox(
@@ -94,7 +105,7 @@ class _CalenderPracticeState extends State<CalenderPractice> {
                       height: (((height - bottom) * 0.85) * 0.30) - 8,
                       width: width,
                       padding: EdgeInsets.only(left: 10, right: 10),
-                      child: Image.asset('images/wedding.png'),
+                      child: Image.asset('assets/Calender.jpeg'),
                     ),
                   ),
                   Container(
@@ -104,105 +115,109 @@ class _CalenderPracticeState extends State<CalenderPractice> {
                       left: 10,
                       right: 10,
                     ),
-                    child: TableCalendar(
-                      rowHeight: 40,
-                      daysOfWeekHeight: 20,
-                      daysOfWeekStyle: DaysOfWeekStyle(
-                        weekdayStyle: TextStyle(fontSize: 12),
-                        weekendStyle: TextStyle(fontSize: 12),
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 150),
+                      child: TableCalendar(
+                        rowHeight: 40,
+                        daysOfWeekHeight: 20,
+                        daysOfWeekStyle: DaysOfWeekStyle(
+                          weekdayStyle: TextStyle(fontSize: 12),
+                          weekendStyle: TextStyle(fontSize: 12),
+                        ),
+                        focusedDay: fNowDay,
+                        firstDay: DateTime(2016),
+                        lastDay: DateTime(2022),
+                        calendarFormat: format,
+                        onFormatChanged: (formatChanged) {
+                          setState(() {
+                            format = formatChanged;
+                          });
+                        },
+                        startingDayOfWeek: StartingDayOfWeek.sunday,
+                        daysOfWeekVisible: true,
+                        onDaySelected: (selectDay, focusDay) {
+                          setState(() {
+                            selectedDay = selectDay;
+                            fNowDay = focusDay;
+                            rangeStart = null;
+                            rangeEnd = null;
+                            rangeSelectionMode = RangeSelectionMode.toggledOff;
+                          });
+                        },
+                        selectedDayPredicate: (date) {
+                          return isSameDay(selectedDay, date);
+                        },
+                        calendarStyle: CalendarStyle(
+                          isTodayHighlighted: true,
+                          selectedDecoration: BoxDecoration(
+                            color: Colors.teal,
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(35),
+                          ),
+                          selectedTextStyle: TextStyle(color: Colors.white),
+                          todayDecoration: BoxDecoration(
+                            color: Colors.teal,
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(35),
+                          ),
+                          defaultDecoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(35),
+                          ),
+                          weekendDecoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(35),
+                          ),
+                          rangeStartDecoration: BoxDecoration(
+                            color: Colors.teal,
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(35),
+                          ),
+                          rangeEndDecoration: BoxDecoration(
+                            color: Colors.teal,
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(35),
+                          ),
+                        ),
+                        headerStyle: HeaderStyle(
+                          formatButtonVisible: true,
+                          titleCentered: true,
+                          formatButtonShowsNext: true,
+                          formatButtonDecoration: BoxDecoration(
+                            color: Colors.teal,
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          formatButtonTextStyle: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        rangeSelectionMode: rangeSelectionMode,
+                        rangeStartDay: rangeStart,
+                        rangeEndDay: rangeEnd,
+                        onRangeSelected: (first, end, focusDay) {
+                          print(first);
+                          print(end);
+                          print(focusDay);
+                          setState(() {
+                            selectedDay = null;
+                            fNowDay = focusDay;
+                            rangeStart = first;
+                            rangeEnd = end;
+                            rangeSelectionMode = RangeSelectionMode.toggledOn;
+                            print(selectedDay);
+                            print(fNowDay);
+                            print(rangeStart);
+                            print(rangeEnd);
+                            print(rangeSelectionMode);
+                          });
+                        },
+                        onPageChanged: (focusDay) {
+                          setState(() {
+                            fNowDay = focusDay;
+                          });
+                        },
+                        headerVisible: true,
                       ),
-                      focusedDay: fNowDay,
-                      firstDay: DateTime(2016),
-                      lastDay: DateTime(2022),
-                      calendarFormat: format,
-                      onFormatChanged: (formatChanged) {
-                        setState(() {
-                          format = formatChanged;
-                        });
-                      },
-                      startingDayOfWeek: StartingDayOfWeek.sunday,
-                      daysOfWeekVisible: true,
-                      onDaySelected: (selectDay, focusDay) {
-                        setState(() {
-                          selectedDay = selectDay;
-                          fNowDay = focusDay;
-                          rangeStart = null;
-                          rangeEnd = null;
-                          rangeSelectionMode = RangeSelectionMode.toggledOff;
-                        });
-                      },
-                      selectedDayPredicate: (date) {
-                        return isSameDay(selectedDay, date);
-                      },
-                      calendarStyle: CalendarStyle(
-                        isTodayHighlighted: true,
-                        selectedDecoration: BoxDecoration(
-                          color: Colors.blue,
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        selectedTextStyle: TextStyle(color: Colors.white),
-                        todayDecoration: BoxDecoration(
-                          color: Colors.greenAccent,
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        defaultDecoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        weekendDecoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        rangeStartDecoration: BoxDecoration(
-                          color: Colors.green,
-                          shape: BoxShape.circle,
-                        ),
-                        rangeEndDecoration: BoxDecoration(
-                          color: Colors.green,
-                          shape: BoxShape.circle,
-                          // borderRadius: BorderRadius.circular(5),
-                        ),
-                      ),
-                      headerStyle: HeaderStyle(
-                        formatButtonVisible: true,
-                        titleCentered: true,
-                        formatButtonShowsNext: false,
-                        formatButtonDecoration: BoxDecoration(
-                          color: Colors.purple,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        formatButtonTextStyle: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      rangeSelectionMode: rangeSelectionMode,
-                      rangeStartDay: rangeStart,
-                      rangeEndDay: rangeEnd,
-                      onRangeSelected: (first, end, focusDay) {
-                        print(first);
-                        print(end);
-                        print(focusDay);
-                        setState(() {
-                          selectedDay = null;
-                          fNowDay = focusDay;
-                          rangeStart = first;
-                          rangeEnd = end;
-                          rangeSelectionMode = RangeSelectionMode.toggledOn;
-                          print(selectedDay);
-                          print(fNowDay);
-                          print(rangeStart);
-                          print(rangeEnd);
-                          print(rangeSelectionMode);
-                        });
-                      },
-                      onPageChanged: (focusDay) {
-                        setState(() {
-                          fNowDay = focusDay;
-                        });
-                      },
-                      headerVisible: false,
                     ),
                   ),
                   Container(
@@ -229,7 +244,7 @@ class _CalenderPracticeState extends State<CalenderPractice> {
                         children: [
                           Row(
                             children: [
-                              Image.asset('images/wedding.png'),
+                              Image.asset('assets/shivangi.jpg'),
                               SizedBox(width: 20),
                               Column(
                                 children: [

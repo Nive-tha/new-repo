@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/treeviewpagecreation/pagescreation/initialpage.dart';
 
 class TreeView extends StatefulWidget {
@@ -45,9 +46,20 @@ class _TreeViewState extends State<TreeView> {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.arrow_back_ios_outlined),
-                          SizedBox(
-                            width: 5,
+                          IconButton(
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                            ),
+                            iconSize: 20,
+                            color: Colors.teal,
+                            splashColor: Colors.tealAccent,
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          new LandingPage()));
+                            },
                           ),
                           Text(
                             'Family Tree',

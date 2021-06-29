@@ -55,6 +55,11 @@ class _MailState extends State<Mail> {
   var details;
   var profileData;
   var facebookLogin = FacebookLogin();
+  var storeEmail;
+  var mail;
+  var googleMail;
+  var faceBookMail;
+  var mailStore;
 
   void onLoginStatusChanged(bool isLoggedIn, {profileData}) {
     setState(() {
@@ -118,12 +123,15 @@ class _MailState extends State<Mail> {
       print(storeEmailUsername);
       print(117);
       // mailPic = abc;
+      mail = storeEmail;
       mailName = storeEmailUsername;
     } else if (this.profileData == null && storeEmailUsername == null) {
       // googlePic = this.users.photoURL!;
+      googleMail = this.users.email;
       googleName = this.users.displayName;
     } else if (this.users == null && storeEmailUsername == null) {
       // faceBookpic = this.profileData['picture']['data']['url'];
+      faceBookMail = this.profile['email'];
       faceBookName = this.profileData['name'];
     } else {
       print(119);
@@ -132,22 +140,27 @@ class _MailState extends State<Mail> {
       print(mailPic);
       print(134);
       // picStore = mailPic;
+      mailStore = mail;
       nameStore = mailName;
     } else if (googleName == null && mailName == null) {
       // picStore = faceBookpic;
+      mailStore = faceBookMail;
       nameStore = faceBookName;
     } else if (storeEmailUsername == null && faceBookName == null) {
       // picStore = googlePic;
+      mailStore = googleMail;
       nameStore = googleName;
     } else {
       print(131);
     }
 
-    storing.setString('pic', nameStore);
+    List<String> stringList = [nameStore, mailStore];
+
+    storing.setStringList('pic', stringList);
   }
 
   _apiFace() async {
-    final String url = "http://ee5c9ba4d395.ngrok.io/exists/facebook";
+    final String url = "http://bdb62dc1e609.ngrok.io/exists/facebook";
 
     final response =
         await http.post(Uri.parse(url), body: {'face_book': this.detail['id']});
@@ -158,6 +171,15 @@ class _MailState extends State<Mail> {
     print(receivedDetails);
     var extractedDetail = receivedDetails['status_code'];
     print(extractedDetail);
+    var extractedDetail2 =
+        receivedDetails['results'][0]['family_id'].toString();
+    print(extractedDetail);
+    var extractedDetail1 = receivedDetails['results'][0]['id'].toString();
+    print(extractedDetail1);
+    List<String> stringList = [extractedDetail1, extractedDetail2];
+
+    SharedPreferences prefer = await SharedPreferences.getInstance();
+    await prefer.setStringList('idS', stringList);
     print("line no 10");
     print(response.body);
     storingProfilePicture();
@@ -181,7 +203,7 @@ class _MailState extends State<Mail> {
   }
 
   _api1() async {
-    final String url = "http://ee5c9ba4d395.ngrok.io/exists/google";
+    final String url = "http://bdb62dc1e609.ngrok.io/exists/google";
     final response =
         await http.post(Uri.parse(url), body: {'google_id': this.users.uid});
 
@@ -190,7 +212,15 @@ class _MailState extends State<Mail> {
     var receivedDetails = json.decode(response.body);
     print(receivedDetails);
     var extractedDetail = receivedDetails['status_code'];
-    print(extractedDetail);
+    var extractedDetail2 =
+        receivedDetails['results'][0]['family_id'].toString();
+    print(extractedDetail2);
+    var extractedDetail1 = receivedDetails['results'][0]['id'].toString();
+    print(extractedDetail1);
+    List<String> stringList = [extractedDetail1, extractedDetail2];
+
+    SharedPreferences prefer = await SharedPreferences.getInstance();
+    await prefer.setStringList('idS', stringList);
     print("line no 10");
     print(response.body);
     storingProfilePicture();
@@ -220,6 +250,8 @@ class _MailState extends State<Mail> {
     await prefer.setStringList('a', stringList);
     storeEmailUsername = text1;
     print(storeEmailUsername);
+    storeEmail = text2;
+    print(storeEmail);
     print(235);
     storingProfilePicture();
   }
@@ -249,10 +281,18 @@ class _MailState extends State<Mail> {
   }
 
   Future loginUser(String email, String pass) async {
-    String url = 'http://ee5c9ba4d395.ngrok.io/user_login';
+    String url = 'http://bdb62dc1e609.ngrok.io/user_login';
     final response =
         await http.post(Uri.parse(url), body: {'email': email, 'pass': pass});
     var convertedDatatoJson = jsonDecode(response.body);
+    var decode = convertedDatatoJson['User'][0]['id'].toString();
+    var decode1 = convertedDatatoJson['User'][0]['family_id'].toString();
+    print(decode);
+    print(decode1);
+    List<String> stringList = [decode, decode1];
+
+    SharedPreferences prefer = await SharedPreferences.getInstance();
+    await prefer.setStringList('idS', stringList);
     return convertedDatatoJson;
   }
 

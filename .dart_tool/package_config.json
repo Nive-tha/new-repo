@@ -212,6 +212,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "fluttertoast",
+      "rootUri": "file:///D:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "geocoder",
       "rootUri": "file:///D:/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/geocoder-0.2.1",
       "packageUri": "lib/",
@@ -620,7 +626,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-06-22T10:12:39.780382Z",
+  "generated": "2021-06-29T06:43:56.508388Z",
   "generator": "pub",
   "generatorVersion": "2.12.2"
 }

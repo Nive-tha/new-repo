@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:select_form_field/select_form_field.dart';
 
 class CalendarSecondPage extends StatefulWidget {
@@ -58,10 +59,20 @@ class _CalendarSecondPageState extends State<CalendarSecondPage> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 18.0),
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            size: 20,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                            ),
+                            iconSize: 20,
                             color: Colors.teal,
+                            splashColor: Colors.tealAccent,
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          new LandingPage()));
+                            },
                           ),
                         ),
                         SizedBox(

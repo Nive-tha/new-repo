@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../treeview.dart';
 import 'personal.dart';
 
 class FatherDetails extends StatefulWidget {
@@ -39,10 +40,20 @@ class _FatherDetailsState extends State<FatherDetails> {
                       Container(
                         child: Padding(
                           padding: const EdgeInsets.only(left: 9.0),
-                          child: Icon(
-                            Icons.arrow_back_ios,
-                            size: 20,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                            ),
+                            iconSize: 20,
                             color: Colors.teal,
+                            splashColor: Colors.tealAccent,
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          new TreeView()));
+                            },
                           ),
                         ),
                       ),

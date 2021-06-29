@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google/LoginPage/Landingpage.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 class JobPostingRequest extends StatefulWidget {
   @override
@@ -8,8 +11,44 @@ class JobPostingRequest extends StatefulWidget {
 }
 
 class _JobPostingRequestState extends State<JobPostingRequest> {
+  var name = TextEditingController();
+  var companyname = TextEditingController();
+  var noofposition = TextEditingController();
+  var desc = TextEditingController();
+  var positiontitle = TextEditingController();
   var postingDate = TextEditingController();
   var postingEndDate = TextEditingController();
+
+  var fam_id = TextEditingController();
+  var id = TextEditingController();
+  var receiveId;
+
+  Future _read(a, b, c, d, e, f, g, h) async {
+// print('func');
+
+    //
+    SharedPreferences prefer = await SharedPreferences.getInstance();
+    receiveId = prefer.getStringList('idS');
+    fam_id.text = receiveId[1];
+    id.text = receiveId[0];
+    print(receiveId[0]);
+    print(receiveId[1]);
+    final String url =
+        "http://192.168.1.23:3300/parampara/userpersonal/jobportal";
+    final response = await http.post(Uri.parse(url), body: {
+      'id': a,
+      'family_id': b,
+      'requester_name': c,
+      'posting_date': d,
+      'company_name': e,
+      'position_title': f,
+      'position_end_date': h,
+      'number_of_position': g,
+    });
+    print(response);
+    print(response.body);
+  }
+
   Future datePickingStart() async {
     var today = DateTime.now();
     print(today);
@@ -76,10 +115,20 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 18.0),
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          size: 20,
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                          ),
+                          iconSize: 20,
                           color: Colors.teal,
+                          splashColor: Colors.tealAccent,
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                new MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        new LandingPage()));
+                          },
                         ),
                       ),
                       SizedBox(
@@ -106,7 +155,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     image: DecorationImage(
-                      image: AssetImage("assets/matrimony.jpeg"),
+                      image: AssetImage("assets/Jobpost.jpeg"),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.only(
@@ -125,7 +174,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                       width: 280,
                       height: 50,
                       child: TextFormField(
-                          // controller: username,
+                          controller: name,
                           decoration: InputDecoration(
                               prefixIcon: Icon(Icons.person),
                               filled: true,
@@ -189,7 +238,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                       width: 280,
                       height: 50,
                       child: TextFormField(
-                          // controller: username,
+                          controller: companyname,
                           decoration: InputDecoration(
                               prefixIcon: Icon(Icons.supervised_user_circle),
                               filled: true,
@@ -220,7 +269,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                       width: 280,
                       height: 50,
                       child: TextFormField(
-                          // controller: username,
+                          controller: positiontitle,
                           decoration: InputDecoration(
                               prefixIcon: Icon(Icons.title),
                               filled: true,
@@ -251,7 +300,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                       width: 280,
                       height: 50,
                       child: TextFormField(
-                          // controller: username,
+                          controller: noofposition,
                           decoration: InputDecoration(
                               prefixIcon: Icon(Icons.format_list_numbered),
                               filled: true,
@@ -326,7 +375,7 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                             // maxLines: 3,
                             // maxLength: 10,
 
-                            // controller: username,
+                            controller: desc,
                             decoration: InputDecoration(
                                 // prefixIcon: Icon(Icons.person),
                                 // filled: true,
@@ -351,7 +400,45 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
                                   // fontWeight: FontWeight.bold,
                                 ))),
                       ),
-                    )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 45,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.teal,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(40),
+                        ),
+                      ),
+                      child: Center(
+                        child: TextButton(
+                          child: Text(
+                            'Post',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onPressed: () async {
+                            SharedPreferences prefer =
+                                await SharedPreferences.getInstance();
+                            receiveId = prefer.getStringList('idS');
+                            id.text = receiveId[0];
+                            fam_id.text = receiveId[1];
+                            final String a = id.text;
+                            final String b = fam_id.text;
+                            final String c = name.text;
+                            final String d = postingDate.text;
+                            final String e = companyname.text;
+                            final String f = positiontitle.text;
+                            final String g = noofposition.text;
+                            final String h = postingEndDate.text;
+
+                            _read(a, b, c, d, e, f, g, h);
+                          },
+                        ),
+                      ),
+                    ),
                   ])))))
         ])));
   }
