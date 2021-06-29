@@ -66,7 +66,7 @@ class _Register1State extends State<Register1> {
     //
 
     final String url =
-        "http://bdb62dc1e609.ngrok.io/parampara/new_registration";
+        "http://1cfc77d745bf.ngrok.io/parampara/new_registration";
     final response = await http.post(Uri.parse(url), body: {
       'user_name': a,
       'email': b,

@@ -50,7 +50,7 @@ class Check1State extends State<Check1> {
     print(receiveId[1]);
 
     final String url =
-        "http://bdb62dc1e609.ngrok.io/parampara/userpersonal/getevents";
+        "http://1cfc77d745bf.ngrok.io/parampara/userpersonal/getevents";
     final response =
         await http.post(Uri.parse(url), body: {'family_id': fam_id});
     print(response);

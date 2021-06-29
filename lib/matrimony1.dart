@@ -59,16 +59,7 @@ class Matrimony1State extends State<Matrimony1> {
     RangeValues _currentRangeValues = const RangeValues(40, 80);
 
     var rating;
-    // Slider(
-    //   value: rating,
-    //   onChanged: (newRating) {
-    //     setState(() {
-    //       rating = newRating;
-    //     });
-    //   },
-    //   divisions: 4,
-    //   label: "$rating",
-    // );
+
     var sizeHeight = MediaQuery.of(context).size.height;
     var sizeWidth = MediaQuery.of(context).size.width;
     var bottom = kBottomNavigationBarHeight;

@@ -17,12 +17,13 @@ class MyLocation extends StatefulWidget {
 }
 
 class MyLocationState extends State {
+  var _id;
   bool isMapCreated = true;
   var latlong = null;
   var _cameraPosition;
   var _controller;
   Set<Marker> _markers = {};
-  var _id = 8476;
+
   var position;
   var latitudeSet;
   var longitudeSet;
@@ -38,26 +39,33 @@ class MyLocationState extends State {
   }
 
   map() async {
+    SharedPreferences prefer = await SharedPreferences.getInstance();
+    _id = prefer.getStringList('idS');
+
+    print(_id[0]);
+
     // print(position.latitude);
     // print(313);
-    String url = 'http://71026514a79e.ngrok.io/parampara/location';
+    String url = 'http://1cfc77d745bf.ngrok.io/parampara/location';
+    // var id  "jsfhg";
     final response = await http.post(Uri.parse(url), body: {
-      "id": _id.toString(),
+      "id": _id[0].toString(),
       "latitude": latitudeSet.toString(),
       "longnitude": longitudeSet.toString(),
       "address": _address.toString(),
       "district": _district.toString(),
       "state": _state.toString(),
       "country": _country.toString(),
-      "pin_code": _pincode.toString()
+      "pin_code": _pincode
     });
-    print(_id);
+    // print(_id);
     print(_address);
     print(_district);
     print(response.body);
     print("hello");
     print("sjhg");
-    print(position.latitude);
+
+    // print(position.latitude);
   }
 
   changeMapMode() {
@@ -79,9 +87,6 @@ class MyLocationState extends State {
       if (getCurrentAddress() != null) {
         map();
       }
-      // if (getLocation() != null) {
-      //   map();
-      // }
     }
 
     // TODO: implement build
@@ -143,20 +148,26 @@ class MyLocationState extends State {
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
           onDragEnd: (_currentlatLng) {
             latlong = _currentlatLng;
+            print(latlong);
           }));
     });
-
-    getCurrentAddress();
+    // print("hi");
+    // getCurrentAddress();
+    // print("hello");
   }
 
   var _address, _pincode, _district, _state, _country;
   getCurrentAddress() async {
+    print("getcurrentaddress");
+    print(latlong);
+    print(158);
     final coordinates = new Coordinates(latlong.latitude, latlong.longitude);
     results = await Geocoder.local.findAddressesFromCoordinates(coordinates);
     var first = results.first;
     if (first != null) {
       _address = " ${first.locality}";
       print(_address);
+      print(165);
       _pincode = "  ${first.postalCode}";
       print(_pincode);
       _district = "  ${first.subAdminArea}";
