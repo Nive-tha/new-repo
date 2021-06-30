@@ -2,6 +2,17 @@ google
 2.12
 file:///D:/GITHUB%20MAY%2019/new-repo/
 file:///D:/GITHUB%20MAY%2019/new-repo/lib/
+<<<<<<< HEAD
+=======
+_fe_analyzer_shared
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-22.0.0/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-22.0.0/lib/
+analyzer
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-1.7.1/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer-1.7.1/lib/
+>>>>>>> Praveen
 archive
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/archive-3.1.2/
@@ -14,6 +25,13 @@ boolean_selector
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib/
+<<<<<<< HEAD
+=======
+build
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/build-2.0.2/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/build-2.0.2/lib/
+>>>>>>> Praveen
 carousel_slider
 2.6
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/carousel_slider-3.0.0/
@@ -26,6 +44,13 @@ charcode
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.2.0/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.2.0/lib/
+<<<<<<< HEAD
+=======
+cli_util
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/cli_util-0.3.0/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/cli_util-0.3.0/lib/
+>>>>>>> Praveen
 clock
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0/
@@ -34,6 +59,13 @@ collection
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib/
+<<<<<<< HEAD
+=======
+convert
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/convert-3.0.0/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/convert-3.0.0/lib/
+>>>>>>> Praveen
 cool_alert
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/cool_alert-1.1.0/
@@ -46,10 +78,13 @@ cupertino_icons
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.2/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.2/lib/
+<<<<<<< HEAD
 date_range_picker
 2.0
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/date_range_picker-1.0.7/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/date_range_picker-1.0.7/lib/
+=======
+>>>>>>> Praveen
 fake_async
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0/
@@ -90,6 +125,7 @@ flare_flutter
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/flare_flutter-3.0.0/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/flare_flutter-3.0.0/lib/
+<<<<<<< HEAD
 flutter_calendar_carousel
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_calendar_carousel-2.0.1/
@@ -98,6 +134,8 @@ flutter_clean_calendar
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_clean_calendar-1.1.0/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_clean_calendar-1.1.0/lib/
+=======
+>>>>>>> Praveen
 flutter_facebook_auth
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_facebook_auth-3.3.3+1/
@@ -122,10 +160,36 @@ flutter_screenutil
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_screenutil-5.0.0+2/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_screenutil-5.0.0+2/lib/
+<<<<<<< HEAD
+=======
+fluttertoast
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.7/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.7/lib/
+>>>>>>> Praveen
 geocoder
 2.0
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/geocoder-0.2.1/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/geocoder-0.2.1/lib/
+<<<<<<< HEAD
+=======
+geolocator
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-7.1.1/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-7.1.1/lib/
+geolocator_platform_interface
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_platform_interface-2.1.1/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_platform_interface-2.1.1/lib/
+geolocator_web
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_web-2.0.3/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_web-2.0.3/lib/
+glob
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/glob-2.0.1/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/glob-2.0.1/lib/
+>>>>>>> Praveen
 google_maps_flutter
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter-2.0.6/
@@ -160,8 +224,13 @@ file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/ima
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/image-3.0.2/lib/
 image_picker
 2.12
+<<<<<<< HEAD
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.0+3/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.0+3/lib/
+=======
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.7.5+4/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.7.5+4/lib/
+>>>>>>> Praveen
 image_picker_for_web
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.0.0/
@@ -210,6 +279,13 @@ mime
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/mime-1.0.0/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/mime-1.0.0/lib/
+<<<<<<< HEAD
+=======
+package_config
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/package_config-2.0.0/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/package_config-2.0.0/lib/
+>>>>>>> Praveen
 path
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0/
@@ -230,6 +306,17 @@ pedantic
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.0/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.0/lib/
+<<<<<<< HEAD
+=======
+permission_handler
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-8.1.1/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-8.1.1/lib/
+permission_handler_platform_interface
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler_platform_interface-3.6.0/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler_platform_interface-3.6.0/lib/
+>>>>>>> Praveen
 petitparser
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-4.1.0/
@@ -246,6 +333,13 @@ process
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.1/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.1/lib/
+<<<<<<< HEAD
+=======
+pub_semver
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/pub_semver-2.0.0/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/pub_semver-2.0.0/lib/
+>>>>>>> Praveen
 quiver
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-3.0.1/
@@ -291,9 +385,15 @@ shimmer
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/shimmer-2.0.0/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/shimmer-2.0.0/lib/
 simple_gesture_detector
+<<<<<<< HEAD
 2.7
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/simple_gesture_detector-0.1.6/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/simple_gesture_detector-0.1.6/lib/
+=======
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/simple_gesture_detector-0.2.0/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/simple_gesture_detector-0.2.0/lib/
+>>>>>>> Praveen
 source_span
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.0/
@@ -315,9 +415,15 @@ string_scanner
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0/lib/
 table_calendar
+<<<<<<< HEAD
 2.7
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/table_calendar-2.3.3/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/table_calendar-2.3.3/lib/
+=======
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/table_calendar-3.0.0/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/table_calendar-3.0.0/lib/
+>>>>>>> Praveen
 term_glyph
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/
@@ -334,6 +440,13 @@ vector_math
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0/lib/
+<<<<<<< HEAD
+=======
+watcher
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/watcher-1.0.0/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/watcher-1.0.0/lib/
+>>>>>>> Praveen
 win32
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.0.5/
@@ -346,6 +459,13 @@ xml
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/xml-5.1.1/
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/xml-5.1.1/lib/
+<<<<<<< HEAD
+=======
+yaml
+2.12
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.0/
+file:///E:/WINRAR%20FILES/FLUTTER/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.0/lib/
+>>>>>>> Praveen
 sky_engine
 2.12
 file:///E:/WINRAR%20FILES/FLUTTER/flutter/bin/cache/pkg/sky_engine/
