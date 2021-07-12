@@ -59,16 +59,7 @@ class Matrimony1State extends State<Matrimony1> {
     RangeValues _currentRangeValues = const RangeValues(40, 80);
 
     var rating;
-    // Slider(
-    //   value: rating,
-    //   onChanged: (newRating) {
-    //     setState(() {
-    //       rating = newRating;
-    //     });
-    //   },
-    //   divisions: 4,
-    //   label: "$rating",
-    // );
+
     var sizeHeight = MediaQuery.of(context).size.height;
     var sizeWidth = MediaQuery.of(context).size.width;
     var bottom = kBottomNavigationBarHeight;
@@ -235,6 +226,8 @@ class Matrimony1State extends State<Matrimony1> {
                                 // fontWeight: FontWeight.bold,
                               )),
                         ),
+<<<<<<< HEAD
+=======
                       ),
                       SizedBox(height: 20),
                       Container(
@@ -289,10 +282,68 @@ class Matrimony1State extends State<Matrimony1> {
                                   fontSize: 18,
                                   // fontWeight: FontWeight.bold,
                                 ))),
+>>>>>>> Malathy
                       ),
                       SizedBox(height: 20),
                       Container(
                         width: 350,
+<<<<<<< HEAD
+                        child: TextFormField(
+                            // controller: username,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "    Date of Birth",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 18,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+                        child: TextFormField(
+                            // controller: username,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                // contentPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(30.0)),
+                                  borderSide: BorderSide(
+                                      color: Colors.teal.shade50, width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(40.0)),
+                                  borderSide: BorderSide(color: Colors.teal),
+                                ),
+                                hintText: "    Mobile Number",
+                                hintStyle: TextStyle(
+                                  color: Colors.teal,
+                                  fontSize: 18,
+                                  // fontWeight: FontWeight.bold,
+                                ))),
+                      ),
+                      SizedBox(height: 20),
+                      Container(
+                        width: 350,
+=======
+>>>>>>> Malathy
                         child: SelectFormField(
                           // icon: Icon(Icons.people, color: Colors.black),
                           // labelText: 'Gender',

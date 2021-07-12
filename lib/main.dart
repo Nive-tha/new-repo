@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/LoginPage/Mail.dart';
@@ -16,7 +17,12 @@ import 'LoginPage/tabs.dart';
 import 'Useraccount.dart';
 import 'map.dart';
 import 'matrimony1.dart';
+=======
+import 'package:google/LoginPage/Login.dart';
+>>>>>>> Malathy
 
+import 'newlog.dart';
+import 'package:google/BloodDonationPage/BloodDonation1.dart';
 void main() {
   runApp(MyApp());
 }

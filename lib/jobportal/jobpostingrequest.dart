@@ -33,8 +33,12 @@ class _JobPostingRequestState extends State<JobPostingRequest> {
     id.text = receiveId[0];
     print(receiveId[0]);
     print(receiveId[1]);
+<<<<<<< HEAD
     final String url =
         "http://192.168.1.23:3300/parampara/userpersonal/jobportal";
+=======
+    final String url = "http://2a0cafcf30b5/parampara/userpersonal/jobportal";
+>>>>>>> Malathy
     final response = await http.post(Uri.parse(url), body: {
       'id': a,
       'family_id': b,

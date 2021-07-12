@@ -1,4 +1,8 @@
 import 'dart:convert';
+<<<<<<< HEAD
+=======
+import 'package:google/BloodDonationPage/BloodDonation1.dart';
+>>>>>>> Malathy
 import 'package:google/calender/calender.dart';
 import 'package:google/events/events.dart';
 import 'package:google/familytourplan/familytourplan.dart';
@@ -84,7 +88,11 @@ class _HomeScreenState extends State<HomeScreen> {
     Events(),
     ImageGallery(),
     CalenderPractice(),
+<<<<<<< HEAD
     Matrimony1(),
+=======
+    BloodPage1(),
+>>>>>>> Malathy
     Job(),
     FamilyTourPlan(),
     Events(),

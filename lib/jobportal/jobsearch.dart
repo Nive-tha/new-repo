@@ -26,7 +26,11 @@ class _JobSearchState extends State<JobSearch> {
     print(receiveId[0]);
     print(receiveId[1]);
     final String url =
+<<<<<<< HEAD
         "http://192.168.1.23:3300/parampara/userpersonal/jobportal/searchdata";
+=======
+        "http://2a0cafcf30b5/parampara/userpersonal/jobportal/searchdata";
+>>>>>>> Malathy
     final response =
         await http.post(Uri.parse(url), body: {'family_id': a, 'search': b});
     print(response);

@@ -16,13 +16,14 @@ class _RegState extends State<Reg> {
       child: Stack(
         children: [
           Image.asset('assets/Welcome.png'),
+          
           Padding(
             padding: const EdgeInsets.only(top: 260, left: 60),
             child: Text(
               'Thank You! Stay Connected',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.teal,
+                  color: Colors.blue[400],
                   fontSize: 20.0),
             ),
           ),
@@ -30,7 +31,7 @@ class _RegState extends State<Reg> {
             padding: const EdgeInsets.only(top: 270, left: 75),
             child: Text(
               ' \n \n Stay connected with your family \n         amid  your busy life',
-              style: TextStyle(color: Colors.teal, fontSize: 15.0),
+              style: TextStyle(color: Colors.blue[400], fontSize: 15.0),
             ),
           ),
           Padding(
@@ -45,7 +46,7 @@ class _RegState extends State<Reg> {
               child: Text('Next'),
               style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.teal),
+                      MaterialStateProperty.all<Color>(Colors.blue.shade400),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18.0)))),
