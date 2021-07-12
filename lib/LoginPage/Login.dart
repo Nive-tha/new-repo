@@ -27,7 +27,7 @@ class _LogState extends State<Log> {
   Future<bool> _mockCheckForSession() async {
     await Future.delayed(Duration(milliseconds: 50000), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (BuildContext context) => CustomIndicator()));
+          builder: (BuildContext context) => SecondPageDesign()));
     });
 
     return true;
@@ -42,7 +42,7 @@ class _LogState extends State<Log> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                selectHere == null ? CustomIndicator() : MyHomePage()),
+                selectHere == null ? SecondPageDesign() : MyHomePage()),
       ),
     );
   }
