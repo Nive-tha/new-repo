@@ -91,16 +91,16 @@ flutter:
    - assets/family.png
    - assets/Register.png
    - assets/Welcome.png
-   - assets/wedding.png
-   
+   - assets/wedding-ring.png
+   - assets/hometree.jpg
    - assets/gallery.png
-   - assets/REG2.png
-   - assets/familytour.png
-   - assets/job.png
+   - assets/car.png
+   - assets/tour-bus.png
+   - assets/businessman.png
    - assets/eventsfam.png
-   - assets/calender.png
-   - assets/blood.png
-   - assets/healthtips.png
+   - assets/job.png
+   - assets/blood-donation.png
+   - assets/healthcare.png
    - assets/cooking.png
    - assets/m.webp
    - assets/matrimony.jpeg
@@ -110,9 +110,15 @@ flutter:
    - assets/jobb.jpeg
    - assets/jobbb.jpeg
    - assets/shivangi.jpg
-   - assets/Calender.jpeg
-
-
+   - assets/calender.jpeg
+   - assets/calender.png
+   - assets/call.png
+   - assets/background.png
+   - assets/matrimony.png
+   - assets/back.png
+   - assets/homepagebackground.png
+   - assets/image-gallery.png
+   - assets/party.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

@@ -152,7 +152,7 @@ class _RequestForBlood1State extends State<RequestForBlood1>
                       children: [
                         ReceivedRequests(
                             ((((height) * 0.85) * 0.79) * 0.22), width),
-                      MyRequest()
+              
                       ],
                     ),
                   ),
