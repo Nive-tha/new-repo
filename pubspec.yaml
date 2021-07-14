@@ -55,6 +55,10 @@ dependencies:
   geolocator: ^7.1.0
   table_calendar: ^3.0.0
   fluttertoast: ^8.0.7
+  font_awesome_flutter: ^9.1.0
+  hexcolor: ^2.0.4
+  flutter_spinkit: ^5.0.0
+  glassmorphism: ^2.0.1
  
  
 
@@ -87,23 +91,16 @@ flutter:
    - assets/family.png
    - assets/Register.png
    - assets/Welcome.png
-   - assets/wedding.png
-   - assets/1622479960731.JPEG
-   - assets/1622479961107.JPEG
-   - assets/1622479961581.JPEG
-   - assets/1622479962292.JPEG
-   - assets/1622479963574.JPEG
-   - assets/1622479964976.JPEG
-   - assets/1622479965520.JPEG
-   - assets/1622479966165.JPEG
+   - assets/wedding-ring.png
+   - assets/hometree.jpg
    - assets/gallery.png
-   - assets/REG2.png
-   - assets/familytour.png
-   - assets/job.png
+   - assets/car.png
+   - assets/tour-bus.png
+   - assets/businessman.png
    - assets/eventsfam.png
-   - assets/calender.png
-   - assets/blood.png
-   - assets/healthtips.png
+   - assets/job.png
+   - assets/blood-donation.png
+   - assets/healthcare.png
    - assets/cooking.png
    - assets/m.webp
    - assets/matrimony.jpeg
@@ -113,9 +110,15 @@ flutter:
    - assets/jobb.jpeg
    - assets/jobbb.jpeg
    - assets/shivangi.jpg
-   - assets/Calender.jpeg
-
-
+   - assets/calender.jpeg
+   - assets/calender.png
+   - assets/call.png
+   - assets/background.png
+   - assets/matrimony.png
+   - assets/back.png
+   - assets/homepagebackground.png
+   - assets/image-gallery.png
+   - assets/party.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
