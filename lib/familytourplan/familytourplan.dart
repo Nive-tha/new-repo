@@ -33,7 +33,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
     print(receiveId[0]);
     print(receiveId[1]);
     final String url =
-        "http://1cfc77d745bf.ngrok.io/parampara/userpersonal/tourplan";
+        "http://118a3e078f67.ngrok.io/parampara/userpersonal/tourplan";
     final response = await http.post(Uri.parse(url), body: {
       'id': a,
       'fam_id': b,

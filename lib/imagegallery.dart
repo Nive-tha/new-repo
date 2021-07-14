@@ -223,8 +223,8 @@ class _ImageGalleryState extends State<ImageGallery> {
                             ? Text('No image selected.')
                             : Image.file(
                                 _image!,
-                                height: 50,
-                                width: 50,
+                                height: 5,
+                                width: 5,
                               ),
                       ),
                       //     floatingActionButton:FloatingActionButton(

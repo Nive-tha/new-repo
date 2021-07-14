@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:google/BloodDonationPage/BloodDonation1.dart';
 import 'package:google/calender/calender.dart';
 import 'package:google/events/events.dart';
 import 'package:google/familytourplan/familytourplan.dart';
@@ -84,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Events(),
     ImageGallery(),
     CalenderPractice(),
-    Matrimony1(),
+    BloodPage1(),
     Job(),
     FamilyTourPlan(),
     Events(),
@@ -113,6 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       Row(
                         children: [
+
                           Container(
                             height: 60,
                             width: 60,
