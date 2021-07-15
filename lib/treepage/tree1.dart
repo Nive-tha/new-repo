@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google/tabspages/home.dart';
 
 class Tree1 extends StatefulWidget {
   const Tree1({Key? key}) : super(key: key);
@@ -19,17 +20,32 @@ class _Tree1State extends State<Tree1> {
                               child: Container(
                   color: Colors.teal[700],
                   child: Padding(
-                    padding: const EdgeInsets.only(top:20,bottom:20),
+                    padding: const EdgeInsets.only(top:40,bottom: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(
-                          Icons.account_circle,
-                          size: 50.0,
-                          color: Colors.white,
+                        Padding(
+                          padding: const EdgeInsets.only(left:15),
+                          child: Icon(
+                            Icons.account_circle,
+                            size: 50.0,
+                            color: Colors.white,
+                          ),
                         ),
-                        Text("FamilyTree",style:TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize:25)),
-                        Text("Back",style:TextStyle(color:Colors.white,fontSize: 10)),
+                        Text("FamilyTree",style:TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize:20)),
+                        InkWell(
+                          onTap: (){
+                           
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => Home1()));
+
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: Text("Back",style:TextStyle(color:Colors.white,fontSize: 10)),
+                          )),
                       ],
                     ),
                   ),

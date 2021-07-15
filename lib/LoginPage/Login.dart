@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/sliderpg.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:shimmer/shimmer.dart';
@@ -42,7 +43,7 @@ class _LogState extends State<Log> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                selectHere == null ? SecondPageDesign() : MyHomePage()),
+                selectHere == null ? SecondPageDesign() : HomeScreen()),
       ),
     );
   }

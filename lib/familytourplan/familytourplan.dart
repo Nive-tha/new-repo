@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google/LoginPage/Landingpage.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,7 +34,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
     print(receiveId[0]);
     print(receiveId[1]);
     final String url =
-        "http://118a3e078f67.ngrok.io/parampara/userpersonal/tourplan";
+        "http://www.cviacserver.tk/parampara/parampara/userpersonal/tourplan";
     final response = await http.post(Uri.parse(url), body: {
       'id': a,
       'fam_id': b,
@@ -115,7 +116,7 @@ class _FamilyTourPlanState extends State<FamilyTourPlan> {
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        new LandingPage()));
+                                        new HomeScreen()));
                           },
                         ),
                       ),

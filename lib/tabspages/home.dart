@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:google/BloodDonationPage/BloodDonation1.dart';
+import 'package:google/calender/calender.dart';
+import 'package:google/events/events.dart';
+import 'package:google/familytourplan/familytourplan.dart';
+import 'package:google/imagegallery.dart';
+import 'package:google/jobportal/job.dart';
+import 'package:google/treepage/tree1.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../matrimony1.dart';
 
 class Home1 extends StatefulWidget {
   Home1({Key? key}) : super(key: key);
@@ -34,19 +43,111 @@ class _Home1State extends State<Home1> {
     'Health Tips',
     'Cooking Tips'
   ];
-  List movingpages = [];
+  
+    List movingpages = [
+    Matrimony1(),
+    Job(),
+    FamilyTourPlan(),
+    Events(),
+    ImageGallery(),
+    CalenderPractice(),
+    BloodPage1(),
+    Job(),
+    FamilyTourPlan(),
+    Events(),
+  ];
+ 
   @override
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
     var sizeWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        
+        backgroundColor: Colors.teal[400],
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.notifications), onPressed: () {}),
+        Image.asset("assets/hometree.jpg")
+        ],
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text("Nivetha"),
+              accountEmail: Text("nivem17@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.teal[400],
+                child: Text("N"),
+              ),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Home1()));
+              },
+              leading: Image.asset('assets/homeicon.png'),
+              title: Text("Home", style: TextStyle(color: Colors.teal[800])),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Home1()));
+              },
+              leading: Image.asset('assets/message.png'),
+              title: Text("Message", style: TextStyle(color: Colors.teal[800])),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Tree1()));
+              },
+              leading: Image.asset('assets/treee.png'),
+              title: Text("Family Tree",
+                  style: TextStyle(color: Colors.teal[800])),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Home1()));
+              },
+              leading: Image.asset('assets/mapicon.png'),
+              title: Text(
+                "Location",
+                style: TextStyle(color: Colors.teal[800]),
+              ),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Home1()));
+              },
+              leading: Image.asset('assets/accounticon.png'),
+              title: Text("Account", style: TextStyle(color: Colors.teal[800])),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Home1()));
+              },
+              leading: Image.asset('assets/logoutt.png'),
+              title: Text("Logout", style: TextStyle(color: Colors.teal[800])),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+          ],
+        ),
+      ),
       resizeToAvoidBottomInset: false,
       body: Container(
-        
         child: Column(
           children: [
             Container(
-              height: sizeHeight * 0.29,
+              height: sizeHeight * 0.19,
               decoration: new BoxDecoration(
                 image: new DecorationImage(
                   image: ExactAssetImage('assets/hometree.jpg'),
@@ -59,18 +160,7 @@ class _Home1State extends State<Home1> {
                     padding: const EdgeInsets.only(left: 5, right: 5, top: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(
-                          Icons.account_circle,
-                          size: 50.0,
-                          color: Colors.white,
-                        ),
-                        Icon(
-                          Icons.notifications,
-                          size: 50.0,
-                          color: Colors.white,
-                        ),
-                      ],
+                      children: [],
                     ),
                   ),
                   SizedBox(height: 80),
@@ -79,8 +169,7 @@ class _Home1State extends State<Home1> {
                     width: 280,
                     child: TextFormField(
                       decoration: InputDecoration(
-                     
-                        enabledBorder:OutlineInputBorder(
+                        enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           borderSide: BorderSide(width: 2, color: Colors.white),
                         ),
@@ -90,8 +179,6 @@ class _Home1State extends State<Home1> {
                         ),
                         hintText: "Search ",
                         hintStyle: TextStyle(color: Colors.white),
-       
-                     
                         prefixIcon: Icon(
                           Icons.search,
                           color: Colors.white,
@@ -177,6 +264,4 @@ class _Home1State extends State<Home1> {
       ),
     );
   }
-
-
 }

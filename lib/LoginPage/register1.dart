@@ -71,7 +71,7 @@ class _Register1State extends State<Register1> {
 
   Future _read(a, b, c, d, g, e, f, k, i, j) async {
     final String url =
-        "http://36db7cc5a0cd.ngrok.io/parampara/new_registration";
+        "https://www.cviacserver.tk/parampara/parampara/new_registration";
     final response = await http.post(Uri.parse(url), body: {
       'user_name': a,
       'email': b,

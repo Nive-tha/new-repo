@@ -119,6 +119,15 @@ flutter:
    - assets/homepagebackground.png
    - assets/image-gallery.png
    - assets/party.png
+   - assets/accounticon.png
+   - assets/logoutt.png
+   - assets/mapicon.png
+   - assets/message.png
+   - assets/homeicon.png
+   - assets/treee.png
+   - assets/dark.json
+   - assets/snip.PNG
+   - assets/bloodSuccessfullyRequested.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

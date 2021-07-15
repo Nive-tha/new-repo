@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google/LoginPage/Landingpage.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -97,7 +98,7 @@ class _EventsState extends State<Events> {
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        new LandingPage()));
+                                        new HomeScreen()));
                           },
                         ),
                       ),

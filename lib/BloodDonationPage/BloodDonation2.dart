@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'BloodDonation5.dart';
+
 class BloodPage2 extends StatefulWidget {
   @override
   _BloodPage2State createState() => _BloodPage2State();
@@ -202,7 +204,12 @@ class _BloodPage2State extends State<BloodPage2> {
                         'Search  Donor',
                         style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SuccessfullyRequested()));
+                      },
                     ),
                   ],
                 ),

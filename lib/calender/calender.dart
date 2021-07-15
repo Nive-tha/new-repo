@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google/LoginPage/Landingpage.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -67,7 +68,7 @@ class _CalenderPracticeState extends State<CalenderPractice> {
                                   context,
                                   new MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          new LandingPage()));
+                                          new HomeScreen()));
                             },
                           ),
                         ),

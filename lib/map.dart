@@ -39,7 +39,7 @@ class _MyLocationState extends State<MyLocation> {
     return await rootBundle.loadString(path);
   }
 
-  void setMapStyle(String mapStyle) {
+   setMapStyle(String mapStyle) {
     _controller.setMapStyle(mapStyle);
   }
 
@@ -57,9 +57,9 @@ class _MyLocationState extends State<MyLocation> {
     var coordinates = Coordinates(loca.latitude, loca.longitude);
     var address =
         await Geocoder.local.findAddressesFromCoordinates(coordinates);
-    var url = Uri.parse('https://2a0cafcf30b5.ngrok.io/parampara/location');
+    var url = Uri.parse('https://www.cviacserver.tk/parampara/parampara/location');
     var url1 =
-        Uri.parse('https://2a0cafcf30b5.ngrok.io/locations/nearFamilyMembers');
+        Uri.parse('https://www.cviacserver.tk/parampara/locations/nearFamilyMembers');
     var sending = await http.post(url, body: {
       "id": _id[0],
       "latitude": loca.latitude.toString(),
@@ -92,7 +92,7 @@ class _MyLocationState extends State<MyLocation> {
     marker.add(Marker(
       markerId: MarkerId("area"),
       position: LatLng(loca.latitude, loca.longitude),
-      infoWindow: InfoWindow(title: "my area"),
+      infoWindow: InfoWindow(title: "ElcotITPark"),
     ));
 
     print(marker.length);

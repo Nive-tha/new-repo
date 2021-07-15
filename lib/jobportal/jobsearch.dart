@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google/LoginPage/Landingpage.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -26,7 +27,7 @@ class _JobSearchState extends State<JobSearch> {
     print(receiveId[0]);
     print(receiveId[1]);
     final String url =
-        "http://2a0cafcf30b5/parampara/userpersonal/jobportal/searchdata";
+        "http://www.cviacserver.tk/parampara/parampara/userpersonal/jobportal/searchdata";
     final response =
         await http.post(Uri.parse(url), body: {'family_id': a, 'search': b});
     print(response);
@@ -101,7 +102,7 @@ class _JobSearchState extends State<JobSearch> {
                                   context,
                                   new MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          new LandingPage()));
+                                          new HomeScreen()));
                             },
                           ),
                         ),

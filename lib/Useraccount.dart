@@ -5,6 +5,7 @@ import 'package:google/jobportal/job.dart';
 import 'package:google/matrimony1.dart';
 import 'package:google/matrimony2.dart';
 import 'package:google/matrimony3.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:google/treeviewpagecreation/pagescreation/fatherdetails.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'LoginPage/Landingpage.dart';
@@ -50,7 +51,7 @@ class Check1State extends State<Check1> {
     print(receiveId[1]);
 
     final String url =
-        "http://1cfc77d745bf.ngrok.io/parampara/userpersonal/getevents";
+        "http://www.cviacserver.tk/parampara/parampara/userpersonal/getevents";
     final response =
         await http.post(Uri.parse(url), body: {'family_id': fam_id});
     print(response);
@@ -165,7 +166,7 @@ class Check1State extends State<Check1> {
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        new LandingPage()));
+                                        new HomeScreen()));
                           },
                         ),
                         Text(

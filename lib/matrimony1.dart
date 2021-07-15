@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/matrimony2.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:select_form_field/select_form_field.dart';
 
 // ignore: must_be_immutable
@@ -98,7 +99,7 @@ class Matrimony1State extends State<Matrimony1> {
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        new LandingPage()));
+                                        new HomeScreen()));
                           },
                         ),
                       ),

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google/LoginPage/Landingpage.dart';
+import 'package:google/tabspages/homescreen.dart';
 import 'package:google/treeviewpagecreation/pagescreation/initialpage.dart';
 
 class TreeView extends StatefulWidget {
@@ -58,7 +59,7 @@ class _TreeViewState extends State<TreeView> {
                                   context,
                                   new MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          new LandingPage()));
+                                          new HomeScreen()));
                             },
                           ),
                           Text(

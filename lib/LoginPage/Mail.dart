@@ -134,7 +134,7 @@ class _MailState extends State<Mail> {
   }
 
   _apiFace() async {
-    final String url = "http://2a0cafcf30b5.ngrok.io/exists/facebook";
+    final String url = "http://www.cviacserver.tk/parampara/exists/facebook";
 
     final response =
         await http.post(Uri.parse(url), body: {'face_book': this.detail['id']});
@@ -171,7 +171,7 @@ class _MailState extends State<Mail> {
   }
 
   _api1() async {
-    final String url = "http://2a0cafcf30b5.ngrok.io/exists/google";
+    final String url = "http://www.cviacserver.tk/parampara/exists/google";
     final response =
         await http.post(Uri.parse(url), body: {'google_id': this.users.uid});
 
@@ -228,7 +228,7 @@ class _MailState extends State<Mail> {
   }
 
   Future loginUser(String email, String pass) async {
-    String url = 'http://2a0cafcf30b5.ngrok.io/user_login';
+    String url = 'https://www.cviacserver.tk/parampara/user_login';
     final response =
         await http.post(Uri.parse(url), body: {'email': email, 'pass': pass});
     var convertedDatatoJson = jsonDecode(response.body);
@@ -372,38 +372,38 @@ class _MailState extends State<Mail> {
                           ),
                           FlatButton(
                             onPressed: () async {
-                              // if (_formKey.currentState!.validate()) {
-                              //   var email = _emailController.text;
-                              //   var pass = _otpController.text;
-                              //   setState(() {
-                              //     message = 'Please Wait...';
-                              //   });
-                              //   var rsp = await loginUser(email, pass);
-                              //   print(rsp);
+                              if (_formKey.currentState!.validate()) {
+                                var email = _emailController.text;
+                                var pass = _otpController.text;
+                                setState(() {
+                                  message = 'Please Wait...';
+                                });
+                                var rsp = await loginUser(email, pass);
+                                print(rsp);
 
-                              //   abc = rsp['User'][0]['user_name'];
+                                abc = rsp['User'][0]['user_name'];
 
-                              //   abc = await func(abc);
+                                abc = await func(abc);
 
-                              //   print(abc);
-                              //   if (rsp.containsKey('status')) {
-                              //     setState(() {
-                              //       message = rsp['status_text'];
-                              //     });
-                              //     if (rsp['status'] == true) {
-                              //       Navigator.pushReplacement(
-                              //           context,
-                              //           new MaterialPageRoute(
-                              //               builder: (BuildContext context) =>
-                              //                   new Reg()));
-                              //     }
-                              //   }
-                              // }
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          Reg()));
+                                print(abc);
+                                if (rsp.containsKey('status')) {
+                                  setState(() {
+                                    message = rsp['status_text'];
+                                  });
+                                  if (rsp['status'] == true) {
+                                    Navigator.pushReplacement(
+                                        context,
+                                        new MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                new Reg()));
+                                  }
+                                }
+                              }
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (BuildContext context) =>
+                              //             Reg()));
                             },
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15)),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/HomePage.dart';
 import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/LoginPage/Mail.dart';
+import 'package:google/tabspages/home.dart';
 import 'package:google/tabspages/homescreen.dart';
 
 class Reg extends StatefulWidget {
@@ -41,7 +43,7 @@ class _RegState extends State<Reg> {
                 Navigator.pushReplacement(
                     context,
                     new MaterialPageRoute(
-                        builder: (BuildContext context) => new LandingPage()));
+                        builder: (BuildContext context) => HomeScreen()));
               },
               child: Text('Next'),
               style: ButtonStyle(

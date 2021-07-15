@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google/LoginPage/Landingpage.dart';
 import 'package:google/jobportal/jobpostingrequest.dart';
 import 'package:google/jobportal/jobsearch.dart';
+import 'package:google/tabspages/homescreen.dart';
 
 class Job extends StatefulWidget {
   @override
@@ -51,7 +52,7 @@ class _JobState extends State<Job> {
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>
-                                        new LandingPage()));
+                                        new HomeScreen()));
                           },
                         ),
                       ),
