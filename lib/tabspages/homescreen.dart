@@ -28,15 +28,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-    var appbar = AppBar(
-        elevation: 0,
-          backgroundColor: Colors.teal,
-         
-          actions: <Widget>[
-         
-            IconButton(icon: Icon(Icons.notifications,color: Colors.white,), onPressed: () {}),
-          ],
-        );
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+  var appbar = AppBar(
+    elevation: 0,
+    backgroundColor: Colors.teal,
+    actions: <Widget>[
+      IconButton(
+          icon: Icon(
+            Icons.notifications,
+            color: Colors.white,
+          ),
+          onPressed: () {}),
+    ],
+  );
   bool _isSigningOut = false;
 
   var receiverFromRegister1;
@@ -103,33 +107,32 @@ class _HomeScreenState extends State<HomeScreen> {
     FamilyTourPlan(),
     Events(),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
-      var sizeHeight = MediaQuery.of(context).size.height;
+    var sizeHeight = MediaQuery.of(context).size.height;
     var sizeWidth = MediaQuery.of(context).size.width;
-      var appbarHeight = appbar.preferredSize.height;
-    print(appbarHeight);
+    // var  appbar.preferredSize.height;
+    // print(
     print("71");
-    var bheight = kBottomNavigationBarHeight;
-    var kheight = MediaQuery.of(context).padding.top;
-  
-    var leftsize = sizeHeight - (sizeHeight - appbarHeight);
-    var sizeOrientation = MediaQuery.of(context).orientation;
-    print(sizeOrientation);
-  
+    // var bheight = kBottomNavigationBarHeight;
+    // = MediaQuery.of(context).padding.top;
+
+    // var leftsize = sizeHeight - (sizeHeight - 
+    // var sizeOrientation = MediaQuery.of(context).orientation;
+    // print(sizeOrientation);
+
     return Container(
-           decoration: new BoxDecoration(
-                      image: new DecorationImage(
-                        image: ExactAssetImage('assets/hometree.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+      decoration: new BoxDecoration(
+        image: new DecorationImage(
+          image: ExactAssetImage('assets/hometree.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
       child: Scaffold(
+        key: scaffoldKey,
         backgroundColor: Colors.transparent,
-        appBar: appbar,
         drawer: Drawer(
-        
           child: Column(
             children: [
               UserAccountsDrawerHeader(
@@ -142,8 +145,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 leading: Image.asset('assets/homeicon.png'),
                 title: Text("Home", style: TextStyle(color: Colors.teal[800])),
@@ -151,17 +154,18 @@ class _HomeScreenState extends State<HomeScreen> {
               Divider(height: 10.0, color: Colors.transparent),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 leading: Image.asset('assets/message.png'),
-                title: Text("Message", style: TextStyle(color: Colors.teal[800])),
+                title:
+                    Text("Message", style: TextStyle(color: Colors.teal[800])),
               ),
               Divider(height: 10.0, color: Colors.transparent),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (context) => Tree1()));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Tree1()));
                 },
                 leading: Image.asset('assets/treee.png'),
                 title: Text("Family Tree",
@@ -182,20 +186,22 @@ class _HomeScreenState extends State<HomeScreen> {
               Divider(height: 10.0, color: Colors.transparent),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (context) => Check1()));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Check1()));
                 },
                 leading: Image.asset('assets/accounticon.png'),
-                title: Text("Account", style: TextStyle(color: Colors.teal[800])),
+                title:
+                    Text("Account", style: TextStyle(color: Colors.teal[800])),
               ),
               Divider(height: 10.0, color: Colors.transparent),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 leading: Image.asset('assets/logoutt.png'),
-                title: Text("Logout", style: TextStyle(color: Colors.teal[800])),
+                title:
+                    Text("Logout", style: TextStyle(color: Colors.teal[800])),
               ),
               Divider(height: 10.0, color: Colors.transparent),
             ],
@@ -208,8 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               Container(
-                height: ((sizeHeight - (appbarHeight+kheight)) * 0.19),
-                
+                height: ((sizeHeight ) * 0.30),
                 width: sizeWidth,
                 decoration: new BoxDecoration(
                   image: new DecorationImage(
@@ -218,7 +223,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                              onTap: () {
+                                scaffoldKey.currentState!.openDrawer();
+                              },
+                              child: Icon(Icons.menu,color: Colors.white,size: 35,)),
+                          Icon(Icons.notifications,color: Colors.white,size:35)
+                        ],
+                      ),
+                    ),
                     SizedBox(height: 40),
                     Container(
                       height: 45,
@@ -226,14 +246,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10)),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide:
                                 BorderSide(width: 2, color: Colors.white),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10)),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide:
                                 BorderSide(width: 2, color: Colors.white),
                           ),
@@ -259,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                height: ((sizeHeight - (appbarHeight+kheight)) * 0.81),
+                height: ((sizeHeight ) * 0.70),
                 child: GridView.builder(
                     padding: EdgeInsets.only(left: 10, right: 10, top: 7),
                     itemCount: 10,
@@ -270,15 +288,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         childAspectRatio: 1.0),
                     itemBuilder: (context, index) {
                       return Card(
-                                                    child: InkWell(
-                           onTap: () {
-                                          Navigator.pushReplacement(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      movingpages[index]));
-                                        },
-                                                      child: Container(
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => movingpages[index]));
+                          },
+                          child: Container(
                             child: Column(
                               children: [
                                 Expanded(

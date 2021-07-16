@@ -69,28 +69,22 @@ class _Register1State extends State<Register1> {
         textColor: Colors.white);
   }
 
-  Future _read(a, b, c, d, g, e, f, k, i, j) async {
+  Future _read(name,mail,number,passwrd,confrmpassword,famname,famid,google1,facebook1,j) async {
     final String url =
         "https://www.cviacserver.tk/parampara/parampara/new_registration";
     final response = await http.post(Uri.parse(url), body: {
-      'user_name': a,
-      'email': b,
-      'phone': c,
-      if (d == e) 'pass': d,
-      'family_name': f,
-      'family_id': g,
-      'google_id': k,
-      'face_book': i,
+      'user_name': name,
+      'email':mail,
+      'phone': number,
+      if (passwrd == confrmpassword) 'pass': passwrd,
+      'family_name': famname,
+      'family_id': famid,
+      'google_id': google1,
+      'face_book': facebook1,
       "profile_image": j,
     });
     print(response);
-    print(a);
-    print(b);
-    print(c);
-    print(d);
-    print(f);
-    print(92);
-    print(g);
+
     print(response.body);
     var receivedDetails = json.decode(response.body);
     print(receivedDetails);
@@ -104,14 +98,14 @@ class _Register1State extends State<Register1> {
     if (response.statusCode == 200) {
       ShowLoad();
       showToast();
-      print(a);
+      print(name);
       SharedPreferences sent = await SharedPreferences.getInstance();
 
-      sent.setString('sentFromRegister1', a);
+      sent.setString('sentFromRegister1', name);
 
       print(81);
       if (widget.googleReceived == null && widget.faceBookReceived == null) {
-        print(a);
+        print(name);
         Navigator.pushReplacement(
             context,
             new MaterialPageRoute(
@@ -570,20 +564,20 @@ class _Register1State extends State<Register1> {
                       color: Colors.blue,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          final String a = username.text;
-                          final String b = email.text;
-                          final String c = mblno.text;
-                          final String d = password.text;
-                          final String e = confirmpassword.text;
-                          final String f = familyname.text;
-                          final String g = familyid.text;
-                          final String k = google.text;
-                          final String i = facebook.text;
+                          final String name = username.text;
+                          final String mail = email.text;
+                          final String number = mblno.text;
+                          final String passwrd = password.text;
+                          final String confrmpassword = confirmpassword.text;
+                          final String famname = familyname.text;
+                          final String famid = familyid.text;
+                          final String google1 = google.text;
+                          final String facebook1 = facebook.text;
                           final String j = Url.text;
 
                           _selected = false;
 
-                          _read(a, b, c, d, g, e, f, k, i, j);
+                          _read(name,mail,number,passwrd,confrmpassword,famname,famid,google1,facebook1,j);
                         } else {
                           print("unsuccessful");
                         }
