@@ -125,7 +125,7 @@ flutter:
    - assets/message.png
    - assets/homeicon.png
    - assets/treee.png
-   - assets/dark.json
+   - assets/frontscreen.jpg
    - assets/snip.PNG
    - assets/bloodSuccessfullyRequested.png
   # An image asset can refer to one or more resolution-specific "variants", see

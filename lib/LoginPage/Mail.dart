@@ -145,15 +145,15 @@ class _MailState extends State<Mail> {
     print(receivedDetails);
     var extractedDetail = receivedDetails['status_code'];
     print(extractedDetail);
-    var extractedDetail2 =
-        receivedDetails['results'][0]['family_id'].toString();
-    print(extractedDetail);
-    var extractedDetail1 = receivedDetails['results'][0]['id'].toString();
-    print(extractedDetail1);
-    List<String> stringList = [extractedDetail1, extractedDetail2];
+    // var extractedDetail2 =
+    //     receivedDetails['results'][0]['family_id'].toString();
+    // print(extractedDetail);
+    // var extractedDetail1 = receivedDetails['results'][0]['id'].toString();
+    // print(extractedDetail1);
+    // List<String> stringList = [extractedDetail1, extractedDetail2];
 
-    SharedPreferences prefer = await SharedPreferences.getInstance();
-    await prefer.setStringList('idS', stringList);
+    // SharedPreferences prefer = await SharedPreferences.getInstance();
+    // await prefer.setStringList('idS', stringList);
     print("line no 10");
     print(response.body);
     storingProfilePicture();
@@ -180,15 +180,15 @@ class _MailState extends State<Mail> {
     var receivedDetails = json.decode(response.body);
     print(receivedDetails);
     var extractedDetail = receivedDetails['status_code'];
-    var extractedDetail2 =
-        receivedDetails['results'][0]['family_id'].toString();
-    print(extractedDetail2);
-    var extractedDetail1 = receivedDetails['results'][0]['id'].toString();
-    print(extractedDetail1);
-    List<String> stringList = [extractedDetail1, extractedDetail2];
+    // var extractedDetail2 =
+    //     receivedDetails['results'][0]['family_id'].toString();
+    // print(extractedDetail2);
+    // var extractedDetail1 = receivedDetails['results'][0]['id'].toString();
+    // print(extractedDetail1);
+    // List<String> stringList = [extractedDetail1, extractedDetail2];
 
-    SharedPreferences prefer = await SharedPreferences.getInstance();
-    await prefer.setStringList('idS', stringList);
+    // SharedPreferences prefer = await SharedPreferences.getInstance();
+    // await prefer.setStringList('idS', stringList);
     print("line no 10");
     print(response.body);
     storingProfilePicture();
@@ -232,14 +232,14 @@ class _MailState extends State<Mail> {
     final response =
         await http.post(Uri.parse(url), body: {'email': email, 'pass': pass});
     var convertedDatatoJson = jsonDecode(response.body);
-    var decode = convertedDatatoJson['User'][0]['id'].toString();
-    var decode1 = convertedDatatoJson['User'][0]['family_id'].toString();
-    print(decode);
-    print(decode1);
-    List<String> stringList = [decode, decode1];
+    // var decode = convertedDatatoJson['User'][0]['id'].toString();
+    // var decode1 = convertedDatatoJson['User'][0]['family_id'].toString();
+    // print(decode);
+    // print(decode1);
+    // List<String> stringList = [decode, decode1];
 
-    SharedPreferences prefer = await SharedPreferences.getInstance();
-    await prefer.setStringList('idS', stringList);
+    // SharedPreferences prefer = await SharedPreferences.getInstance();
+    // await prefer.setStringList('idS', stringList);
     return convertedDatatoJson;
   }
 
@@ -249,11 +249,11 @@ class _MailState extends State<Mail> {
     var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Container(
-        height: height,
-        width: width,
-        color: Colors.teal[500],
+        body: Container(
+      height: height,
+      width: width,
+      color: Colors.teal[500],
+      child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 130),

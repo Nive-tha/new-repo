@@ -27,7 +27,12 @@ class _SecondPageDesignState extends State<SecondPageDesign> {
             Container(
               height: height * 0.4,
               width: width,
-              color: Colors.cyan[900],
+                 decoration: new BoxDecoration(
+                      image: new DecorationImage(
+                        image: ExactAssetImage('assets/frontscreen.jpg'),
+                        fit: BoxFit.fitWidth,
+                      ),
+                    ),
             ),
             Container(
               height: height * 0.60,

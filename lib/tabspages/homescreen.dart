@@ -28,6 +28,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+    var appbar = AppBar(
+        elevation: 0,
+          backgroundColor: Colors.teal,
+         
+          actions: <Widget>[
+         
+            IconButton(icon: Icon(Icons.notifications,color: Colors.white,), onPressed: () {}),
+          ],
+        );
   bool _isSigningOut = false;
 
   var receiverFromRegister1;
@@ -94,155 +103,163 @@ class _HomeScreenState extends State<HomeScreen> {
     FamilyTourPlan(),
     Events(),
   ];
+  
   @override
   Widget build(BuildContext context) {
+      var sizeHeight = MediaQuery.of(context).size.height;
+    var sizeWidth = MediaQuery.of(context).size.width;
+      var appbarHeight = appbar.preferredSize.height;
+    print(appbarHeight);
+    print("71");
+    var bheight = kBottomNavigationBarHeight;
+    var kheight = MediaQuery.of(context).padding.top;
+  
+    var leftsize = sizeHeight - (sizeHeight - appbarHeight);
     var sizeOrientation = MediaQuery.of(context).orientation;
     print(sizeOrientation);
-    var sizeHeight = MediaQuery.of(context).size.height;
-    var sizeWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        
-        backgroundColor: Colors.teal[400],
-        actions: <Widget>[
-          Image.asset(
-            "assets/snip.PNG",
-            // fit: BoxFit.fill,
-          ),
-          IconButton(icon: Icon(Icons.notifications), onPressed: () {}),
-          
-        ],
-      ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            UserAccountsDrawerHeader(
-              accountName: Text("Nivetha"),
-              accountEmail: Text("nivem17@gmail.com"),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.teal[400],
-                child: Text("N"),
-              ),
-            ),
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Home1()));
-              },
-              leading: Image.asset('assets/homeicon.png'),
-              title: Text("Home", style: TextStyle(color: Colors.teal[800])),
-            ),
-            Divider(height: 10.0, color: Colors.transparent),
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Home1()));
-              },
-              leading: Image.asset('assets/message.png'),
-              title: Text("Message", style: TextStyle(color: Colors.teal[800])),
-            ),
-            Divider(height: 10.0, color: Colors.transparent),
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Tree1()));
-              },
-              leading: Image.asset('assets/treee.png'),
-              title: Text("Family Tree",
-                  style: TextStyle(color: Colors.teal[800])),
-            ),
-            Divider(height: 10.0, color: Colors.transparent),
-            ListTile(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => MyLocation()));
-              },
-              leading: Image.asset('assets/mapicon.png'),
-              title: Text(
-                "Location",
-                style: TextStyle(color: Colors.teal[800]),
-              ),
-            ),
-            Divider(height: 10.0, color: Colors.transparent),
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Check1()));
-              },
-              leading: Image.asset('assets/accounticon.png'),
-              title: Text("Account", style: TextStyle(color: Colors.teal[800])),
-            ),
-            Divider(height: 10.0, color: Colors.transparent),
-            ListTile(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Home1()));
-              },
-              leading: Image.asset('assets/logoutt.png'),
-              title: Text("Logout", style: TextStyle(color: Colors.teal[800])),
-            ),
-            Divider(height: 10.0, color: Colors.transparent),
-          ],
-        ),
-      ),
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              height: sizeHeight * 0.19,
-              decoration: new BoxDecoration(
-                image: new DecorationImage(
-                  image: ExactAssetImage('assets/hometree.jpg'),
-                  fit: BoxFit.fitWidth,
-                ),
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5, right: 5, top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [],
-                    ),
-                  ),
-                  SizedBox(height: 80),
-                  Container(
-                    height: 45,
-                    width: 280,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide: BorderSide(width: 2, color: Colors.white),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide: BorderSide(width: 2, color: Colors.white),
-                        ),
-                        hintText: "Search ",
-                        hintStyle: TextStyle(color: Colors.white),
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.white,
-                          size: 20,
-                        ),
+  
+    return Container(
+           decoration: new BoxDecoration(
+                      image: new DecorationImage(
+                        image: ExactAssetImage('assets/hometree.jpg'),
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              decoration: new BoxDecoration(
-                // color: Colors.red,
-                image: new DecorationImage(
-                  image: ExactAssetImage('assets/back.png'),
-                  fit: BoxFit.cover,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: appbar,
+        drawer: Drawer(
+        
+          child: Column(
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text('$nive'),
+                accountEmail: Text(""),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.teal[400],
+                  child: Text("Hi"),
                 ),
               ),
-              height: sizeHeight * 0.71,
-              child: Expanded(
+              ListTile(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                },
+                leading: Image.asset('assets/homeicon.png'),
+                title: Text("Home", style: TextStyle(color: Colors.teal[800])),
+              ),
+              Divider(height: 10.0, color: Colors.transparent),
+              ListTile(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                },
+                leading: Image.asset('assets/message.png'),
+                title: Text("Message", style: TextStyle(color: Colors.teal[800])),
+              ),
+              Divider(height: 10.0, color: Colors.transparent),
+              ListTile(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (context) => Tree1()));
+                },
+                leading: Image.asset('assets/treee.png'),
+                title: Text("Family Tree",
+                    style: TextStyle(color: Colors.teal[800])),
+              ),
+              Divider(height: 10.0, color: Colors.transparent),
+              ListTile(
+                onTap: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => MyLocation()));
+                },
+                leading: Image.asset('assets/mapicon.png'),
+                title: Text(
+                  "Location",
+                  style: TextStyle(color: Colors.teal[800]),
+                ),
+              ),
+              Divider(height: 10.0, color: Colors.transparent),
+              ListTile(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (context) => Check1()));
+                },
+                leading: Image.asset('assets/accounticon.png'),
+                title: Text("Account", style: TextStyle(color: Colors.teal[800])),
+              ),
+              Divider(height: 10.0, color: Colors.transparent),
+              ListTile(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                },
+                leading: Image.asset('assets/logoutt.png'),
+                title: Text("Logout", style: TextStyle(color: Colors.teal[800])),
+              ),
+              Divider(height: 10.0, color: Colors.transparent),
+            ],
+          ),
+        ),
+        resizeToAvoidBottomInset: false,
+        body: Container(
+          height: sizeHeight,
+          width: sizeWidth,
+          child: Column(
+            children: [
+              Container(
+                height: ((sizeHeight - (appbarHeight+kheight)) * 0.19),
+                
+                width: sizeWidth,
+                decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                    image: ExactAssetImage('assets/hometree.jpg'),
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(height: 40),
+                    Container(
+                      height: 45,
+                      width: 280,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10)),
+                            borderSide:
+                                BorderSide(width: 2, color: Colors.white),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10)),
+                            borderSide:
+                                BorderSide(width: 2, color: Colors.white),
+                          ),
+                          hintText: "Search ",
+                          hintStyle: TextStyle(color: Colors.white),
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        ),
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                decoration: new BoxDecoration(
+                  // color: Colors.red,
+                  image: new DecorationImage(
+                    image: ExactAssetImage('assets/back.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                height: ((sizeHeight - (appbarHeight+kheight)) * 0.81),
                 child: GridView.builder(
                     padding: EdgeInsets.only(left: 10, right: 10, top: 7),
                     itemCount: 10,
@@ -252,57 +269,61 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisSpacing: 6,
                         childAspectRatio: 1.0),
                     itemBuilder: (context, index) {
-                      return Container(
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(5),
-                                        topRight: Radius.circular(5)),
-                                    border: Border.all(color: Colors.white)),
-                                child: Center(
-                                  child: InkWell(
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    movingpages[index]));
-                                      },
+                      return Card(
+                                                    child: InkWell(
+                           onTap: () {
+                                          Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      movingpages[index]));
+                                        },
+                                                      child: Container(
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(5),
+                                            topRight: Radius.circular(5)),
+                                        border:
+                                            Border.all(color: Colors.white)),
+                                    child: Center(
                                       child: Image.asset(
                                         images[index],
                                         height: 50,
                                         width: 50,
-                                      )),
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.cyan[900],
-                                  borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(5),
-                                      bottomRight: Radius.circular(5)),
-                                  border: Border.all(color: Colors.white)),
-                              height: 60,
-                              child: Center(
-                                child: Text(
-                                  headings[index],
-                                  style: TextStyle(color: Colors.white),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.cyan[900],
+                                      borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(5),
+                                          bottomRight: Radius.circular(5)),
+                                      border: Border.all(color: Colors.white)),
+                                  height: 60,
+                                  child: Center(
+                                    child: Text(
+                                      headings[index],
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
+                            // elevation: 5,
+                          ),
                         ),
-                        // elevation: 5,
                       );
                     }),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

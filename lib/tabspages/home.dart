@@ -18,6 +18,7 @@ class Home1 extends StatefulWidget {
 }
 
 class _Home1State extends State<Home1> {
+  var appbar = AppBar();
   List images = [
     'assets/matrimony.png',
     'assets/job.png',
@@ -43,8 +44,8 @@ class _Home1State extends State<Home1> {
     'Health Tips',
     'Cooking Tips'
   ];
-  
-    List movingpages = [
+
+  List movingpages = [
     Matrimony1(),
     Job(),
     FamilyTourPlan(),
@@ -56,20 +57,26 @@ class _Home1State extends State<Home1> {
     FamilyTourPlan(),
     Events(),
   ];
- 
+
   @override
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
+
+    var appbarHeight = appbar.preferredSize.height;
+    print(appbarHeight);
+    print("71");
+    var bheight = kBottomNavigationBarHeight;
+    var kheight = MediaQuery.of(context).padding.top;
     var sizeWidth = MediaQuery.of(context).size.width;
+    var leftsize = sizeHeight - (sizeHeight - appbarHeight);
+    print(leftsize);
+    print(sizeHeight);
+    print(74);
+    print(bheight);
+    print(kheight);
+    print(sizeWidth);
     return Scaffold(
-      appBar: AppBar(
-        
-        backgroundColor: Colors.teal[400],
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.notifications), onPressed: () {}),
-        Image.asset("assets/hometree.jpg")
-        ],
-      ),
+      appBar: appbar,
       drawer: Drawer(
         child: Column(
           children: [
@@ -144,120 +151,117 @@ class _Home1State extends State<Home1> {
       ),
       resizeToAvoidBottomInset: false,
       body: Container(
+        height: sizeHeight,
         child: Column(
           children: [
             Container(
-              height: sizeHeight * 0.19,
-              decoration: new BoxDecoration(
-                image: new DecorationImage(
-                  image: ExactAssetImage('assets/hometree.jpg'),
-                  fit: BoxFit.fitWidth,
-                ),
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5, right: 5, top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [],
-                    ),
-                  ),
-                  SizedBox(height: 80),
-                  Container(
-                    height: 45,
-                    width: 280,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide: BorderSide(width: 2, color: Colors.white),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide: BorderSide(width: 2, color: Colors.white),
-                        ),
-                        hintText: "Search ",
-                        hintStyle: TextStyle(color: Colors.white),
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.white,
-                          size: 20,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              height: ((sizeHeight - (appbarHeight+kheight)) * 0.19),
+              color: Colors.red,
+              // child: Column(
+              //   children: [
+              //     Padding(
+              //       padding: const EdgeInsets.only(left: 5, right: 5, top: 20),
+              //       child: Row(
+              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //         children: [],
+              //       ),
+              //     ),
+              //     SizedBox(height: 80),
+              //     Container(
+              //       height: 45,
+              //       width: 280,
+              //       child: TextFormField(
+              //         decoration: InputDecoration(
+              //           enabledBorder: OutlineInputBorder(
+              //             borderRadius: BorderRadius.all(Radius.circular(10)),
+              //             borderSide: BorderSide(width: 2, color: Colors.white),
+              //           ),
+              //           focusedBorder: OutlineInputBorder(
+              //             borderRadius: BorderRadius.all(Radius.circular(10)),
+              //             borderSide: BorderSide(width: 2, color: Colors.white),
+              //           ),
+              //           hintText: "Search ",
+              //           hintStyle: TextStyle(color: Colors.white),
+              //           prefixIcon: Icon(
+              //             Icons.search,
+              //             color: Colors.white,
+              //             size: 20,
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ),
             Container(
-              decoration: new BoxDecoration(
-                // color: Colors.red,
-                image: new DecorationImage(
-                  image: ExactAssetImage('assets/back.png'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              height: sizeHeight * 0.71,
-              child: Expanded(
-                child: GridView.builder(
-                    padding: EdgeInsets.only(left: 10, right: 10, top: 7),
-                    itemCount: 10,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 11,
-                        mainAxisSpacing: 6,
-                        childAspectRatio: 1.0),
-                    itemBuilder: (context, index) {
-                      return Container(
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(5),
-                                        topRight: Radius.circular(5)),
-                                    border: Border.all(color: Colors.white)),
-                                child: Center(
-                                  child: InkWell(
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    movingpages[index]));
-                                      },
-                                      child: Image.asset(
-                                        images[index],
-                                        height: 50,
-                                        width: 50,
-                                      )),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.cyan[900],
-                                  borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(5),
-                                      bottomRight: Radius.circular(5)),
-                                  border: Border.all(color: Colors.white)),
-                              height: 60,
-                              child: Center(
-                                child: Text(
-                                  headings[index],
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        // elevation: 5,
-                      );
-                    }),
-              ),
+              color: Colors.green,
+              // decoration: new BoxDecoration(
+              //   // color: Colors.red,
+              //   image: new DecorationImage(
+              //     image: ExactAssetImage('assets/back.png'),
+              //     fit: BoxFit.cover,
+              //   ),
+              // ),
+              height:((sizeHeight - (appbarHeight+kheight)) * 0.81),
+              // child: Expanded(
+              //   child: GridView.builder(
+              //       padding: EdgeInsets.only(left: 10, right: 10, top: 7),
+              //       itemCount: 10,
+              //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //           crossAxisCount: 2,
+              //           crossAxisSpacing: 11,
+              //           mainAxisSpacing: 6,
+              //           childAspectRatio: 1.0),
+              //       itemBuilder: (context, index) {
+              //         return Container(
+              //           child: Column(
+              //             children: [
+              //               Expanded(
+              //                 child: Container(
+              //                   decoration: BoxDecoration(
+              //                       color: Colors.white,
+              //                       borderRadius: BorderRadius.only(
+              //                           topLeft: Radius.circular(5),
+              //                           topRight: Radius.circular(5)),
+              //                       border: Border.all(color: Colors.white)),
+              //                   child: Center(
+              //                     child: InkWell(
+              //                         onTap: () {
+              //                           Navigator.push(
+              //                               context,
+              //                               MaterialPageRoute(
+              //                                   builder: (context) =>
+              //                                       movingpages[index]));
+              //                         },
+              //                         child: Image.asset(
+              //                           images[index],
+              //                           height: 50,
+              //                           width: 50,
+              //                         )),
+              //                   ),
+              //                 ),
+              //               ),
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: Colors.cyan[900],
+              //                     borderRadius: BorderRadius.only(
+              //                         bottomLeft: Radius.circular(5),
+              //                         bottomRight: Radius.circular(5)),
+              //                     border: Border.all(color: Colors.white)),
+              //                 height: 60,
+              //                 child: Center(
+              //                   child: Text(
+              //                     headings[index],
+              //                     style: TextStyle(color: Colors.white),
+              //                   ),
+              //                 ),
+              //               ),
+              //             ],
+              //           ),
+              //           // elevation: 5,
+              //         );
+              //       }),
+              // ),
             )
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google/tabspages/home.dart';
+import 'package:google/tabspages/homescreen.dart';
 
 class Tree1 extends StatefulWidget {
   const Tree1({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _Tree1State extends State<Tree1> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (BuildContext context) => Home1()));
+                                builder: (BuildContext context) => HomeScreen()));
 
                           },
                           child: Padding(

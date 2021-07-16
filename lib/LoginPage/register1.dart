@@ -84,6 +84,13 @@ class _Register1State extends State<Register1> {
       "profile_image": j,
     });
     print(response);
+    print(a);
+    print(b);
+    print(c);
+    print(d);
+    print(f);
+    print(92);
+    print(g);
     print(response.body);
     var receivedDetails = json.decode(response.body);
     print(receivedDetails);
@@ -189,7 +196,7 @@ class _Register1State extends State<Register1> {
       });
     });
     return Scaffold(
-      backgroundColor: HexColor("#023C3F"),
+      backgroundColor: Colors.teal[500],
       body: Padding(
         padding: const EdgeInsets.only(top: 40),
         child: SingleChildScrollView(
@@ -591,7 +598,7 @@ class _Register1State extends State<Register1> {
                   Container(
                       child: InkWell(
                     onTap: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (BuildContext context) => Mail()));
