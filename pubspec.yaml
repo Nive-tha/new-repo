@@ -113,7 +113,7 @@ flutter:
    - assets/calender.jpeg
    - assets/calender.png
    - assets/call.png
-   - assets/background.png
+  #  - assets/background.png
    - assets/matrimony.png
    - assets/back.png
    - assets/homepagebackground.png

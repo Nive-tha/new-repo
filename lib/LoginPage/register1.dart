@@ -69,22 +69,21 @@ class _Register1State extends State<Register1> {
         textColor: Colors.white);
   }
 
-  Future _read(name,mail,number,passwrd,confrmpassword,famname,famid,google1,facebook1,j) async {
+  Future _read(a, b, c, d, g, e, f, k, i, j) async {
     final String url =
-        "https://www.cviacserver.tk/parampara/parampara/new_registration";
+        "http://36db7cc5a0cd.ngrok.io/parampara/new_registration";
     final response = await http.post(Uri.parse(url), body: {
-      'user_name': name,
-      'email':mail,
-      'phone': number,
-      if (passwrd == confrmpassword) 'pass': passwrd,
-      'family_name': famname,
-      'family_id': famid,
-      'google_id': google1,
-      'face_book': facebook1,
+      'user_name': a,
+      'email': b,
+      'phone': c,
+      if (d == e) 'pass': d,
+      'family_name': f,
+      'family_id': g,
+      'google_id': k,
+      'face_book': i,
       "profile_image": j,
     });
     print(response);
-
     print(response.body);
     var receivedDetails = json.decode(response.body);
     print(receivedDetails);
@@ -98,14 +97,14 @@ class _Register1State extends State<Register1> {
     if (response.statusCode == 200) {
       ShowLoad();
       showToast();
-      print(name);
+      print(a);
       SharedPreferences sent = await SharedPreferences.getInstance();
 
-      sent.setString('sentFromRegister1', name);
+      sent.setString('sentFromRegister1', a);
 
       print(81);
       if (widget.googleReceived == null && widget.faceBookReceived == null) {
-        print(name);
+        print(a);
         Navigator.pushReplacement(
             context,
             new MaterialPageRoute(
@@ -154,6 +153,8 @@ class _Register1State extends State<Register1> {
 
   @override
   Widget build(BuildContext context) {
+   var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     if (widget.faceBookReceived == null && widget.googleReceived == null) {
       print("hello empty");
       print(widget.faceBookReceived);
@@ -190,321 +191,42 @@ class _Register1State extends State<Register1> {
       });
     });
     return Scaffold(
-      backgroundColor: Colors.teal[500],
-      body: Padding(
-        padding: const EdgeInsets.only(top: 40),
-        child: SingleChildScrollView(
-            child: Column(children: [
-          Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  SizedBox(height: 20),
-                  Text(
-                    "Create New Account",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Montserrat"),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    width: 300,
-                    child: InkWell(
-                      onTap: () {},
-                      child: TextFormField(
-                        style: TextStyle(color: Colors.white),
-                        controller: username,
-                        decoration: InputDecoration(
-                          labelText: 'Name',
-                          labelStyle: TextStyle(
-                            color: _focusNode.hasFocus
-                                ? Colors.white
-                                : Colors.white,
-                          ),
-                          filled: true,
-                          fillColor: HexColor("#04777D"),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 4.0),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(16.0)),
-                            borderSide:
-                                BorderSide(color: Colors.cyan, width: 2),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(16.0)),
-                            borderSide:
-                                BorderSide(color: Colors.cyan, width: 1),
-                          ),
-                          prefixIcon: Icon(Icons.verified_user_rounded,
-                              color: Colors.white),
-                        ),
-                      ),
+      body: Container(
+           decoration: new BoxDecoration(
+        image: new DecorationImage(
+          image: ExactAssetImage('assets/back.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
+     height: height,
+     width: width,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 40),
+          child: SingleChildScrollView(
+              child: Column(children: [
+            Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    SizedBox(height: 20),
+                    Text(
+                      "Create New Account",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Montserrat"),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    width: 300,
-                    height: 50,
-                    child: TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        textCapitalization: TextCapitalization.none,
-                        controller: email,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "please enter the username";
-                          }
-                        },
-                        style: TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: HexColor("#04777D"),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(16.0)),
-                              borderSide:
-                                  BorderSide(color: Colors.cyan, width: 2),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(16.0)),
-                              borderSide:
-                                  BorderSide(color: Colors.cyan, width: 1),
-                            ),
-                            prefixIcon:
-                                Icon(Icons.account_circle, color: Colors.white),
-                            labelText: "Email",
-                            labelStyle: TextStyle(color: Colors.white))),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    width: 300,
-                    child: TextFormField(
-                      style: TextStyle(color: Colors.white),
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "please enter MobileNumber";
-                        }
-                      },
-                      controller: mblno,
-                      decoration: InputDecoration(
-                        labelText: 'MobileNumber',
-                        labelStyle: TextStyle(
-                          color:
-                              _focusNode.hasFocus ? Colors.white : Colors.white,
-                        ),
-                        filled: true,
-                        fillColor: HexColor("#04777D"),
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 4.0),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                          borderSide: BorderSide(color: Colors.cyan, width: 2),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                          borderSide: BorderSide(color: Colors.cyan, width: 1),
-                        ),
-                        prefixIcon: Icon(Icons.verified_user_rounded,
-                            color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Visibility(
-                    child: Column(
-                      children: [
-                        Container(
-                          width: 300,
-                          child: TextFormField(
-                            style: TextStyle(color: Colors.white),
-                            obscureText: securetext1,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "please enter password";
-                              }
-                            },
-                            controller: password,
-                            decoration: InputDecoration(
-                              labelText: 'Password',
-                              labelStyle: TextStyle(
-                                color: _focusNode.hasFocus
-                                    ? Colors.white
-                                    : Colors.white,
-                              ),
-                              suffixIcon: IconButton(
-                                color: Colors.white,
-                                icon: securetext1
-                                    ? Icon(Icons.visibility_off)
-                                    : Icon(Icons.visibility),
-                                onPressed: () {
-                                  setState(() {
-                                    securetext1 = !securetext1;
-                                  });
-                                },
-                              ),
-                              filled: true,
-                              fillColor: HexColor("#04777D"),
-                              contentPadding:
-                                  const EdgeInsets.symmetric(horizontal: 4.0),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16.0)),
-                                borderSide:
-                                    BorderSide(color: Colors.cyan, width: 2),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16.0)),
-                                borderSide:
-                                    BorderSide(color: Colors.cyan, width: 1),
-                              ),
-                              prefixIcon: Icon(Icons.verified_user_rounded,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        Container(
-                            width: 300,
-                            child: TextFormField(
-                                style: TextStyle(color: Colors.white),
-                                obscureText: securetext1,
-                                controller: confirmpassword,
-                                // validator: (value) {
-                                //   if (value!.isEmpty) {
-                                //     return "Please enter repassword";
-                                //   }
-                                //   if (password.text != confirmpassword.text) {
-                                //     return "password does not match";
-                                //   }
-                                //   return null;
-                                // },
-                                decoration: InputDecoration(
-                                  labelText: 'Confirm Password',
-                                  labelStyle: TextStyle(
-                                    color: _focusNode.hasFocus
-                                        ? Colors.white
-                                        : Colors.white,
-                                  ),
-                                  suffixIcon: IconButton(
-                                    color: Colors.white,
-                                    icon: securetext1
-                                        ? Icon(Icons.visibility_off)
-                                        : Icon(Icons.visibility),
-                                    onPressed: () {
-                                      setState(() {
-                                        securetext1 = !securetext1;
-                                      });
-                                    },
-                                  ),
-                                  filled: true,
-                                  fillColor: HexColor("#04777D"),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      horizontal: 4.0),
-                                  //
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(16.0)),
-                                    borderSide: BorderSide(
-                                        color: Colors.cyan, width: 2),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(16.0)),
-                                    borderSide: BorderSide(
-                                        color: Colors.cyan, width: 1),
-                                  ),
-
-                                  prefixIcon: Icon(Icons.verified_user_rounded,
-                                      color: Colors.white),
-                                )))
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Theme(
-                      data:
-                          ThemeData(unselectedWidgetColor: HexColor("#04777D")),
-                      child: CheckboxListTile(
-                        selectedTileColor: HexColor("#04777D"),
-                        activeColor: HexColor("#04777D"),
-                        checkColor: Colors.white,
-                        controlAffinity: ListTileControlAffinity.leading,
-                        title: Text(
-                          'Existing FamilyMember',
+                    SizedBox(height: 20),
+                    Container(
+                      width: 300,
+                      child: InkWell(
+                        onTap: () {},
+                        child: TextFormField(
                           style: TextStyle(color: Colors.white),
-                        ),
-                        value: _selected,
-                        onChanged: (value) =>
-                            setState(() => _selected = value!),
-                      ),
-                    ),
-                  ),
-                  if (!_selected)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                        vertical: 8.0,
-                      ),
-                      child: Container(
-                          width: 300,
-                          child: TextFormField(
-                            style: TextStyle(color: Colors.white),
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "please enter Familyname";
-                              }
-                            },
-                            controller: familyname,
-                            decoration: InputDecoration(
-                              labelText: 'FamilyName',
-                              labelStyle: TextStyle(
-                                color: _focusNode.hasFocus
-                                    ? Colors.white
-                                    : Colors.white,
-                              ),
-                              filled: true,
-                              fillColor: HexColor("#04777D"),
-                              contentPadding:
-                                  const EdgeInsets.symmetric(horizontal: 4.0),
-                              //
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16.0)),
-                                borderSide:
-                                    BorderSide(color: Colors.cyan, width: 2),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16.0)),
-                                borderSide:
-                                    BorderSide(color: Colors.cyan, width: 1),
-                              ),
-
-                              prefixIcon: Icon(Icons.verified_user_rounded,
-                                  color: Colors.white),
-                            ),
-                          )),
-                    ),
-                  if (_selected)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                        vertical: 8.0,
-                      ),
-                      child: Container(
-                        width: 300,
-                        child: TextField(
-                          style: TextStyle(color: Colors.white),
-                          controller: familyid,
+                          controller: username,
                           decoration: InputDecoration(
-                            labelText: 'FamilyId',
+                            labelText: 'Name',
                             labelStyle: TextStyle(
                               color: _focusNode.hasFocus
                                   ? Colors.white
@@ -532,79 +254,367 @@ class _Register1State extends State<Register1> {
                         ),
                       ),
                     ),
-                  SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Theme(
-                      data:
-                          ThemeData(unselectedWidgetColor: HexColor("#04777D")),
-                      child: CheckboxListTile(
-                        selectedTileColor: HexColor("#04777D"),
-                        activeColor: HexColor("#04777D"),
-                        checkColor: Colors.white,
-                        controlAffinity: ListTileControlAffinity.leading,
-                        title: Text(
-                          'I agree with Terms & Conditions',
+                    SizedBox(height: 20),
+                    Container(
+                      width: 300,
+                     
+                      child: TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          textCapitalization: TextCapitalization.none,
+                          controller: email,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return "please enter the username";
+                            }
+                          },
+                          style: TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: HexColor("#04777D"),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16.0)),
+                                borderSide:
+                                    BorderSide(color: Colors.cyan, width: 2),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16.0)),
+                                borderSide:
+                                    BorderSide(color: Colors.cyan, width: 1),
+                              ),
+                              prefixIcon:
+                                  Icon(Icons.account_circle, color: Colors.white),
+                              labelText: "Email",
+                              labelStyle: TextStyle(color: Colors.white))),
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      width: 300,
+                      child: TextFormField(
+                        style: TextStyle(color: Colors.white),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "please enter MobileNumber";
+                          }
+                        },
+                        controller: mblno,
+                        decoration: InputDecoration(
+                          labelText: 'MobileNumber',
+                          labelStyle: TextStyle(
+                            color:
+                                _focusNode.hasFocus ? Colors.white : Colors.white,
+                          ),
+                          filled: true,
+                          fillColor: HexColor("#04777D"),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 4.0),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                            borderSide: BorderSide(color: Colors.cyan, width: 2),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                            borderSide: BorderSide(color: Colors.cyan, width: 1),
+                          ),
+                          prefixIcon: Icon(Icons.verified_user_rounded,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Visibility(
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 300,
+                            child: TextFormField(
+                              style: TextStyle(color: Colors.white),
+                              obscureText: securetext1,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "please enter password";
+                                }
+                              },
+                              controller: password,
+                              decoration: InputDecoration(
+                                labelText: 'Password',
+                                labelStyle: TextStyle(
+                                  color: _focusNode.hasFocus
+                                      ? Colors.white
+                                      : Colors.white,
+                                ),
+                                suffixIcon: IconButton(
+                                  color: Colors.white,
+                                  icon: securetext1
+                                      ? Icon(Icons.visibility_off)
+                                      : Icon(Icons.visibility),
+                                  onPressed: () {
+                                    setState(() {
+                                      securetext1 = !securetext1;
+                                    });
+                                  },
+                                ),
+                                filled: true,
+                                fillColor: HexColor("#04777D"),
+                                contentPadding:
+                                    const EdgeInsets.symmetric(horizontal: 4.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(16.0)),
+                                  borderSide:
+                                      BorderSide(color: Colors.cyan, width: 2),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(16.0)),
+                                  borderSide:
+                                      BorderSide(color: Colors.cyan, width: 1),
+                                ),
+                                prefixIcon: Icon(Icons.verified_user_rounded,
+                                    color: Colors.white),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          Container(
+                              width: 300,
+                              child: TextFormField(
+                                  style: TextStyle(color: Colors.white),
+                                  obscureText: securetext1,
+                                  controller: confirmpassword,
+                                  // validator: (value) {
+                                  //   if (value!.isEmpty) {
+                                  //     return "Please enter repassword";
+                                  //   }
+                                  //   if (password.text != confirmpassword.text) {
+                                  //     return "password does not match";
+                                  //   }
+                                  //   return null;
+                                  // },
+                                  decoration: InputDecoration(
+                                    labelText: 'Confirm Password',
+                                    labelStyle: TextStyle(
+                                      color: _focusNode.hasFocus
+                                          ? Colors.white
+                                          : Colors.white,
+                                    ),
+                                    suffixIcon: IconButton(
+                                      color: Colors.white,
+                                      icon: securetext1
+                                          ? Icon(Icons.visibility_off)
+                                          : Icon(Icons.visibility),
+                                      onPressed: () {
+                                        setState(() {
+                                          securetext1 = !securetext1;
+                                        });
+                                      },
+                                    ),
+                                    filled: true,
+                                    fillColor: HexColor("#04777D"),
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        horizontal: 4.0),
+                                    //
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(16.0)),
+                                      borderSide: BorderSide(
+                                          color: Colors.cyan, width: 2),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(16.0)),
+                                      borderSide: BorderSide(
+                                          color: Colors.cyan, width: 1),
+                                    ),
+
+                                    prefixIcon: Icon(Icons.verified_user_rounded,
+                                        color: Colors.white),
+                                  )))
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Theme(
+                        data:
+                            ThemeData(unselectedWidgetColor: HexColor("#04777D")),
+                        child: CheckboxListTile(
+                          selectedTileColor: HexColor("#04777D"),
+                          activeColor: HexColor("#04777D"),
+                          checkColor: Colors.white,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          title: Text(
+                            'Existing FamilyMember',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          value: _selected,
+                          onChanged: (value) =>
+                              setState(() => _selected = value!),
+                        ),
+                      ),
+                    ),
+                    if (!_selected)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0,
+                          vertical: 8.0,
+                        ),
+                        child: Container(
+                            width: 300,
+                            child: TextFormField(
+                              style: TextStyle(color: Colors.white),
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "please enter Familyname";
+                                }
+                              },
+                              controller: familyname,
+                              decoration: InputDecoration(
+                                labelText: 'FamilyName',
+                                labelStyle: TextStyle(
+                                  color: _focusNode.hasFocus
+                                      ? Colors.white
+                                      : Colors.white,
+                                ),
+                                filled: true,
+                                fillColor: HexColor("#04777D"),
+                                contentPadding:
+                                    const EdgeInsets.symmetric(horizontal: 4.0),
+                                //
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(16.0)),
+                                  borderSide:
+                                      BorderSide(color: Colors.cyan, width: 2),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(16.0)),
+                                  borderSide:
+                                      BorderSide(color: Colors.cyan, width: 1),
+                                ),
+
+                                prefixIcon: Icon(Icons.verified_user_rounded,
+                                    color: Colors.white),
+                              ),
+                            )),
+                      ),
+                    if (_selected)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0,
+                          vertical: 8.0,
+                        ),
+                        child: Container(
+                          width: 300,
+                          child: TextField(
+                            style: TextStyle(color: Colors.white),
+                            controller: familyid,
+                            decoration: InputDecoration(
+                              labelText: 'FamilyId',
+                              labelStyle: TextStyle(
+                                color: _focusNode.hasFocus
+                                    ? Colors.white
+                                    : Colors.white,
+                              ),
+                              filled: true,
+                              fillColor: HexColor("#04777D"),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16.0)),
+                                borderSide:
+                                    BorderSide(color: Colors.cyan, width: 2),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16.0)),
+                                borderSide:
+                                    BorderSide(color: Colors.cyan, width: 1),
+                              ),
+                              prefixIcon: Icon(Icons.verified_user_rounded,
+                                  color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                    SizedBox(height: 10),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Theme(
+                        data:
+                            ThemeData(unselectedWidgetColor: HexColor("#04777D")),
+                        child: CheckboxListTile(
+                          selectedTileColor: HexColor("#04777D"),
+                          activeColor: HexColor("#04777D"),
+                          checkColor: Colors.white,
+                          controlAffinity: ListTileControlAffinity.leading,
+                          title: Text(
+                            'I agree with Terms & Conditions',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          value: _selected1,
+                          onChanged: (value) =>
+                              setState(() => _selected1 = value!),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    ButtonTheme(
+                      minWidth: 320.0,
+                      height: 50.0,
+                      child: RaisedButton(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(10.0),
+                        ),
+                        color: Colors.blue,
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            final String a = username.text;
+                            final String b = email.text;
+                            final String c = mblno.text;
+                            final String d = password.text;
+                            final String e = confirmpassword.text;
+                            final String f = familyname.text;
+                            final String g = familyid.text;
+                            final String k = google.text;
+                            final String i = facebook.text;
+                            final String j = Url.text;
+
+                            _selected = false;
+
+                            _read(a, b, c, d, g, e, f, k, i, j);
+                          } else {
+                            print("unsuccessful");
+                          }
+                        },
+                        child: Text(
+                          "Create Account",
                           style: TextStyle(color: Colors.white),
                         ),
-                        value: _selected1,
-                        onChanged: (value) =>
-                            setState(() => _selected1 = value!),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  ButtonTheme(
-                    minWidth: 320.0,
-                    height: 50.0,
-                    child: RaisedButton(
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
-                      ),
-                      color: Colors.blue,
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          final String name = username.text;
-                          final String mail = email.text;
-                          final String number = mblno.text;
-                          final String passwrd = password.text;
-                          final String confrmpassword = confirmpassword.text;
-                          final String famname = familyname.text;
-                          final String famid = familyid.text;
-                          final String google1 = google.text;
-                          final String facebook1 = facebook.text;
-                          final String j = Url.text;
-
-                          _selected = false;
-
-                          _read(name,mail,number,passwrd,confrmpassword,famname,famid,google1,facebook1,j);
-                        } else {
-                          print("unsuccessful");
-                        }
+                    SizedBox(height: 20),
+                    Container(
+                        child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => Mail()));
                       },
-                      child: Text(
-                        "Create Account",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                      child: InkWell(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) => Mail()));
-                    },
-                    child: Text('Already have an Account? SignIn',
-                        style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            color: Colors.white)),
-                  ))
-                ],
-              ))
-        ])),
+                      child: Text('Already have an Account? SignIn',
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Colors.white)),
+                    ))
+                  ],
+                ))
+          ])),
+        ),
       ),
     );
   }

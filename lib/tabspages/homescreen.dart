@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List images = [
     'assets/matrimony.png',
     'assets/job.png',
-    'assets/tour-bus.png',
+    'assets/car.png',
     'assets/party.png',
     'assets/image-gallery.png',
     'assets/calender.png',
@@ -229,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     height: ((sizeHeight) * 0.30),
                     width: sizeWidth,
-                    color: HexColor('4D219e08'),
+                    color: HexColor('9904777d'),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
