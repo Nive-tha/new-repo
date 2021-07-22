@@ -4,6 +4,8 @@ import 'package:google/mappage.dart';
 import 'package:google/tabspages/home.dart';
 import 'package:google/treepage/tree1.dart';
 
+import 'LoginPage/contactdetail.dart';
+import 'LoginPage/professionaldetails.dart';
 import 'newlog.dart';
 import 'package:google/BloodDonationPage/BloodDonation1.dart';
 void main() {

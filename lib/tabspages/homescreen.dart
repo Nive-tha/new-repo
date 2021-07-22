@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:google/BloodDonationPage/BloodDonation1.dart';
+import 'package:google/LoginPage/contactdetail.dart';
 import 'package:google/calender/calender.dart';
 import 'package:google/events/events.dart';
 import 'package:google/familytourplan/familytourplan.dart';
@@ -113,16 +114,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var sizeHeight = MediaQuery.of(context).size.height;
     var sizeWidth = MediaQuery.of(context).size.width;
-    // var  appbar.preferredSize.height;
-    // print(
+
     print("71");
-    // var bheight = kBottomNavigationBarHeight;
-    // = MediaQuery.of(context).padding.top;
-
-    // var leftsize = sizeHeight - (sizeHeight -
-    // var sizeOrientation = MediaQuery.of(context).orientation;
-    // print(sizeOrientation);
-
     return Container(
       decoration: new BoxDecoration(
         image: new DecorationImage(

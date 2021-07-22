@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google/LoginPage/Profile.dart';
+import 'package:google/LoginPage/personaldetails.dart';
 import 'package:google/tabspages/home.dart';
 import 'package:google/tabspages/homescreen.dart';
+import 'package:hexcolor/hexcolor.dart';
+
+import '../Useraccount.dart';
+import '../map.dart';
 
 class Tree1 extends StatefulWidget {
   const Tree1({Key? key}) : super(key: key);
@@ -13,62 +19,134 @@ class _Tree1State extends State<Tree1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:  Container(
-        child: Column(
-     
-            children: [
-              Expanded(
-                              child: Container(
-                  color: Colors.teal[700],
-                  child: Padding(
-                    padding: const EdgeInsets.only(top:40,bottom: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left:15),
-                          child: Icon(
-                            Icons.account_circle,
-                            size: 50.0,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text("FamilyTree",style:TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize:20)),
-                        InkWell(
-                          onTap: (){
-                           
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) => HomeScreen()));
-
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 15),
-                            child: Text("Back",style:TextStyle(color:Colors.white,fontSize: 10)),
-                          )),
-                      ],
-                    ),
-                  ),
-                ),
+       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: <Color>[HexColor('#0A4E51'), HexColor('#149BA1')])),
+        ),
+        backgroundColor: Colors.teal,
+        iconTheme: IconThemeData(color: Colors.white),
+        actions: <Widget>[
+          FlatButton(
+            padding: EdgeInsets.zero,
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                'Back',
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.right,
               ),
-              
-              Expanded(
-                flex: 8,
-                              child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => Tree1()));
+            },
+          )
+        ],
+        title: Text(
+          'Add Details',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text("Nive"),
+              accountEmail: Text(""),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.teal[400],
+                child: Text("Hi"),
+              ),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
+              },
+              leading: Image.asset('assets/homeicon.png'),
+              title: Text("Home", style: TextStyle(color: Colors.teal[800])),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+            ListTile(
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
+              },
+              leading: Image.asset('assets/message.png'),
+              title: Text("Message", style: TextStyle(color: Colors.teal[800])),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+            ListTile(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context) => Tree1()));
+              },
+              leading: Image.asset('assets/treee.png'),
+              title: Text("Family Tree",
+                  style: TextStyle(color: Colors.teal[800])),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+            ListTile(
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => MyLocation()));
+              },
+              leading: Image.asset('assets/mapicon.png'),
+              title: Text(
+                "Location",
+                style: TextStyle(color: Colors.teal[800]),
+              ),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+            ListTile(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (context) => Check1()));
+              },
+              leading: Image.asset('assets/accounticon.png'),
+              title: Text("Account", style: TextStyle(color: Colors.teal[800])),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+            ListTile(
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
+              },
+              leading: Image.asset('assets/logoutt.png'),
+              title: Text("Logout", style: TextStyle(color: Colors.teal[800])),
+            ),
+            Divider(height: 10.0, color: Colors.transparent),
+          ],
+        ),
+      ),
+      body:  Container(
+        child: InkWell(
+          onTap: (){
+              Navigator.push(
+                      context,
+                      MaterialPageRoute(
+          builder: (BuildContext context) => Profiles()));
+          },
+                                        child: Center(
+                                          child: Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
             
-                      children: [
-                        Icon(Icons.person_add),
-                        Text("Add You in Tree")
-                      ],
-                    ),
+                children: [
+                  Icon(Icons.person_add),
+                  Text("Add You in Tree")
+                ],
+              ),
 
-                  ),
-              )
-            ],
-          ),
+            ),
+                                        ),
+        ),
       ),
     
       
