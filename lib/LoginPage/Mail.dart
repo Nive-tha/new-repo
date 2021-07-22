@@ -145,16 +145,16 @@ class _MailState extends State<Mail> {
     print(receivedDetails);
     var extractedDetail = receivedDetails['status_code'];
     print(extractedDetail);
-    var extractedDetail2 =
-        receivedDetails['results'][0]['family_id'].toString();
-    print(extractedDetail);
-    var extractedDetail1 = receivedDetails['results'][0]['id'].toString();
-    print(extractedDetail1);
-    List<String> stringList = [extractedDetail1, extractedDetail2];
+    // var extractedDetail2 =
+    //     receivedDetails['results'][0]['family_id'].toString();
+    // print(extractedDetail);
+    // var extractedDetail1 = receivedDetails['results'][0]['id'].toString();
+    // print(extractedDetail1);
+    // List<String> stringList = [extractedDetail1, extractedDetail2];
 
-    SharedPreferences prefer = await SharedPreferences.getInstance();
-    await prefer.setStringList('idS', stringList);
-    print("line no 10");
+    // SharedPreferences prefer = await SharedPreferences.getInstance();
+    // await prefer.setStringList('idS', stringList);
+    // print("line no 10");
     print(response.body);
     storingProfilePicture();
     if (response.statusCode == extractedDetail) {
@@ -180,16 +180,16 @@ class _MailState extends State<Mail> {
     var receivedDetails = json.decode(response.body);
     print(receivedDetails);
     var extractedDetail = receivedDetails['status_code'];
-    var extractedDetail2 =
-        receivedDetails['results'][0]['family_id'].toString();
-    print(extractedDetail2);
-    var extractedDetail1 = receivedDetails['results'][0]['id'].toString();
-    print(extractedDetail1);
-    List<String> stringList = [extractedDetail1, extractedDetail2];
+    // var extractedDetail2 =
+    //     receivedDetails['results'][0]['family_id'].toString();
+    // print(extractedDetail2);
+    // var extractedDetail1 = receivedDetails['results'][0]['id'].toString();
+    // print(extractedDetail1);
+    // List<String> stringList = [extractedDetail1, extractedDetail2];
 
-    SharedPreferences prefer = await SharedPreferences.getInstance();
-    await prefer.setStringList('idS', stringList);
-    print("line no 10");
+    // SharedPreferences prefer = await SharedPreferences.getInstance();
+    // await prefer.setStringList('idS', stringList);
+    // print("line no 10");
     print(response.body);
     storingProfilePicture();
     if (response.statusCode == extractedDetail) {

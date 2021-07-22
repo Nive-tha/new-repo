@@ -19,7 +19,7 @@ class _Tree1State extends State<Tree1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
+      appBar: AppBar(
         flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -41,10 +41,11 @@ class _Tree1State extends State<Tree1> {
               ),
             ),
             onPressed: () {
-              Navigator.push(
+             
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => Tree1()));
+                      builder: (BuildContext context) => HomeScreen()));
             },
           )
         ],
@@ -125,31 +126,24 @@ class _Tree1State extends State<Tree1> {
           ],
         ),
       ),
-      body:  Container(
+      body: Container(
         child: InkWell(
-          onTap: (){
-              Navigator.push(
-                      context,
-                      MaterialPageRoute(
-          builder: (BuildContext context) => Profiles()));
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => Profiles()));
           },
-                                        child: Center(
-                                          child: Container(
+          child: Center(
+            child: Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-            
-                children: [
-                  Icon(Icons.person_add),
-                  Text("Add You in Tree")
-                ],
+                children: [Icon(Icons.person_add), Text("Add You in Tree")],
               ),
-
             ),
-                                        ),
+          ),
         ),
       ),
-    
-      
     );
   }
 }

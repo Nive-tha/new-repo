@@ -340,13 +340,13 @@ class _ProfileState extends State<Profiles> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(3.0)),
                                 borderSide: BorderSide(
-                                    color: HexColor("#0A4E51"), width: 2),
+                                    color: HexColor("#0A4E51"), width: 1),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(3.0)),
                                 borderSide: BorderSide(
-                                    color: HexColor("#0A4E51"), width: 2),
+                                    color: HexColor("#0A4E51"), width: 1),
                               ),
                               // prefixIcon:
                               // Icon(Icons.account_circle, color: Colors.white),

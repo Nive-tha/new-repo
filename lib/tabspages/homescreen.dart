@@ -139,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(context,
+                  Navigator.push(context,
                       MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 leading: Image.asset('assets/homeicon.png'),
@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Divider(height: 10.0, color: Colors.transparent),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(context,
+                  Navigator.push(context,
                       MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 leading: Image.asset('assets/message.png'),
@@ -158,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Divider(height: 10.0, color: Colors.transparent),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(context,
+                  Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Tree1()));
                 },
                 leading: Image.asset('assets/treee.png'),
@@ -168,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Divider(height: 10.0, color: Colors.transparent),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(context,
+                  Navigator.push(context,
                       MaterialPageRoute(builder: (context) => MyLocation()));
                 },
                 leading: Image.asset('assets/mapicon.png'),
@@ -180,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Divider(height: 10.0, color: Colors.transparent),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(context,
+                  Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Check1()));
                 },
                 leading: Image.asset('assets/accounticon.png'),
@@ -190,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Divider(height: 10.0, color: Colors.transparent),
               ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(context,
+                  Navigator.push(context,
                       MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
                 leading: Image.asset('assets/logoutt.png'),

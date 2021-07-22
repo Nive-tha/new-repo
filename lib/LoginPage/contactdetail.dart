@@ -32,7 +32,6 @@ class _ContactDetailsState extends State<ContactDetails> {
     },
   ];
   void initState() {
-    // TODO: implement initState
     super.initState();
     save();
   }
@@ -69,11 +68,10 @@ class _ContactDetailsState extends State<ContactDetails> {
           FlatButton(
               padding: EdgeInsets.zero,
               onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) => Profiles()));
-                           
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => Profiles()));
               },
               child: Align(
                   alignment: Alignment.centerRight,
@@ -348,7 +346,7 @@ class _ContactDetailsState extends State<ContactDetails> {
                           icon: Image.asset(
                             'assets/empire-state.png',
                             width: 30,
-                            height:30,
+                            height: 30,
                             fit: BoxFit.fill,
                           ),
                           enabledBorder: OutlineInputBorder(
@@ -408,10 +406,11 @@ class _ContactDetailsState extends State<ContactDetails> {
                         width: sizeWidth * 0.7,
                         child: TextButton(
                             onPressed: () {
-                                Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext context) => ProfessionalDetails()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          ProfessionalDetails()));
                             },
                             child: Text(
                               "Continue",

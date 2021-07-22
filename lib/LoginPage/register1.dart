@@ -71,7 +71,7 @@ class _Register1State extends State<Register1> {
 
   Future _read(a, b, c, d, g, e, f, k, i, j) async {
     final String url =
-        "http://36db7cc5a0cd.ngrok.io/parampara/new_registration";
+        "http://www.cviacserver.tk/parampara/parampara/new_registration";
     final response = await http.post(Uri.parse(url), body: {
       'user_name': a,
       'email': b,
@@ -153,7 +153,7 @@ class _Register1State extends State<Register1> {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
+      var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     if (widget.faceBookReceived == null && widget.googleReceived == null) {
       print("hello empty");
@@ -184,29 +184,29 @@ class _Register1State extends State<Register1> {
     //
     print(widget.googleReceived);
     print(widget.faceBookReceived);
-    final _formKey = GlobalKey<FormState>();
-    // // _focusNode.addListener(() {
-    // //   setState(() {
-    // //     color = _focusNode.hasFocus ? Colors.white : Colors.white;
-    // //   });
-    // });
 
+    _focusNode.addListener(() {
+      setState(() {
+        color = _focusNode.hasFocus ? Colors.white : Colors.white;
+      });
+    });
     return Scaffold(
+ 
       body: Container(
-        height: height,
-        width: width,
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
-            image: ExactAssetImage('assets/back.png'),
-            fit: BoxFit.cover,
-          ),
+height:height,
+width: width,
+         decoration: new BoxDecoration(
+        image: new DecorationImage(
+          image: ExactAssetImage('assets/back.png'),
+          fit: BoxFit.cover,
         ),
+      ),
         child: Padding(
           padding: const EdgeInsets.only(top: 40),
           child: SingleChildScrollView(
               child: Column(children: [
             Form(
-                key: _formKey,
+         
                 child: Column(
                   children: [
                     SizedBox(height: 20),
@@ -221,34 +221,37 @@ class _Register1State extends State<Register1> {
                     SizedBox(height: 20),
                     Container(
                       width: 300,
-                      child: TextFormField(
-                        style: TextStyle(color: Colors.white),
-                        controller: username,
-                        decoration: InputDecoration(
-                          labelText: 'Name',
-                          labelStyle: TextStyle(color: Colors.white
-                              // color: _focusNode.hasFocus
-                              // ? Colors.white
-                              // : Colors.white,
-                              ),
-                          filled: true,
-                          fillColor: HexColor("#04777D"),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 4.0),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(16.0)),
-                            borderSide:
-                                BorderSide(color: Colors.cyan, width: 2),
+                      child: InkWell(
+                        onTap: () {},
+                        child: TextFormField(
+                          style: TextStyle(color: Colors.white),
+                          controller: username,
+                          decoration: InputDecoration(
+                            labelText: 'Name',
+                            labelStyle: TextStyle(
+                              color: _focusNode.hasFocus
+                                  ? Colors.white
+                                  : Colors.white,
+                            ),
+                            filled: true,
+                            fillColor: HexColor("#04777D"),
+                            contentPadding:
+                                const EdgeInsets.symmetric(horizontal: 4.0),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(16.0)),
+                              borderSide:
+                                  BorderSide(color: Colors.cyan, width: 2),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(16.0)),
+                              borderSide:
+                                  BorderSide(color: Colors.cyan, width: 1),
+                            ),
+                            prefixIcon: Icon(Icons.verified_user_rounded,
+                                color: Colors.white),
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(16.0)),
-                            borderSide:
-                                BorderSide(color: Colors.cyan, width: 1),
-                          ),
-                          prefixIcon: Icon(Icons.verified_user_rounded,
-                              color: Colors.white),
                         ),
                       ),
                     ),
@@ -281,8 +284,8 @@ class _Register1State extends State<Register1> {
                                 borderSide:
                                     BorderSide(color: Colors.cyan, width: 1),
                               ),
-                              prefixIcon: Icon(Icons.account_circle,
-                                  color: Colors.white),
+                              prefixIcon:
+                                  Icon(Icons.account_circle, color: Colors.white),
                               labelText: "Email",
                               labelStyle: TextStyle(color: Colors.white))),
                     ),
@@ -300,25 +303,20 @@ class _Register1State extends State<Register1> {
                         decoration: InputDecoration(
                           labelText: 'MobileNumber',
                           labelStyle: TextStyle(
-                            color: _focusNode.hasFocus
-                                ? Colors.white
-                                : Colors.white,
+                            color:
+                                _focusNode.hasFocus ? Colors.white : Colors.white,
                           ),
                           filled: true,
                           fillColor: HexColor("#04777D"),
                           contentPadding:
                               const EdgeInsets.symmetric(horizontal: 4.0),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(16.0)),
-                            borderSide:
-                                BorderSide(color: Colors.cyan, width: 2),
+                            borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                            borderSide: BorderSide(color: Colors.cyan, width: 2),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(16.0)),
-                            borderSide:
-                                BorderSide(color: Colors.cyan, width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                            borderSide: BorderSide(color: Colors.cyan, width: 1),
                           ),
                           prefixIcon: Icon(Icons.verified_user_rounded,
                               color: Colors.white),
@@ -419,20 +417,19 @@ class _Register1State extends State<Register1> {
                                         horizontal: 4.0),
                                     //
                                     enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(16.0)),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(16.0)),
                                       borderSide: BorderSide(
                                           color: Colors.cyan, width: 2),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(16.0)),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(16.0)),
                                       borderSide: BorderSide(
                                           color: Colors.cyan, width: 1),
                                     ),
 
-                                    prefixIcon: Icon(
-                                        Icons.verified_user_rounded,
+                                    prefixIcon: Icon(Icons.verified_user_rounded,
                                         color: Colors.white),
                                   )))
                         ],
@@ -442,8 +439,8 @@ class _Register1State extends State<Register1> {
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: Theme(
-                        data: ThemeData(
-                            unselectedWidgetColor: HexColor("#04777D")),
+                        data:
+                            ThemeData(unselectedWidgetColor: HexColor("#04777D")),
                         child: CheckboxListTile(
                           selectedTileColor: HexColor("#04777D"),
                           activeColor: HexColor("#04777D"),
@@ -486,7 +483,7 @@ class _Register1State extends State<Register1> {
                                 fillColor: HexColor("#04777D"),
                                 contentPadding:
                                     const EdgeInsets.symmetric(horizontal: 4.0),
-                        
+                                //
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(16.0)),
@@ -549,8 +546,8 @@ class _Register1State extends State<Register1> {
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: Theme(
-                        data: ThemeData(
-                            unselectedWidgetColor: HexColor("#04777D")),
+                        data:
+                            ThemeData(unselectedWidgetColor: HexColor("#04777D")),
                         child: CheckboxListTile(
                           selectedTileColor: HexColor("#04777D"),
                           activeColor: HexColor("#04777D"),
@@ -576,7 +573,7 @@ class _Register1State extends State<Register1> {
                         ),
                         color: Colors.blue,
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
+                    
                             final String a = username.text;
                             final String b = email.text;
                             final String c = mblno.text;
@@ -591,9 +588,7 @@ class _Register1State extends State<Register1> {
                             _selected = false;
 
                             _read(a, b, c, d, g, e, f, k, i, j);
-                          } else {
-                            print("unsuccessful");
-                          }
+                       
                         },
                         child: Text(
                           "Create Account",
