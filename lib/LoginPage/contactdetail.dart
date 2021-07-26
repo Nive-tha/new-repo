@@ -68,7 +68,7 @@ class _ContactDetailsState extends State<ContactDetails> {
           FlatButton(
               padding: EdgeInsets.zero,
               onPressed: () {
-                Navigator.push(
+                Navigator.pop(
                     context,
                     MaterialPageRoute(
                         builder: (BuildContext context) => Profiles()));
@@ -188,12 +188,12 @@ class _ContactDetailsState extends State<ContactDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "Mobile Number",
                     )),
@@ -213,12 +213,12 @@ class _ContactDetailsState extends State<ContactDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "Whatsapp Number",
                     )),
@@ -238,12 +238,12 @@ class _ContactDetailsState extends State<ContactDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(1.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(1.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "Email",
                     )),
@@ -263,12 +263,12 @@ class _ContactDetailsState extends State<ContactDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "Door No/House Name",
                     )),
@@ -288,12 +288,12 @@ class _ContactDetailsState extends State<ContactDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "Street Name",
                     )),
@@ -320,13 +320,13 @@ class _ContactDetailsState extends State<ContactDetails> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(3.0)),
                             borderSide: BorderSide(
-                                color: HexColor('#0A4E51'), width: 2),
+                                color: HexColor('#0A4E51'), width: 1),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(3.0)),
                             borderSide: BorderSide(
-                                color: HexColor('#0A4E51'), width: 2),
+                                color: HexColor('#0A4E51'), width: 1),
                           ),
                           labelText: "City",
                         )),
@@ -353,13 +353,13 @@ class _ContactDetailsState extends State<ContactDetails> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(3.0)),
                             borderSide: BorderSide(
-                                color: HexColor('#0A4E51'), width: 2),
+                                color: HexColor('#0A4E51'), width: 1),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(3.0)),
                             borderSide: BorderSide(
-                                color: HexColor('#0A4E51'), width: 2),
+                                color: HexColor('#0A4E51'), width: 1),
                           ),
                           labelText: "State",
                         )),
@@ -386,13 +386,13 @@ class _ContactDetailsState extends State<ContactDetails> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(3.0)),
                             borderSide: BorderSide(
-                                color: HexColor('#0A4E51'), width: 2),
+                                color: HexColor('#0A4E51'), width: 1),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(3.0)),
                             borderSide: BorderSide(
-                                color: HexColor('#0A4E51'), width: 2),
+                                color: HexColor('#0A4E51'), width: 1),
                           ),
                           labelText: "Country",
                         )),

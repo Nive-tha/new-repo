@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google/LoginPage/Login.dart';
-import 'package:google/mappage.dart';
-import 'package:google/tabspages/home.dart';
-import 'package:google/treepage/tree1.dart';
+import 'package:google/treepage/famtree3.dart';
 
-import 'LoginPage/contactdetail.dart';
-import 'LoginPage/professionaldetails.dart';
-import 'newlog.dart';
-import 'package:google/BloodDonationPage/BloodDonation1.dart';
 void main() {
   runApp(MyApp());
 }
@@ -21,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.teal[200]
       ),
-      home: Log(),
+      home: FamTree3(),
       debugShowCheckedModeBanner: false,
     );
   }

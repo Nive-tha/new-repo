@@ -3,19 +3,20 @@ import 'package:google/LoginPage/Profile.dart';
 import 'package:google/LoginPage/personaldetails.dart';
 import 'package:google/tabspages/home.dart';
 import 'package:google/tabspages/homescreen.dart';
+import 'package:google/treepage/tree1.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../Useraccount.dart';
 import '../map.dart';
 
-class Tree1 extends StatefulWidget {
-  const Tree1({Key? key}) : super(key: key);
+class FamTree extends StatefulWidget {
+  const FamTree({Key? key}) : super(key: key);
 
   @override
-  _Tree1State createState() => _Tree1State();
+  _FamTreeState createState() => _FamTreeState();
 }
 
-class _Tree1State extends State<Tree1> {
+class _FamTreeState extends State<FamTree> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +43,7 @@ class _Tree1State extends State<Tree1> {
             ),
             onPressed: () {
              
-              Navigator.pop(
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                       builder: (BuildContext context) => HomeScreen()));

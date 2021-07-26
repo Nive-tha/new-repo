@@ -61,6 +61,7 @@ dependencies:
   glassmorphism: ^2.0.1
   gradient_app_bar: ^0.1.3
   flutter_svg: ^0.22.0
+  modal_bottom_sheet: ^2.0.0
  
  
 
@@ -150,6 +151,15 @@ flutter:
    - assets/course.png
    - assets/cerficate.png
    - assets/office-building.png
+   - assets/father.png
+   - assets/mother.png
+   - assets/child.png
+   - assets/brothers.jpg
+   - assets/sisters.png
+   - assets/view.png
+   - assets/delete.png
+   - assets/pencil.png
+   - assets/user.png
    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

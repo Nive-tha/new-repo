@@ -157,17 +157,18 @@ class _MailState extends State<Mail> {
     // print("line no 10");
     print(response.body);
     storingProfilePicture();
-    if (response.statusCode == extractedDetail) {
-      Navigator.pushReplacement(context,
-          new MaterialPageRoute(builder: (BuildContext context) => new Reg()));
-    } else {
-      Navigator.pushReplacement(
-          context,
-          new MaterialPageRoute(
-              builder: (BuildContext context) => new Register1(
-                    faceBookReceived: this.profileData,
-                  )));
-    }
+    // if (response.statusCode == extractedDetail) {
+    //   Navigator.pushReplacement(context,
+    //       new MaterialPageRoute(builder: (BuildContext context) => new Reg()));
+    // } else {
+
+    Navigator.pushReplacement(
+        context,
+        new MaterialPageRoute(
+            builder: (BuildContext context) => new Register1(
+                  faceBookReceived: this.profileData,
+                )));
+    // }
   }
 
   _api1() async {
@@ -221,11 +222,11 @@ class _MailState extends State<Mail> {
     storingProfilePicture();
   }
 
-  _logout() async {
-    await facebookLogin.logOut();
-    onLoginStatusChanged(false);
-    print("Logged out");
-  }
+  // _logout() async {
+  //   await facebookLogin.logOut();
+  //   onLoginStatusChanged(false);
+  //   print("Logged out");
+  // }
 
   Future loginUser(String email, String pass) async {
     String url = 'https://www.cviacserver.tk/parampara/user_login';
@@ -476,9 +477,9 @@ class _MailState extends State<Mail> {
 
                               print(user!.uid);
 
-                              setState(() {
-                                _isSigningIn = false;
-                              });
+                              // setState(() {
+                              //   _isSigningIn = false;
+                              // });
                               _api1();
                             },
                             shape: RoundedRectangleBorder(
@@ -503,10 +504,10 @@ class _MailState extends State<Mail> {
                           SizedBox(height: 20),
                           FlatButton(
                             onPressed: () async {
-                              facebookLogin.isLoggedIn.then((isLoggedIn) =>
-                                  isLoggedIn
-                                      ? _logout()
-                                      : initiateFacebookLogin());
+                              // facebookLogin.isLoggedIn.then((isLoggedIn) =>
+                              //     isLoggedIn
+                              //         ? _logout()
+                              initiateFacebookLogin();
                             },
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15)),
@@ -533,7 +534,7 @@ class _MailState extends State<Mail> {
                           SizedBox(height: 20),
                           FlatButton(
                             onPressed: () {
-                              var empty1 = "";
+                              var empty1 = '';
                               Navigator.pushReplacement(
                                   context,
                                   new MaterialPageRoute(

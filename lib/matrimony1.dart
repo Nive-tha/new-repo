@@ -95,7 +95,7 @@ class Matrimony1State extends State<Matrimony1> {
                           color: Colors.teal,
                           splashColor: Colors.tealAccent,
                           onPressed: () {
-                            Navigator.pushReplacement(
+                            Navigator.pop(
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>
@@ -366,7 +366,7 @@ class Matrimony1State extends State<Matrimony1> {
                         child: Center(
                           child: InkWell(
                             onTap: () {
-                              Navigator.pushReplacement(
+                              Navigator.push(
                                   context,
                                   new MaterialPageRoute(
                                       builder: (BuildContext context) =>

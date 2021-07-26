@@ -55,7 +55,7 @@ class _ProfessionalDetailsState extends State<ProfessionalDetails> {
           FlatButton(
               padding: EdgeInsets.zero,
               onPressed: () {
-                Navigator.push(
+                Navigator.pop(
                     context,
                     MaterialPageRoute(
                         builder: (BuildContext context) => ContactDetails()));
@@ -160,7 +160,7 @@ class _ProfessionalDetailsState extends State<ProfessionalDetails> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20)),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   Container(
                     width: 300,
                     height: 50,
@@ -175,17 +175,17 @@ class _ProfessionalDetailsState extends State<ProfessionalDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "Qualification",
                     )),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   Container(
                     width: 300,
                     height: 50,
@@ -200,17 +200,17 @@ class _ProfessionalDetailsState extends State<ProfessionalDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "University/Institute",
                     )),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   Container(
                     width: 300,
                     height: 50,
@@ -225,17 +225,17 @@ class _ProfessionalDetailsState extends State<ProfessionalDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "Course",
                     )),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   Container(
                     width: 300,
                     height: 50,
@@ -250,17 +250,17 @@ class _ProfessionalDetailsState extends State<ProfessionalDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "Working as a",
                     )),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   Container(
                     width: 300,
                     height: 50,
@@ -275,17 +275,17 @@ class _ProfessionalDetailsState extends State<ProfessionalDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "Company Name",
                     )),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   Container(
                     width: 300,
                     height: 50,
@@ -300,17 +300,17 @@ class _ProfessionalDetailsState extends State<ProfessionalDetails> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(3.0)),
                         borderSide:
-                            BorderSide(color: HexColor('#0A4E51'), width: 2),
+                            BorderSide(color: HexColor('#0A4E51'), width: 1),
                       ),
                       labelText: "Company Location",
                     )),
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 150),
                   Padding(
                     padding: const EdgeInsets.only(left: 30),
                     child: Container(
@@ -320,7 +320,7 @@ class _ProfessionalDetailsState extends State<ProfessionalDetails> {
                         child: TextButton(
                             onPressed: () {},
                             child: Text(
-                              "Continue",
+                              "Submit",
                               style: TextStyle(color: Colors.white),
                             ))),
                   )

@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google/EventList.dart';
 import 'package:google/jobportal/job.dart';
 import 'package:google/matrimony1.dart';
@@ -7,6 +9,8 @@ import 'package:google/matrimony2.dart';
 import 'package:google/matrimony3.dart';
 import 'package:google/tabspages/homescreen.dart';
 import 'package:google/treeviewpagecreation/pagescreation/fatherdetails.dart';
+import 'package:google/utils/authentication.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'LoginPage/Landingpage.dart';
 import 'LoginPage/Mail.dart';
@@ -38,7 +42,7 @@ class Check1State extends State<Check1> {
     // TODO: implement initState
     super.initState();
     save();
-    _read();
+    // _read();
   }
 
   _read() async {
@@ -121,6 +125,16 @@ class Check1State extends State<Check1> {
     SharedPreferences get = await SharedPreferences.getInstance();
     get.clear();
     get.remove('pic');
+    var facebookLogin = FacebookLogin();
+    await facebookLogin.isLoggedIn.whenComplete(() => logOut());
+
+    // var googleSignOut = GoogleSignIn();
+
+    // await googleSignOut.signOut().whenComplete(() => print('hello here it is'));
+    // await FirebaseAuth.instance.signOut();
+
+    print("Logged out");
+
     Navigator.pushReplacement(context,
         new MaterialPageRoute(builder: (BuildContext context) => new Mail()));
   }
@@ -162,7 +176,7 @@ class Check1State extends State<Check1> {
                           color: Colors.teal,
                           splashColor: Colors.tealAccent,
                           onPressed: () {
-                            Navigator.pushReplacement(
+                            Navigator.pop(
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>

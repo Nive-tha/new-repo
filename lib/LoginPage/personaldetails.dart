@@ -8,6 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../Useraccount.dart';
 import '../map.dart';
 import 'package:google/LoginPage/contactdetail.dart';
+import 'package:intl/intl.dart';
 
 class Profiles extends StatefulWidget {
   const Profiles({Key? key}) : super(key: key);
@@ -21,17 +22,15 @@ class _ProfileState extends State<Profiles> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // save();
   }
 
-// var receiverFromRegister1;
   var nive;
   var nive1;
   var receiverPic;
   var extractedDetail;
   var radioButtonItem;
   var id;
-
+  final dateController = TextEditingController();
   var receiverFromRegister1;
 
   Widget build(BuildContext context) {
@@ -58,7 +57,7 @@ class _ProfileState extends State<Profiles> {
               ),
             ),
             onPressed: () {
-              Navigator.push(
+              Navigator.pop(
                   context,
                   MaterialPageRoute(
                       builder: (BuildContext context) => Tree1()));
@@ -244,6 +243,16 @@ class _ProfileState extends State<Profiles> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 4, top: 20),
                       child: TextFormField(
+                          controller: dateController,
+                          onTap: () async {
+                            var date = await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(1900),
+                                lastDate: DateTime(2100));
+                            dateController.text =
+                                date.toString().substring(0, 10);
+                          },
                           decoration: InputDecoration(
                               icon: Image.asset('assets/cake.png',
                                   width: 30, height: 40),
@@ -253,13 +262,13 @@ class _ProfileState extends State<Profiles> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(3.0)),
                                 borderSide: BorderSide(
-                                    color: HexColor("#0A4E51"), width: 2),
+                                    color: HexColor("#0A4E51"), width: 1),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(3.0)),
                                 borderSide: BorderSide(
-                                    color: HexColor("#0A4E51"), width: 2),
+                                    color: HexColor("#0A4E51"), width: 1),
                               ),
                               // prefixIcon:
                               // Icon(Icons.account_circle, color: Colors.white),
@@ -282,13 +291,13 @@ class _ProfileState extends State<Profiles> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(3.0)),
                                 borderSide: BorderSide(
-                                    color: HexColor("#0A4E51"), width: 2),
+                                    color: HexColor("#0A4E51"), width: 1),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(3.0)),
                                 borderSide: BorderSide(
-                                    color: HexColor("#0A4E51"), width: 2),
+                                    color: HexColor("#0A4E51"), width: 1),
                               ),
                               // prefixIcon:
                               // Icon(Icons.account_circle, color: Colors.white),
@@ -311,13 +320,13 @@ class _ProfileState extends State<Profiles> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(3.0)),
                                 borderSide: BorderSide(
-                                    color: HexColor("#0A4E51"), width: 2),
+                                    color: HexColor("#0A4E51"), width: 1),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(3.0)),
                                 borderSide: BorderSide(
-                                    color: HexColor("#0A4E51"), width: 2),
+                                    color: HexColor("#0A4E51"), width: 1),
                               ),
                               // prefixIcon:
                               // Icon(Icons.account_circle, color: Colors.white),

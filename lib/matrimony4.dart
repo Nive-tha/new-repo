@@ -89,7 +89,7 @@ class Matrimony4State extends State<Matrimony4> {
                           color: Colors.teal,
                           splashColor: Colors.tealAccent,
                           onPressed: () {
-                            Navigator.pushReplacement(
+                            Navigator.pop(
                                 context,
                                 new MaterialPageRoute(
                                     builder: (BuildContext context) =>
