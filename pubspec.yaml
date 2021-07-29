@@ -36,6 +36,8 @@ dependencies:
   http: ^0.13.3
   share: ^2.0.1
   select_form_field: ^2.0.0
+  shimmer: ^2.0.0
+  hexcolor: ^2.0.4
 
 dev_dependencies:
   flutter_test:
@@ -53,9 +55,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/Login Page Folder/Images/google.jpeg
+    - assets/Login Page Folder/Images/facebook.jpeg
+    - assets/Login Page Folder/Images/background_image.png
+    - assets/STAY CONNECTED PAGE/Welcome.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

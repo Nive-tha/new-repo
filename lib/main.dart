@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:googleandfacebook/register_page/register_page.dart';
+import 'package:googleandfacebook/Login%20Page/login_page.dart';
+import 'package:googleandfacebook/REGISTER%20PAGE/register_page.dart';
+
 import 'package:googleandfacebook/startingpage/start.dart';
 
 Future main() async {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Homes(),
+      home: LoginPage(),
     );
   }
 }
