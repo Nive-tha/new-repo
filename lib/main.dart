@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:googleandfacebook/register_page/register_page.dart';
+import 'package:googleandfacebook/EVENTS%20ALL%20PAGES/my_events_single.dart';
 import 'package:googleandfacebook/startingpage/start.dart';
+import 'EVENTS ALL PAGES/my_events_form.dart';
+import 'SplashScreeen/splashscreen.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,10 +16,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.blue,
+        primaryColor: Colors.teal.shade300,
       ),
-      home: Homes(),
+      home: Log(),
     );
   }
 }

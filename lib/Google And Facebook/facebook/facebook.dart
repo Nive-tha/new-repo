@@ -1,7 +1,6 @@
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'package:googleandfacebook/register_page/register_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'facebook_display.dart';

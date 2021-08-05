@@ -25,8 +25,11 @@ class _FacebookDisplayState extends State<FacebookDisplay> {
             children: [
               Image.network(allDetails["picture"]["data"]["url"]),
               Text(allDetails["name"]),
-              Text(allDetails["email"]),
+              allDetails["email"] == null
+                  ? Text('hello')
+                  : Text(allDetails['email']),
               Text(allDetails['id']),
+              // Text(allDetails['mobile']),
               TextButton(
                   onPressed: () {
                     FacebookAuth.instance.logOut().then((value) {

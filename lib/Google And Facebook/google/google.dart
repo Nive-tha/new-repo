@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:googleandfacebook/register_page/register_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'google_display.dart';
